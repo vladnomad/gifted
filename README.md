@@ -1,29 +1,34 @@
+# voucher-swap
+App designed for a seamless and secure way for users to swap gift vouchers, gift cards and gift certificates of various types.
+
+## Technologies Used
+
+<div align="center">
+	<img src="https://skillicons.dev/icons?i=vue,js,html,css,sass,bun,vite" />
+</div>
+
 ## Project Setup
 
-```sh
-bun install
-```
-
-### Bun installation
+### Installation
 
 ```sh
 npm install -g bun
+bun install
 ```
 
-### Compile and Hot-Reload for Development
+### Development build
 
 ```sh
 bun dev
 ```
 
-### Compile and Minify for Production
+### Production build
 
 ```sh
 bun build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## License
 
-```sh
-bun lint
-```
+This project is licensed under the GNU General Public License v3.0.
+You can find the full text of the license in the [LICENSE](LICENSE) file.
