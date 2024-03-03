@@ -1,10 +1,10 @@
 # voucher-swap
-App designed for a seamless and secure way for users to exchange:
-gift vouchers, gift cards and gift certificates of various types.
+
+Platform aimed to help users securely and seamlessly exchange unused gift vouchers and gift cards.
 
 ## Technologies Used
 
-![Vue.js 3 | Vite.js | Bun | JavaScript | HTML5 | CSS3](https://skillicons.dev/icons?i=vue,vite,bun,js,html,css&perline=3)
+![Vue.js 3 | Vite.js | Bun | JavaScript | HTML5 | Sass](https://skillicons.dev/icons?i=vue,vite,bun,js,html,sass&perline=3)
 
 
 ## Project Setup
@@ -30,7 +30,5 @@ bun build
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0.
+This project is licensed under the GNU General Public License v3.0.\
 You can find the full text of the license in the [LICENSE](LICENSE) file.
-
-[def]: https://skillicons.dev

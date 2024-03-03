@@ -1,23 +1,21 @@
 {
-  "name": "voucher-swap",
-  "version": "0.0.0",
+  "name": "gift-swap",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "pinia": "^2.1.7",
-    "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue": "^3.4.19"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.3",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "eslint": "^8.49.0",
-    "eslint-plugin-vue": "^9.17.0",
-    "vite": "^5.0.11"
+    "@vitejs/plugin-vue": "^5.0.4",
+    "css-loader": "^6.10.0",
+    "sass": "^1.71.1",
+    "sass-loader": "^14.1.1",
+    "vite": "^5.1.4"
   }
 }

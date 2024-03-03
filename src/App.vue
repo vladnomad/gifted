@@ -1,85 +1,81 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
+import { ref, onMounted, onBeforeUnmount } from "vue"
+
+const isActive = ref(false)
+const isMobile = ref(false)
+
+const toggleMenu = () => {
+	isActive.value = !isActive.value
+}
+
+const checkMobile = () => {
+	isMobile.value = window.innerWidth <= 768
+}
+
+const handleResize = () => {
+	checkMobile()
+}
+
+onMounted(() => {
+	checkMobile()
+	window.addEventListener("resize", handleResize)
+})
+
+onBeforeUnmount(() => {
+	window.removeEventListener("resize", handleResize)
+})
+
 </script>
 
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+<template v-if="true">
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+	<div class="header__container">
+		<div class="header__title-wrapper">
+			<a class="header__title" href="#">
+				`Gifted
+			</a>
+		</div>
+		<nav class="header__nav">
+			<div class="header__nav-links">
+				<a class="header__nav-link" href="#">
+					About
+				</a>
+				<a class="header__nav-link" href="#">
+					FAQ
+				</a>
+				<a class="header__nav-link" href="#">
+					Login
+				</a>
+				<a class="header__nav-link" href="#">
+					Register
+				</a>
+			</div>
+			<div v-if="isMobile" class="header__nav-menu">
+				<div @click="toggleMenu" :class='{ 
+					"header__nav-menu-btn": true, 
+					"active": isActive, 
+					"not-active": !isActive 
+				}'>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
 
-  <RouterView />
+<main id="bentogrid">
+	<div id="itemlist"></div>
+	<div id="paginationcontrol"></div>
+</main>
+
+<footer id="footersection"></footer>
+
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
