@@ -6,7 +6,6 @@ Platform aimed to help users securely and seamlessly exchange unused gift vouche
 
 ![Vue.js 3 | Vite.js | Bun | JavaScript | HTML5 | Sass](https://skillicons.dev/icons?i=vue,vite,bun,js,html,sass&perline=3)
 
-
 ## Project Setup
 
 ### Installation

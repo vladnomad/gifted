@@ -1,6 +1,9 @@
 <script setup>
 
 import { ref, onMounted, onBeforeUnmount } from "vue"
+import logoImg from "./assets/logo.png"
+
+const logo = logoImg
 
 const isActive = ref(false)
 const isMobile = ref(false)
@@ -35,25 +38,23 @@ onBeforeUnmount(() => {
 	<div class="header__container">
 		<div class="header__title-wrapper">
 			<a class="header__title" href="#">
-				`Gifted
+				<img class="header__title-logo" :src=logo alt="">
+				Gifted
 			</a>
 		</div>
 		<nav class="header__nav">
-			<div class="header__nav-links">
+			<div v-if="!isMobile" class="header__nav-links">
 				<a class="header__nav-link" href="#">
 					About
 				</a>
-				<a class="header__nav-link" href="#">
-					FAQ
+				<a class="header__nav-link btn btn--hollow" href="#">
+					Log in
 				</a>
-				<a class="header__nav-link" href="#">
-					Login
-				</a>
-				<a class="header__nav-link" href="#">
+				<a class="header__nav-link btn btn--filled" href="#">
 					Register
 				</a>
 			</div>
-			<div v-if="isMobile" class="header__nav-menu">
+			<div v-else class="header__nav-menu">
 				<div @click="toggleMenu" :class='{ 
 					"header__nav-menu-btn": true, 
 					"active": isActive, 
