@@ -2,6 +2,7 @@
 
 html {
 	font-size: 16px;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -33,24 +34,22 @@ a {
 	;
 }
 
-#app > * {
-	display: grid;
-	grid: subgrid / subgrid;
-}
-
 .header {
     grid-row: primary-header;
     grid-column: main;
 
 	&__container {
 		display: grid;
-		grid-template-columns: 6rem minmax(3rem, auto) 24rem;
+		grid-template-columns: 
+			calc($spacing * 6) 
+			minmax(calc($spacing * 3), auto) 
+			calc($spacing * 24)
+		;
 	}
 
 	&__title {
 		display: flex;
 		align-items: center;
-		font-weight: 500;
 		font-size: 19px;
 		
 		&-wrapper {
@@ -59,7 +58,7 @@ a {
 		}
 
 		&-logo {
-			width: 3.5vw;
+			width: 2.5vw;
 			height: auto;
 			margin-right: calc($spacing / 4);
 		}
@@ -238,20 +237,99 @@ a {
 	}
 }
   
-#bentogrid {
+.main {
     grid-area: main;
 }
 
-@media screen and (min-width: 1225px) and (hover: hover) {
+.main > * {
+	max-width: 65rem;
+ 	margin-inline: auto;
+}
+
+.welcome {
+	height: calc(100dvh - calc(($spacing * 5.25) * 2));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 28rem;
+	text-align: center;
+
+	&__title {
+		font-family: $font-display;
+		font-size: 4vw;
+		margin-bottom: 0;
+	}
+
+	&__text {
+		margin-bottom: calc($spacing * 2);
+		font-weight: 300;
+		font-size: 1.25vw;
+	}
+}
+
+.bento {
+	display: grid;
+	grid-auto-columns: 1fr;
+	grid-template-rows: 1fr;
+	grid-template-columns: 4fr repeat(2, 3fr);
+	grid-column-gap: 2rem;
+	grid-row-gap: 2rem;
+	width: 100%;
+
+	&__title {
+		grid-area: 1 / 1 / 1 / 4;
+		font-family: $font-display;
+		font-size: 3vw;
+		text-align: center;
+	}
+
+	&__node {
+		border-radius: 2.5rem;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 2rem;
+		display: flex;
+		position: relative;
+
+		&--1 {
+			grid-area: 2 / 1 / 2 / 3;
+			min-height: 14rem;
+			background-color: $color-yellow;
+		}
+		
+		&--2 {
+			grid-area: 2 / 3 / 2 / 4;
+			min-height: 14rem;
+			background-color: $color-green;
+		}
+		
+		&--3 {
+			grid-area: 3 / 1 / 4 / 2;
+			min-height: 28rem;
+			background-color: $color-blue;
+		}
+		
+		&--4 {
+			grid-area: 3 / 2 / 4 / 4;
+			min-height: 28rem;
+			background-color: $color-purple;
+		}
+	}
 
 }
+
+/* (hover: hover)  |  (orientation: landscape) */
 
 @media screen and (min-width: 1120px) {
 	html {
 		font-size: 1vw;
 	}
 	.header__title {
-		font-size: 1.25vw;
+		font-size: 1.375vw;
+	}
+	.bento {
+		margin-top: calc($spacing * 3);
 	}
 }
 
@@ -259,10 +337,27 @@ a {
 	.header__title-logo {
 		width: 35px;
 	}
+	.bento {
+		grid-template-columns: repeat(12, 1fr);
+	}
 }
 
 @media screen and (max-width: 769px) {
 	.header__container {
-		grid-template-columns: 6rem minmax(3rem, auto) 6rem;
+		grid-template-columns: 
+			calc($spacing * 6) 
+			minmax(calc($spacing * 3), auto) 
+			calc($spacing * 6)
+		;
+	}
+	
+	.bento {
+	  grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.bento {
+		grid-template-columns: repeat(8, 1fr);
 	}
 }

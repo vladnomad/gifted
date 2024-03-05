@@ -1,7 +1,7 @@
 <script setup>
 
 import { ref, onMounted, onBeforeUnmount } from "vue"
-import logoImg from "./assets/logo.png"
+import logoImg from "./assets/logo.svg"
 
 const logo = logoImg
 
@@ -48,10 +48,10 @@ onBeforeUnmount(() => {
 					About
 				</a>
 				<a class="header__nav-link btn btn--hollow" href="#">
-					Log in
+					Log In
 				</a>
 				<a class="header__nav-link btn btn--filled" href="#">
-					Register
+					Join Now
 				</a>
 			</div>
 			<div v-else class="header__nav-menu">
@@ -69,12 +69,48 @@ onBeforeUnmount(() => {
 	</div>
 </header>
 
-<main id="bentogrid">
-	<div id="itemlist"></div>
-	<div id="paginationcontrol"></div>
+<main class="main">
+	<section aria-labelledby="welcome__title" class="welcome">
+		<h1 class="welcome__title" id="welcome__title">
+			Gift swapping made simple.
+		</h1>
+		<p class="welcome__text">
+			For the ones who love to pick for themselves.
+		</p> 
+		<a class="header__nav-link btn btn--filled" href="/offers">
+			Search offers on Gifted
+		</a>
+	</section>
+	<div class="bento">
+		<h2 class="bento__title">
+			Explore ways to help yourself & others.
+		</h2>
+		<div class="bento__node bento__node--1">
+			<div class="bento__node-image"></div>
+			<div class="bento__node-title"></div>
+			<div class="bento__node-text"></div>
+		</div>
+		<div class="bento__node bento__node--2">
+			<div class="bento__node-image"></div>
+			<div class="bento__node-title"></div>
+			<div class="bento__node-text"></div>
+		</div>
+		<div class="bento__node bento__node--3">
+			<div class="bento__node-image"></div>
+			<div class="bento__node-title"></div>
+			<div class="bento__node-text"></div>
+		</div>
+		<div class="bento__node bento__node--4">
+			<div class="bento__node-image"></div>
+			<div class="bento__node-title"></div>
+			<div class="bento__node-text"></div>
+		</div>
+	</div>
+	<div id="selected-offers"></div>
+	<div id="pagination"></div>
 </main>
 
-<footer id="footersection"></footer>
+<footer></footer>
 
 </template>
 
