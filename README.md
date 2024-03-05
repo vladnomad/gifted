@@ -7,11 +7,14 @@ Gifted provides a seamless platform for users to exchange their cards hassle-fre
 ## Technologies Used
 
 - **Vue.js**: A progressive JavaScript framework for building user interfaces.
+- **Pinia**: A modern & lightweight state management solution for Vue.js applications.
 - **JavaScript**: The primary programming language used for client-side logic.
 - **HTML5**: The standard markup language for structuring and presenting web content.
 - **Sass**: A preprocessor scripting language that is interpreted or compiled into CSS.
 - **Vite.js**: A fast build tool that significantly improves the frontend development experience.
 - **Bun.js**: A lightweight bundler for JavaScript applications, enhancing the build process.
+- **Firebase**: Utilized for authentication, providing a secure and seamless login user experience.
+- **Cloud Firestore**: Managing the database in the cloud, enabling real-time data sync & scalability.
 
 ## Project Setup
 
