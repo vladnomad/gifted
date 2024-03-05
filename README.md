@@ -6,6 +6,8 @@ Gifted provides a seamless platform for users to exchange their cards hassle-fre
 
 ## Technologies Used
 
+<img src="https://skillicons.dev/icons?i=vue,pinia,js,html,sass,vite,bun,firebase" alt="Technologies Used">
+
 - **Vue.js**: A progressive JavaScript framework for building user interfaces.
 - **Pinia**: A modern & lightweight state management solution for Vue.js applications.
 - **JavaScript**: The primary programming language used for client-side logic.
