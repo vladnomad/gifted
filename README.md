@@ -1,6 +1,8 @@
 # Gifted - Gift Card Swapping Made Simple
 
-Welcome to Gifted, a web application designed to simplify the process of gift card swapping. Whether you have unused gift cards lying around or you're looking for a specific store credit, Gifted provides a seamless platform for users to exchange their cards hassle-free.
+Welcome to Gifted, a web application designed to simplify the process of gift card swapping.\
+Whether you have unused gift cards lying around or you're looking for a specific store credit,\
+Gifted provides a seamless platform for users to exchange their cards hassle-free.
 
 ## Technologies Used
 
@@ -40,4 +42,5 @@ bun build
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0. Please refer to the [LICENSE](LICENSE) file for the full text of the license.
+This project is licensed under the GNU General Public License v3.0.\
+Please refer to the [LICENSE](LICENSE) file for the full text of the license.
