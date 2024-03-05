@@ -1,11 +1,13 @@
 # Gifted - Gift swapping made simple
 
-Platform aimed to help users securely and seamlessly exchange unused gift vouchers and gift cards.
+Platform aimed to help users securely and seamlessly exchange unused **gift vouchers and gift cards**.
 
 ## Technologies Used
 
-Vue.js 3 | Vite.js | Bun
-![Vue.js 3 | Vite.js | Bun | JavaScript | HTML5 | Sass](https://skillicons.dev/icons?i=vue,vite,bun,js,html,sass&perline=3)
+Vue.js | Vite.js | Bun.js
+
+![Vue.js | Vite.js | Bun.js | JavaScript | HTML5 | Sass](https://skillicons.dev/icons?i=vue,vite,bun,js,html,sass&perline=3)
+
 JavaScript | HTML5 | Sass
 
 ## Project Setup
