@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 html {
-	font-size: 16px;
+	font-size: 12px;
 	scroll-behavior: smooth;
 }
 
@@ -57,30 +57,8 @@ a {
 }
 
 .main > * {
-	max-width: 65rem;
+	max-width: 60rem;
  	margin-inline: auto;
-}
-
-.welcome {
-	height: calc(100dvh - calc(($spacing * 5.25) * 2));
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	width: 28rem;
-	text-align: center;
-
-	&__title {
-		font-family: $font-display;
-		font-size: 4vw;
-		margin-bottom: 0;
-	}
-
-	&__text {
-		margin-bottom: calc($spacing * 2);
-		font-weight: 300;
-		font-size: 1.25vw;
-	}
 }
 
 .bento {
@@ -88,14 +66,14 @@ a {
 	grid-auto-columns: 1fr;
 	grid-template-rows: 1fr;
 	grid-template-columns: 4fr repeat(2, 3fr);
-	grid-column-gap: 2rem;
-	grid-row-gap: 2rem;
+	grid-column-gap: calc($spacing * 2);
+	grid-row-gap: calc($spacing * 2);
 	width: 100%;
 
 	&__title {
 		grid-area: 1 / 1 / 1 / 4;
 		font-family: $font-display;
-		font-size: 3vw;
+		font-size: 27px;
 		text-align: center;
 	}
 
@@ -103,31 +81,31 @@ a {
 		border-radius: 2.5rem;
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 2rem;
+		padding: calc($spacing * 2);
 		display: flex;
 		position: relative;
 
 		&--1 {
 			grid-area: 2 / 1 / 2 / 3;
-			min-height: 14rem;
+			min-height: 12.5rem;
 			background-color: $color-yellow;
 		}
 		
 		&--2 {
 			grid-area: 2 / 3 / 2 / 4;
-			min-height: 14rem;
+			min-height: 12.5rem;
 			background-color: $color-green;
 		}
 		
 		&--3 {
 			grid-area: 3 / 1 / 4 / 2;
-			min-height: 28rem;
+			min-height: 25rem;
 			background-color: $color-blue;
 		}
 		
 		&--4 {
 			grid-area: 3 / 2 / 4 / 4;
-			min-height: 28rem;
+			min-height: 25rem;
 			background-color: $color-purple;
 		}
 	}
@@ -136,29 +114,17 @@ a {
 
 /* (hover: hover)  |  (orientation: landscape) */
 
-@media screen and (min-width: 1120px) {
+@media screen and (min-width: 1280px) {
 	html {
-		font-size: 1vw;
+		font-size: .9375vw;
 	}
-	.bento {
-		margin-top: calc($spacing * 3);
-	}
-}
-
-@media screen and (max-width: 1120px) {
-	.bento {
-		grid-template-columns: repeat(12, 1fr);
+	.bento__title {
+		font-size: 2vw;
 	}
 }
 
 @media screen and (max-width: 769px) {	
 	.bento {
-	  grid-template-columns: 1fr;
-	}
-}
-
-@media screen and (max-width: 991px) {
-	.bento {
-		grid-template-columns: repeat(8, 1fr);
+	  	grid-template-columns: 1fr;
 	}
 }

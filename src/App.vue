@@ -1,6 +1,7 @@
 <script setup>
 
 import HeaderComponent from "./components/HeaderComponent.vue"
+import WelcomeSection from "./components/WelcomeSection.vue"
 
 </script>
 
@@ -11,17 +12,7 @@ import HeaderComponent from "./components/HeaderComponent.vue"
 
 <main class="main">
 
-	<section class="welcome" aria-labelledby="welcome__title">
-		<h1 class="welcome__title" id="welcome__title">
-			Gift swapping made simple.
-		</h1>
-		<p class="welcome__text">
-			For the ones who love to pick for themselves.
-		</p> 
-		<a class="header__nav-link btn btn--filled" href="/offers">
-			Search offers on Gifted
-		</a>
-	</section>
+	<WelcomeSection />
 
 	<section class="bento" aria-labelledby="bento__title">
 		<h2 class="bento__title" id="bento__title">

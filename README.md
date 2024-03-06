@@ -5,7 +5,7 @@ Whether you have unused gift cards lying around or you're looking for a specific
 Gifted provides a seamless platform for users to exchange their cards hassle-free.
 
 ## Technologies Used
-
+<!-- markdownlint-disable-next-line MD033 -->
 <img src="https://skillicons.dev/icons?i=vue,pinia,js,html,sass,vite,bun,firebase" alt="Technologies Used">
 
 - **Vue.js**: A progressive JavaScript framework for building user interfaces.
