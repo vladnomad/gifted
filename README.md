@@ -1,4 +1,4 @@
-# Gifted - Gift Card Swapping Made Simple
+# Gifted - Gift Card Swapping Made Simple ![In Development](https://img.shields.io/badge/in%20development-8A2BE2)
 
 Welcome to Gifted, a web application designed to simplify the process of gift card swapping.\
 Whether you have unused gift cards lying around or you're looking for a specific store credit,\
