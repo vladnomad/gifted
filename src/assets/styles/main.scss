@@ -57,59 +57,8 @@ a {
 }
 
 .main > * {
-	max-width: 60rem;
+	max-width: 65rem;
  	margin-inline: auto;
-}
-
-.bento {
-	display: grid;
-	grid-auto-columns: 1fr;
-	grid-template-rows: 1fr;
-	grid-template-columns: 4fr repeat(2, 3fr);
-	grid-column-gap: calc($spacing * 2);
-	grid-row-gap: calc($spacing * 2);
-	width: 100%;
-
-	&__title {
-		grid-area: 1 / 1 / 1 / 4;
-		font-family: $font-display;
-		font-size: 27px;
-		text-align: center;
-	}
-
-	&__node {
-		border-radius: 2.5rem;
-		flex-direction: column;
-		align-items: flex-start;
-		padding: calc($spacing * 2);
-		display: flex;
-		position: relative;
-
-		&--1 {
-			grid-area: 2 / 1 / 2 / 3;
-			min-height: 12.5rem;
-			background-color: $color-yellow;
-		}
-		
-		&--2 {
-			grid-area: 2 / 3 / 2 / 4;
-			min-height: 12.5rem;
-			background-color: $color-green;
-		}
-		
-		&--3 {
-			grid-area: 3 / 1 / 4 / 2;
-			min-height: 25rem;
-			background-color: $color-blue;
-		}
-		
-		&--4 {
-			grid-area: 3 / 2 / 4 / 4;
-			min-height: 25rem;
-			background-color: $color-purple;
-		}
-	}
-
 }
 
 /* (hover: hover)  |  (orientation: landscape) */
@@ -117,14 +66,5 @@ a {
 @media screen and (min-width: 1280px) {
 	html {
 		font-size: .9375vw;
-	}
-	.bento__title {
-		font-size: 2vw;
-	}
-}
-
-@media screen and (max-width: 769px) {	
-	.bento {
-	  	grid-template-columns: 1fr;
 	}
 }

@@ -1,33 +1,27 @@
-$color-purple: rgb(195, 178, 231);
+$color-black: hsl(0, 0%, 20%);
+$color-white: hsl(0, 0%, 100%);
 
-$color-pink: rgb(246, 130, 165);
+$color-beige: hsl(45, 57%, 97%);
 
-$color-green: rgb(201, 218, 143);
+$color-seafoam: hsl(133, 61%, 82%);
+$color-seafoam--dark: hsl(133, 35%, 55%);
 
-$color-yellow: rgb(254, 223, 111);
+$color-peach: hsl(23, 98%, 83%);
+$color-peach--dark: hsl(23, 35%, 55%);
 
-$color-orange: rgb(249, 164, 116);
+$color-mimosa: hsl(49, 94%, 82%);
+$color-mimosa--dark: hsl(49, 35%, 55%);
 
-$color-blue: rgb(184, 206, 220);
-
-$color-blue--dark: rgb(24, 67, 99);
-
-$color-black: rgb(51, 51, 51);
-
-$color-white: rgb(255, 255, 255);
-
-$color-beige: rgba(252, 250, 244, 1);
+$color-periwinkle: hsl(245, 90%, 88%);
+$color-periwinkle--dark: hsl(245, 35%, 55%);
 
 $spacing: 1rem;
-    
 $gap: $spacing;
 
 $radius: 8px;
-
 $radius-rounded: 9999px;
 
-$font-sans-serif: 
-    "Prompt",
+$font-fallback: 
     "Helvetica Neue", 
     "Helvetica", 
     "Raleway", 
@@ -44,20 +38,5 @@ $font-sans-serif:
     sans-serif
 ;
 
-$font-display: 
-    "Gloock",
-    "Helvetica Neue", 
-    "Helvetica", 
-    "Raleway", 
-    BlinkMacSystemFont, 
-    -apple-system, 
-    "Segoe UI", 
-    "Roboto", 
-    "Oxygen", 
-    "Ubuntu", 
-    "Cantarell", 
-    "Fira Sans", 
-    "Droid Sans", 
-    "Arial", 
-    sans-serif
-;
+$font-sans-serif: "Prompt", $font-fallback;
+$font-display: "Gloock", $font-fallback;

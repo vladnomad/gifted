@@ -23,7 +23,7 @@
 @import "../assets/styles/variables.scss";
 
 .welcome {
-	height: calc(78dvh - calc(($spacing * 5.25) * 2));
+	height: calc(85dvh - calc(($spacing * 5.25) * 2));
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -34,7 +34,7 @@
 	&__title {
 		font-family: $font-display;
 		font-size: 36px;
-		margin-bottom: 0;
+		margin: 0;
 	}
 
 	&__text {

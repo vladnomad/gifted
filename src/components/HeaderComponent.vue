@@ -91,7 +91,7 @@ onBeforeUnmount(() => {
 	&__title {
 		display: flex;
 		align-items: center;
-		font-size: 19px;
+		font-size: 16px;
 		
 		&-wrapper {
 			display: flex;
@@ -192,7 +192,7 @@ onBeforeUnmount(() => {
 
 @media screen and (max-width: 1120px) {
 	.header__title-logo {
-		width: 35px;
+		width: 28px;
 	}
 }
 
