@@ -49,4 +49,10 @@
 	}
 }
 
+@media screen and (min-width: 1590px) {
+	.welcome__title {
+		font-size: 44px;
+	}
+}
+
 </style>

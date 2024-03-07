@@ -190,6 +190,12 @@ onBeforeUnmount(() => {
 	}
 }
 
+@media screen and (min-width: 1590px) {
+	.header__title {
+		font-size: 22px;
+	}
+}
+
 @media screen and (max-width: 1120px) {
 	.header__title-logo {
 		width: 28px;
@@ -205,6 +211,7 @@ onBeforeUnmount(() => {
 		;
 	}
 }
+
 
 @keyframes top {
 	0% {
