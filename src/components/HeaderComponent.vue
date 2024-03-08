@@ -1,33 +1,16 @@
 <script setup>
 
-import { ref, onMounted, onBeforeUnmount } from "vue"
+import { ref, inject } from "vue"
 import logoImg from "../assets/logo.svg"
 
 const logo = logoImg
 
 const isActive = ref(false)
-const isMobile = ref(false)
+const isMobile = inject("isMobile")
 
 const toggleMenu = () => {
 	isActive.value = !isActive.value
 }
-
-const checkMobile = () => {
-	isMobile.value = window.innerWidth <= 768
-}
-
-const handleResize = () => {
-	checkMobile()
-}
-
-onMounted(() => {
-	checkMobile()
-	window.addEventListener("resize", handleResize)
-})
-
-onBeforeUnmount(() => {
-	window.removeEventListener("resize", handleResize)
-})
 
 </script>
 
@@ -202,7 +185,7 @@ onBeforeUnmount(() => {
 	}
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 824px) {
 	.header__container {
 		grid-template-columns: 
 			calc($spacing * 6) 

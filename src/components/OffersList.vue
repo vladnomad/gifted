@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+
+import { inject } from "vue"
+const isMobile = inject("isMobile")
+
+</script>
 
 
 <template>
@@ -85,7 +90,7 @@
 			</div>
 		</article>
 	</div>
-	<div class="offers__container">
+	<div v-if="!isMobile" class="offers__container">
 		<article class="offer">
 			<h3 class="offer__title">
 				<a class="offer__link" href="#">
@@ -172,15 +177,26 @@
 
 @import "../assets/styles/variables.scss";
 
-.offers__container {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0px;
-	height: calc(12.5rem + 4rem);
-	overflow-y: hidden;
+.offers {
+	margin-block: calc($spacing * 16) calc($spacing * 4);
+
+	&__title {
+		font-family: $font-display;
+		font-size: 26px;
+		text-wrap: balance;
+		margin-left: calc($spacing * 2);
+		margin-bottom: calc($spacing * 4);
+	}
+
+	&__container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: calc($spacing * 2);
+	}
 }
 
 .offer {
+	width: calc(100% - 4rem);
 	height: 12.5rem;
 	border-radius: 2.5rem;
 	flex-direction: column;
@@ -192,18 +208,6 @@
 	display: flex;
 	flex-grow: 1;
 	transition: width .3s ease-in-out;
-
-	&:not(:hover) {
-		width: calc(calc(25% - 4rem) - 0px);
-	}
-
-	// &:has(.offer__image) {
-/* 	&:nth-child(3),
-	&:nth-child(4),
-	&:nth-child(9), */
-	&:hover {
-		width: calc(calc(50% - 4rem) - 0px);
-	}
 	
 	&__image {
 		width: 50px;
@@ -220,7 +224,21 @@
 	}
 }
 
-@media screen and (min-width: 770px) {	
+@media screen and (hover: hover) and (min-width: 824px) {
+	.offers__container {
+		gap: 1px;
+	}
+
+	.offer:not(:hover) {
+		width: calc(calc(25% - 4rem) - 1px);
+	}
+	
+	.offer:hover {
+		width: calc(calc(50% - 4rem) - 1px);
+	}
+}
+
+@media screen and (min-width: 824px) {	
 
 }
 
@@ -232,8 +250,7 @@
 
 }
 
-@media screen and (max-width: 769px) {	
-
+@media screen and (max-width: 824px) {	
 }
 
 </style>

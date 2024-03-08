@@ -64,6 +64,7 @@
 	&__title {
 		font-family: $font-display;
 		font-size: 26px;
+		text-wrap: balance;
 		text-align: center;
 	}
 
@@ -119,7 +120,7 @@
 	}
 }
 
-@media screen and (min-width: 770px) {	
+@media screen and (min-width: 824px) {	
 	.bento {
 		grid-template-columns: 4fr repeat(2, 3fr);
 	}
@@ -167,7 +168,7 @@
 	}
 }
 
-@media screen and (max-width: 769px) {	
+@media screen and (max-width: 824px) {	
 	.bento__node {	
 		&--1, &--2, &--3, &--4 {
 			min-height: 20rem;

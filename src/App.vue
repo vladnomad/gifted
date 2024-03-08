@@ -5,6 +5,27 @@ import WelcomeSection from "./components/WelcomeSection.vue"
 import FeaturesGrid from "./components/FeaturesGrid.vue"
 import OffersList from "./components/OffersList.vue"
 
+import { ref, onMounted, onBeforeUnmount, provide } from "vue"
+
+const isMobile = ref(false)
+
+const checkMobile = () => {
+	isMobile.value = window.innerWidth <= 823
+}
+
+const handleResize = () => checkMobile()
+
+onMounted(() => {
+	checkMobile()
+	window.addEventListener("resize", handleResize)
+})
+
+onBeforeUnmount(() => {
+	window.removeEventListener("resize", handleResize)
+})
+
+provide("isMobile", isMobile);
+
 </script>
 
 
