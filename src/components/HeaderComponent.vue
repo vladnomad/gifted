@@ -1,9 +1,7 @@
 <script setup>
 
 import { ref, inject } from "vue"
-import logoImg from "../assets/logo.svg"
-
-const logo = logoImg
+import LogoSVG from "../assets/LogoSVG.vue"
 
 const isActive = ref(false)
 const isMobile = inject("isMobile")
@@ -21,7 +19,7 @@ const toggleMenu = () => {
 	<div class="header__container">
 		<div class="header__title-wrapper">
 			<a class="header__title" href="#">
-				<img class="header__title-logo" :src=logo alt="">
+				<LogoSVG />
 				Gifted
 			</a>
 		</div>
@@ -63,6 +61,7 @@ const toggleMenu = () => {
     grid-column: main;
 
 	&__container {
+		min-height: 40px;
 		display: grid;
 		grid-template-columns: 
 			calc($spacing * 6) 
@@ -74,7 +73,7 @@ const toggleMenu = () => {
 	&__title {
 		display: flex;
 		align-items: center;
-		font-size: 16px;
+		font-size: 17px;
 		
 		&-wrapper {
 			display: flex;
@@ -166,10 +165,20 @@ const toggleMenu = () => {
 	}
 }
 
+.logo-svg {
+	width: 21px;
+	height: auto;
+	margin-top: 2px;
+	margin-right: 3px;
+}
 
-@media screen and (min-width: 1120px) {
+
+@media screen and (min-width: 1238px) {
 	.header__title {
 		font-size: 1.375vw;
+	}
+	.logo-svg {
+		width: 1.6875vw;
 	}
 }
 
@@ -177,14 +186,17 @@ const toggleMenu = () => {
 	.header__title {
 		font-size: 22px;
 	}
+	.logo-svg {
+		width: 26px;
+	}
 }
-
+/* 
 @media screen and (max-width: 1120px) {
 	.header__title-logo {
 		width: 28px;
 	}
 }
-
+ */
 @media screen and (max-width: 824px) {
 	.header__container {
 		grid-template-columns: 
