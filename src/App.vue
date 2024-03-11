@@ -32,17 +32,18 @@ provide("isMobile", isMobile);
 <template v-if="true">
 
 <HeaderComponent />
+
 <main class="main">
 
 	<WelcomeSection />
 	<FeaturesGrid />
 	<OffersList />
-
-	<div id="selected-offers"></div>
 	<div id="pagination"></div>
-
+	
 </main>
-<footer></footer>
+<footer>
+
+</footer>
 
 </template>
 

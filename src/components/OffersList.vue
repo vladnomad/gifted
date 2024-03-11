@@ -2,8 +2,26 @@
 
 import { inject } from "vue"
 import ArrowSVG from "../assets/ArrowSVG.vue"
+import offerImage1 from "../assets/img/offerImage1.webp"
+import offerImage2 from "../assets/img/offerImage2.webp"
+import offerImage3 from "../assets/img/offerImage3.webp"
+import offerImage4 from "../assets/img/offerImage4.webp"
+import offerImage5 from "../assets/img/offerImage5.webp"
+import offerImage6 from "../assets/img/offerImage6.webp"
 
 const isMobile = inject("isMobile")
+
+const tags = {
+    FASHION: "Fashion",
+    BEAUTY: "Beauty",
+    JEWELRY: "Jewelry",
+    HOMEDECOR: "HomeDecor",
+    TECH: "Tech",
+    SPORT: "Sport",
+    SHOES: "Shoes",
+    TRAVEL: "Travel",
+    ENTERTAINMENT: "Entertainment"
+}
 
 </script>
 
@@ -17,64 +35,66 @@ const isMobile = inject("isMobile")
 	<div class="offers__container">
 		<article class="offer">
 			<h3 class="offer__title">
-				Some Title
+				Pandora
 			</h3>
 			<div class="offer__author">
 				<h4 class="offer__title">
-					Samuelle McCatchen
+					Amanda Brown
 				</h4>
 				<p class="offer__date">
-					29th February 2024
+					17th February 2024
 				</p>
 			</div>
 			<div class="offer__tags">
 				<a class="offer__tag" href="#" title="Some Title">
-					#Nike
+					#{{ tags.JEWELRY }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" src="https://images.unsplash.com/photo-1517457210348-703079e57d4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+			<img class="offer__image" alt="" :src="offerImage1" />
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
 		</article>
 		<article class="offer">
 			<h3 class="offer__title">
-				Some Title
+				Apple
 			</h3>
 			<div class="offer__author">
 				<h4 class="offer__title">
-					Jane Collins
+					John Davis
 				</h4>
 				<p class="offer__date">
-					7th March 2024
+					2nd March 2024
 				</p>
 			</div>
 			<div class="offer__tags">
 				<a class="offer__tag" href="#" title="Some Title">
-					#Pandora
+					#{{ tags.TECH }}
 				</a>
 			</div>
+			<img class="offer__image" alt="" :src="offerImage2" />
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
 		</article>
 		<article class="offer">
 			<h3 class="offer__title">
-				Some Title
+				Jolyn Swimwear
 			</h3>
 			<div class="offer__author">
 				<h4 class="offer__title">
-					Jane Collins
+					Emily Johnson
 				</h4>
 				<p class="offer__date">
-					7th March 2024
+					12th March 2024
 				</p>
 			</div>
 			<div class="offer__tags">
 				<a class="offer__tag" href="#" title="Some Title">
-					#Pandora
+					#{{ tags.FASHION }}
 				</a>
 			</div>
+			<img class="offer__image" alt="" :src="offerImage3" />
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -83,11 +103,11 @@ const isMobile = inject("isMobile")
 	<div v-if="!isMobile" class="offers__container">
 		<article class="offer">
 			<h3 class="offer__title">
-				Some Title
+				AirBnB
 			</h3>
 			<div class="offer__author">
 				<h4 class="offer__title">
-					Samuelle McCatchen
+					Jessica Smith
 				</h4>
 				<p class="offer__date">
 					29th February 2024
@@ -95,21 +115,21 @@ const isMobile = inject("isMobile")
 			</div>
 			<div class="offer__tags">
 				<a class="offer__tag" href="#" title="Some Title">
-					#Nike
+					#{{ tags.TRAVEL }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" src="https://images.unsplash.com/photo-1517457210348-703079e57d4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+			<img class="offer__image" alt="" :src="offerImage4" />
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
 		</article>
 		<article class="offer">
 			<h3 class="offer__title">
-				Some Title
+				Almond Surfboards
 			</h3>
 			<div class="offer__author">
 				<h4 class="offer__title">
-					Samuelle McCatchen
+					John Davis
 				</h4>
 				<p class="offer__date">
 					29th February 2024
@@ -117,21 +137,21 @@ const isMobile = inject("isMobile")
 			</div>
 			<div class="offer__tags">
 				<a class="offer__tag" href="#" title="Some Title">
-					#Nike
+					#{{ tags.SPORT }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" src="https://images.unsplash.com/photo-1517457210348-703079e57d4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" />
+			<img class="offer__image" alt="" :src="offerImage5" />
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
 		</article>
 		<article class="offer">
 			<h3 class="offer__title">
-				Some Title
+				Sephora
 			</h3>
 			<div class="offer__author">
 				<h4 class="offer__title">
-					Jane Collins
+					Samantha Miller
 				</h4>
 				<p class="offer__date">
 					7th March 2024
@@ -139,9 +159,10 @@ const isMobile = inject("isMobile")
 			</div>
 			<div class="offer__tags">
 				<a class="offer__tag" href="#" title="Some Title">
-					#Pandora
+					#{{ tags.BEAUTY }}
 				</a>
 			</div>
+			<img class="offer__image" alt="" :src="offerImage6" />
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -220,7 +241,6 @@ const isMobile = inject("isMobile")
 
 	&__tags {
 		grid-row: 1;
-		transition: opacity .4s ease-in-out;
 	}
 
 	&__link {
@@ -241,6 +261,7 @@ const isMobile = inject("isMobile")
 		grid-row: 3;
 		justify-self: flex-end;
 		text-align: end;
+		padding-top: .5rem;
 	}
 
 	&__tags {
@@ -249,13 +270,14 @@ const isMobile = inject("isMobile")
 	}
 
 	&__image {
-		width: 50px;
-		height: 50px;
+		width: 90px;
+		height: 75px;
 		border-radius: 1.5rem;
 		grid-row: 2 / span 2;
 		grid-column: 1;
 		align-self: flex-end;
 		aspect-ratio: 1 / 0;
+		object-fit: cover;
 		transition: 
 			width .35s ease-in-out,
 			height .35s ease-in-out
@@ -276,8 +298,7 @@ const isMobile = inject("isMobile")
 	.offer:not(:hover) {
 		width: calc(calc(25% - 4rem) - 3px);
 
-		& .offer__link, & .offer__tags {
-			/* display: none; */
+		& .offer__link {
 			opacity: 0;
 		}
 	}
