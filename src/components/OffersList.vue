@@ -50,7 +50,9 @@ const tags = {
 					#{{ tags.JEWELRY }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" :src="offerImage1" />
+			<div class="offer__image-container">
+				<img class="offer__image" alt="" :src="offerImage1" />
+			</div>
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -72,7 +74,9 @@ const tags = {
 					#{{ tags.TECH }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" :src="offerImage2" />
+			<div class="offer__image-container">
+				<img class="offer__image" alt="" :src="offerImage2" />
+			</div>
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -94,7 +98,9 @@ const tags = {
 					#{{ tags.FASHION }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" :src="offerImage3" />
+			<div class="offer__image-container">
+				<img class="offer__image" alt="" :src="offerImage3" />
+			</div>
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -118,7 +124,9 @@ const tags = {
 					#{{ tags.TRAVEL }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" :src="offerImage4" />
+			<div class="offer__image-container">
+				<img class="offer__image" alt="" :src="offerImage4" />
+			</div>
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -140,7 +148,9 @@ const tags = {
 					#{{ tags.SPORT }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" :src="offerImage5" />
+			<div class="offer__image-container">
+				<img class="offer__image" alt="" :src="offerImage5" />
+			</div>
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -162,7 +172,9 @@ const tags = {
 					#{{ tags.BEAUTY }}
 				</a>
 			</div>
-			<img class="offer__image" alt="" :src="offerImage6" />
+			<div class="offer__image-container">
+				<img class="offer__image" alt="" :src="offerImage6" />
+			</div>
 			<a class="offer__link" href="#">
 				<ArrowSVG />
 			</a>
@@ -248,11 +260,10 @@ const tags = {
 		display: flex;
 		justify-content: flex-end;
 		padding-block: 4px;
-
 		transform: translateX(-75px);
 		transition: 
-			opacity .4s ease-in-out,
-			transform .5s ease-in-out
+			opacity .25s ease,
+			transform .25s ease
 		;
 	}
 
@@ -261,7 +272,7 @@ const tags = {
 		grid-row: 3;
 		justify-self: flex-end;
 		text-align: end;
-		padding-top: .5rem;
+		padding-left: 1rem;
 	}
 
 	&__tags {
@@ -270,18 +281,34 @@ const tags = {
 	}
 
 	&__image {
-		width: 90px;
-		height: 75px;
 		border-radius: 1.5rem;
-		grid-row: 2 / span 2;
-		grid-column: 1;
-		align-self: flex-end;
-		aspect-ratio: 1 / 0;
 		object-fit: cover;
+		align-self: flex-end;
+		aspect-ratio: 1/1;
+		height: 70%;
+		object-position: center center;
+		display: flex;
+		max-height: 100%;
+		width: 100%;
 		transition: 
 			width .35s ease-in-out,
 			height .35s ease-in-out
 		;
+
+		&-container {
+			max-width: 220px;
+			display: flex;
+			border-radius: 1.5rem;
+			position: absolute;
+			bottom: 1.5rem;
+			left: 1.5rem;
+			width: 40%;
+			height: 50%;
+			transition: 
+				width .45s ease-in-out, 
+				height .45s ease-in-out
+			;
+		}
 	}
 }
 
@@ -293,6 +320,15 @@ const tags = {
 @media screen and (hover: hover) and (min-width: 824px) {
 	.offers__container {
 		gap: 3px;
+
+		&:has(.offer:hover) .offer:not(:hover) .offer__image {
+			height: 100%;
+		}
+
+		&:has(.offer:hover) .offer:not(:hover) .offer__image-container {
+			width: calc(100% - 3rem);
+			height: calc(100% - 3rem);
+		}
 	}
 
 	.offer:not(:hover) {
@@ -309,13 +345,16 @@ const tags = {
 		grid-template-columns: 3fr 2fr;
 
 		& .offer__image {
-			width: 200px;
-			height: 110px;
-			grid-row: 2 / span 2;
+			max-height: 100%;
+			height: 100%;
 		}
 
 		& .offer__link {
 			transform: translateX(0);
+			transition: 
+				opacity .45s ease,
+				transform .45s ease
+			;
 		}
 	}
 }
