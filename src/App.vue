@@ -1,50 +1,40 @@
 <script setup>
+	import { ref, onMounted, onBeforeUnmount, provide } from "vue"
 
-import HeaderComponent from "./components/HeaderComponent.vue"
-import WelcomeSection from "./components/WelcomeSection.vue"
-import FeaturesGrid from "./components/FeaturesGrid.vue"
-import OffersList from "./components/OffersList.vue"
+	import HeaderComponent from "./components/HeaderComponent.vue"
+	import WelcomeSection from "./components/WelcomeSection.vue"
+	import FeaturesGrid from "./components/FeaturesGrid.vue"
+	import OffersList from "./components/OffersList.vue"
 
-import { ref, onMounted, onBeforeUnmount, provide } from "vue"
+	const isMobile = ref(false)
 
-const isMobile = ref(false)
+	const checkMobile = () => {
+		isMobile.value = window.innerWidth <= 823
+	}
 
-const checkMobile = () => {
-	isMobile.value = window.innerWidth <= 823
-}
+	const handleResize = () => checkMobile()
 
-const handleResize = () => checkMobile()
+	onMounted(() => {
+		checkMobile()
+		window.addEventListener("resize", handleResize)
+	})
 
-onMounted(() => {
-	checkMobile()
-	window.addEventListener("resize", handleResize)
-})
+	onBeforeUnmount(() => {
+		window.removeEventListener("resize", handleResize)
+	})
 
-onBeforeUnmount(() => {
-	window.removeEventListener("resize", handleResize)
-})
-
-provide("isMobile", isMobile);
-
+	provide("isMobile", isMobile);
 </script>
 
 
 <template v-if="true">
-
-<HeaderComponent />
-
-<main class="main">
-
-	<WelcomeSection />
-	<FeaturesGrid />
-	<OffersList />
-	<div id="pagination"></div>
-	
-</main>
-<footer>
-
-</footer>
-
+	<HeaderComponent />
+	<main class="main">
+		<WelcomeSection />
+		<FeaturesGrid />
+		<OffersList />
+	</main>
+	<footer></footer>
 </template>
 
 

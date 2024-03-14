@@ -1,377 +1,126 @@
 <script setup>
+	import { inject } from "vue"
+	import Offer from "./Offer.vue"
 
-import { inject } from "vue"
-import ArrowSVG from "../assets/ArrowSVG.vue"
-import offerImage1 from "../assets/img/offerImage1.webp"
-import offerImage2 from "../assets/img/offerImage2.webp"
-import offerImage3 from "../assets/img/offerImage3.webp"
-import offerImage4 from "../assets/img/offerImage4.webp"
-import offerImage5 from "../assets/img/offerImage5.webp"
-import offerImage6 from "../assets/img/offerImage6.webp"
+	import offerImage1 from "../assets/img/offerImage1.webp"
+	import offerImage2 from "../assets/img/offerImage2.webp"
+	import offerImage3 from "../assets/img/offerImage3.webp"
+	import offerImage4 from "../assets/img/offerImage4.webp"
+	import offerImage5 from "../assets/img/offerImage5.webp"
+	import offerImage6 from "../assets/img/offerImage6.webp"
 
-const isMobile = inject("isMobile")
+	const isMobile = inject("isMobile")
 
-const tags = {
-    FASHION: "Fashion",
-    BEAUTY: "Beauty",
-    JEWELRY: "Jewelry",
-    HOMEDECOR: "HomeDecor",
-    TECH: "Tech",
-    SPORT: "Sport",
-    SHOES: "Shoes",
-    TRAVEL: "Travel",
-    ENTERTAINMENT: "Entertainment"
-}
+	const tags = {
+		FASHION: "Fashion",
+		BEAUTY: "Beauty",
+		JEWELRY: "Jewelry",
+		HOMEDECOR: "HomeDecor",
+		TECH: "Tech",
+		SPORT: "Sport",
+		SHOES: "Shoes",
+		TRAVEL: "Travel",
+		ENTERTAINMENT: "Entertainment"
+	}
 
+
+	const latestOffers = [
+		{
+			title: "Pandora",
+			author: "Amanda Brown",
+			date: "17th February 2024",
+			tag: tags.JEWELRY,
+			image: offerImage1
+		},
+		{
+			title: "Apple",
+			author: "John Davis",
+			date: "2nd March 2024",
+			tag: tags.TECH,
+			image: offerImage2
+		},
+		{
+			title: "Jolyn Swimwear",
+			author: "Emily Johnson",
+			date: "12th March 2024",
+			tag: tags.FASHION,
+			image: offerImage3
+		},
+		{
+			title: "AirBnB",
+			author: "Jessica Smith",
+			date: "29th February 2024",
+			tag: tags.TRAVEL,
+			image: offerImage4
+		},
+		{
+			title: "Almond Surfboards",
+			author: "John Davis",
+			date: "29th February 2024",
+			tag: tags.SPORT,
+			image: offerImage5
+		},
+		{
+			title: "Sephora",
+			author: "Samantha Miller",
+			date: "7th March 2024",
+			tag: tags.BEAUTY,
+			image: offerImage6
+		}
+	]
+
+	const mobileOffers = latestOffers.slice(0, 3)
+	const desktopOffers = latestOffers.slice(3)
 </script>
 
 
 <template>
-
-<section class="offers">
-	<h2 class="offers__title">
-		Latest Offers
-	</h2>
-	<div class="offers__container">
-		<article class="offer">
-			<h3 class="offer__title">
-				Pandora
-			</h3>
-			<div class="offer__author">
-				<h4 class="offer__title">
-					Amanda Brown
-				</h4>
-				<p class="offer__date">
-					17th February 2024
-				</p>
-			</div>
-			<div class="offer__tags">
-				<a class="offer__tag" href="#" title="Some Title">
-					#{{ tags.JEWELRY }}
-				</a>
-			</div>
-			<div class="offer__image-container">
-				<img class="offer__image" alt="" :src="offerImage1" />
-			</div>
-			<a class="offer__link" href="#">
-				<ArrowSVG />
-			</a>
-		</article>
-		<article class="offer">
-			<h3 class="offer__title">
-				Apple
-			</h3>
-			<div class="offer__author">
-				<h4 class="offer__title">
-					John Davis
-				</h4>
-				<p class="offer__date">
-					2nd March 2024
-				</p>
-			</div>
-			<div class="offer__tags">
-				<a class="offer__tag" href="#" title="Some Title">
-					#{{ tags.TECH }}
-				</a>
-			</div>
-			<div class="offer__image-container">
-				<img class="offer__image" alt="" :src="offerImage2" />
-			</div>
-			<a class="offer__link" href="#">
-				<ArrowSVG />
-			</a>
-		</article>
-		<article class="offer">
-			<h3 class="offer__title">
-				Jolyn Swimwear
-			</h3>
-			<div class="offer__author">
-				<h4 class="offer__title">
-					Emily Johnson
-				</h4>
-				<p class="offer__date">
-					12th March 2024
-				</p>
-			</div>
-			<div class="offer__tags">
-				<a class="offer__tag" href="#" title="Some Title">
-					#{{ tags.FASHION }}
-				</a>
-			</div>
-			<div class="offer__image-container">
-				<img class="offer__image" alt="" :src="offerImage3" />
-			</div>
-			<a class="offer__link" href="#">
-				<ArrowSVG />
-			</a>
-		</article>
-	</div>
-	<div v-if="!isMobile" class="offers__container">
-		<article class="offer">
-			<h3 class="offer__title">
-				AirBnB
-			</h3>
-			<div class="offer__author">
-				<h4 class="offer__title">
-					Jessica Smith
-				</h4>
-				<p class="offer__date">
-					29th February 2024
-				</p>
-			</div>
-			<div class="offer__tags">
-				<a class="offer__tag" href="#" title="Some Title">
-					#{{ tags.TRAVEL }}
-				</a>
-			</div>
-			<div class="offer__image-container">
-				<img class="offer__image" alt="" :src="offerImage4" />
-			</div>
-			<a class="offer__link" href="#">
-				<ArrowSVG />
-			</a>
-		</article>
-		<article class="offer">
-			<h3 class="offer__title">
-				Almond Surfboards
-			</h3>
-			<div class="offer__author">
-				<h4 class="offer__title">
-					John Davis
-				</h4>
-				<p class="offer__date">
-					29th February 2024
-				</p>
-			</div>
-			<div class="offer__tags">
-				<a class="offer__tag" href="#" title="Some Title">
-					#{{ tags.SPORT }}
-				</a>
-			</div>
-			<div class="offer__image-container">
-				<img class="offer__image" alt="" :src="offerImage5" />
-			</div>
-			<a class="offer__link" href="#">
-				<ArrowSVG />
-			</a>
-		</article>
-		<article class="offer">
-			<h3 class="offer__title">
-				Sephora
-			</h3>
-			<div class="offer__author">
-				<h4 class="offer__title">
-					Samantha Miller
-				</h4>
-				<p class="offer__date">
-					7th March 2024
-				</p>
-			</div>
-			<div class="offer__tags">
-				<a class="offer__tag" href="#" title="Some Title">
-					#{{ tags.BEAUTY }}
-				</a>
-			</div>
-			<div class="offer__image-container">
-				<img class="offer__image" alt="" :src="offerImage6" />
-			</div>
-			<a class="offer__link" href="#">
-				<ArrowSVG />
-			</a>
-		</article>
-	</div>
-</section>
-
+	<section class="offers">
+		<h2 class="offers__title">Latest Offers</h2>
+		<div class="offers__container">
+			<Offer v-for="(offer, i) in mobileOffers" :key="'offer--' + i"  :offer="offer" />
+		</div>
+		<div v-if="!isMobile" class="offers__container">
+			<Offer v-for="(offer, i) in desktopOffers" :key="'offer--' + i"  :offer="offer" />
+		</div>
+	</section>
 </template>
 
 
 <style lang="scss" scoped>
+	@import "../assets/styles/variables.scss";
 
-@import "../assets/styles/variables.scss";
+	.offers {
+		margin-block: calc($spacing * 16) calc($spacing * 4);
 
-.offers {
-	margin-block: calc($spacing * 16) calc($spacing * 4);
-
-	&__title {
-		font-family: $font-display;
-		font-size: 26px;
-		text-wrap: balance;
-		margin-left: calc($spacing * 2);
-		margin-bottom: calc($spacing * 4);
-	}
-
-	&__container {
-		display: flex;
-		flex-wrap: wrap;
-		gap: calc($spacing * 2);
-		margin-top: 3px;
-	}
-}
-
-.offer {
-	width: calc(100% - 4rem);
-	height: 12.5rem;
-	border-radius: 2.5rem;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 2rem;
-	position: relative;
-	background-color: $color-sand;
-  	display: grid;
-	grid-template-rows: 2rem 1fr 3.25rem;
-	grid-auto-flow: column;
-	flex-grow: 1;
-	transition: 
-		width .35s ease-in-out, 
-		background-color .35s ease-in-out
-	;
-
-	&__title, &__date {
-		margin-block: calc($spacing / 8);
-		white-space: nowrap;
-		-webkit-line-clamp: 1; 
-		overflow: hidden;
-	}
-
-	&__title {
-		grid-column: 1 / span 2;
-		grid-row: 1;
-
-		&-link {
-			grid-column: 1;
+		&__title {
+			font-family: $font-display;
+			font-size: 26px;
+			text-wrap: balance;
+			margin-left: calc($spacing * 2);
+			margin-bottom: calc($spacing * 4);
 		}
-	}
 
-	&__author, &__link {
-		grid-row: 3;
-	}
-
-	&__link, &__tags {
-		grid-column: 2;
-		justify-self: right;
-	}
-
-	&__tags {
-		grid-row: 1;
-	}
-
-	&__link {
-		grid-row: 2;
-		display: flex;
-		justify-content: flex-end;
-		padding-block: 4px;
-		transform: translateX(-75px);
-		transition: 
-			opacity .25s ease,
-			transform .25s ease
-		;
-	}
-
-	&__author {
-		grid-column: 2;
-		grid-row: 3;
-		justify-self: flex-end;
-		text-align: end;
-		padding-left: 1rem;
-	}
-
-	&__tags {
-		display: flex;
-		gap: 1rem;
-	}
-
-	&__image {
-		border-radius: 1.5rem;
-		object-fit: cover;
-		align-self: flex-end;
-		aspect-ratio: 1/1;
-		height: 70%;
-		object-position: center center;
-		display: flex;
-		max-height: 100%;
-		width: 100%;
-		transition: 
-			width .35s ease-in-out,
-			height .35s ease-in-out
-		;
-
-		&-container {
-			max-width: 220px;
+		&__container {
 			display: flex;
-			border-radius: 1.5rem;
-			position: absolute;
-			bottom: 1.5rem;
-			left: 1.5rem;
-			width: 40%;
-			height: 50%;
-			transition: 
-				width .45s ease-in-out, 
-				height .45s ease-in-out
-			;
-		}
-	}
-}
-
-.arrow-svg {
-	width: auto;
-	height: 80px;
-}
-
-@media screen and (hover: hover) and (min-width: 824px) {
-	.offers__container {
-		gap: 3px;
-
-		&:has(.offer:hover) .offer:not(:hover) .offer__image {
-			height: 100%;
-		}
-
-		&:has(.offer:hover) .offer:not(:hover) .offer__image-container {
-			width: calc(100% - 3rem);
-			height: calc(100% - 3rem);
+			flex-wrap: wrap;
+			gap: calc($spacing * 2);
+			margin-top: 3px;
 		}
 	}
 
-	.offer:not(:hover) {
-		width: calc(calc(25% - 4rem) - 3px);
+	@media screen and (hover: hover) and (min-width: 824px) {
+		.offers__container {
+			gap: 3px;
 
-		& .offer__link {
-			opacity: 0;
+			&:has(.offer:hover) .offer:not(:hover) .offer__image {
+				height: 100%;
+			}
+
+			&:has(.offer:hover) .offer:not(:hover) .offer__image-container {
+				width: calc(100% - 3rem);
+				height: calc(100% - 3rem);
+			}
 		}
 	}
-	
-	.offer:hover {
-		width: calc(calc(50% - 4rem) - 3px);
-		background-color: $color-sand--dark;
-		grid-template-columns: 3fr 2fr;
-
-		& .offer__image {
-			max-height: 100%;
-			height: 100%;
-		}
-
-		& .offer__link {
-			transform: translateX(0);
-			transition: 
-				opacity .45s ease,
-				transform .45s ease
-			;
-		}
-	}
-}
-
-@media screen and (min-width: 824px) {	
-
-}
-
-@media screen and (min-width: 1280px) {
-
-}
-
-@media screen and (min-width: 1590px) {
-
-}
-
-@media screen and (max-width: 824px) {	
-}
-
 </style>
