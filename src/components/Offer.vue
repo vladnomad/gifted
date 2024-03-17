@@ -126,7 +126,7 @@
 				position: absolute;
 				bottom: 1.5rem;
 				left: 1.5rem;
-				width: 40%;
+				width: 45%;
 				height: 50%;
 				transition: 
 					width .45s ease-in-out, 
@@ -142,6 +142,19 @@
 	}
 
 	@media screen and (hover: hover) and (min-width: 824px) {
+		.offers__container {
+			gap: 3px;
+
+			&:has(.offer:hover) .offer:not(:hover) .offer__image {
+				height: 100%;
+			}
+
+			&:has(.offer:hover) .offer:not(:hover) .offer__image-container {
+				width: calc(100% - 3rem);
+				height: calc(100% - 3rem);
+			}
+		}
+
 		.offer:not(:hover) {
 			width: calc(calc(25% - 4rem) - 3px);
 

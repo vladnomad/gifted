@@ -112,15 +112,6 @@
 	@media screen and (hover: hover) and (min-width: 824px) {
 		.offers__container {
 			gap: 3px;
-
-			&:has(.offer:hover) .offer:not(:hover) .offer__image {
-				height: 100%;
-			}
-
-			&:has(.offer:hover) .offer:not(:hover) .offer__image-container {
-				width: calc(100% - 3rem);
-				height: calc(100% - 3rem);
-			}
 		}
 	}
 </style>
