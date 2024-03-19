@@ -54,11 +54,12 @@ a {
   
 .main {
     grid-area: main;
+	display: grid;
+	justify-content: center;
 }
 
 .main > * {
-	max-width: 65rem;
- 	margin-inline: auto;
+	max-width: 63.5rem;
 }
 
 /* (hover: hover)  |  (orientation: landscape) */

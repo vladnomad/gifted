@@ -129,8 +129,8 @@
 				width: 45%;
 				height: 50%;
 				transition: 
-					width .45s ease-in-out, 
-					height .45s ease-in-out
+					width .35s ease-in-out, 
+					height .35s ease-in-out
 				;
 			}
 		}

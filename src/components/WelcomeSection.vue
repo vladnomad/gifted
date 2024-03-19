@@ -63,20 +63,20 @@
 					transformY *= .5
 				}
 				case 2: {
-					transformX *= 1
-					transformY *= 1
+					transformX *= .875
+					transformY *= .875
 				}
 				case 3: {
-					transformX *= .9375
-					transformY *= .9375
+					transformX *= .8375
+					transformY *= .8375
 				}
 				case 4: {
 					transformX *= .75
 					transformY *= .75
 				}
 				case 5: {
-					transformX *= 1
-					transformY *= 1
+					transformX *= .65
+					transformY *= .65
 				}
 				case 6: {
 					transformX *= 1.75
@@ -145,10 +145,10 @@
 		grid-template-columns: 1fr 1fr 25rem 1fr 1fr;
 		grid-template-rows: repeat(3, 1fr) 5.25rem;
 		height: calc(100dvh - 5.25rem);
-		max-width: 72dvw;
 
 		&__image {
-			width: 10rem;
+			width: 8vw;
+  			min-width: 9.75rem;
 
 			&-wrapper {
 				display: grid;
@@ -158,21 +158,28 @@
 
 				&.welcome__image-wrapper--1 {
 					grid-row: 1;
-					grid-column: 2;
+					grid-column: 1 / span 2;
 					justify-content: center;
-					align-items: flex-end;
+					align-items: center;
+					position: relative;
+					top: 2vw;
 				}
 
 				&.welcome__image-wrapper--2 {
 					grid-row: 2;
 					grid-column: 1;
-					align-items: center;
+					align-items: flex-end;
+					position: relative;
+					left: -2vw;
 				}
 
 				&.welcome__image-wrapper--3 {
 					grid-row: 3;
 					grid-column: 2;
-					align-items: center;
+					align-items: flex-end;
+					position: relative;
+					left: -2vw;
+					top: -2vw;
 				}
 
 				&.welcome__image-wrapper--4 {
@@ -190,8 +197,9 @@
 
 				&.welcome__image-wrapper--6 {
 					grid-row: 3;
-					grid-column: 4;
-					justify-content: flex-end;
+					grid-column: 4 / span 2;
+					justify-content: center;
+					align-items: center;
 				}
 			}
 		}
