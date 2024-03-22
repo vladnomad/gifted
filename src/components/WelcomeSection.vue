@@ -58,33 +58,29 @@
 			let transformY = (percentY - 0.5)
 
 			switch (i) {
-				case 1: {
-					transformX *= .5
-					transformY *= .5
+				case 1: case 6: {
+					transformX *= 1.5
+					transformY *= 1.5
 				}
 				case 2: {
-					transformX *= .875
-					transformY *= .875
+					transformX *= 1.2
+					transformY *= 1.2
 				}
 				case 3: {
-					transformX *= .8375
-					transformY *= .8375
+					transformX *= 1.5
+					transformY *= 1.5
 				}
 				case 4: {
-					transformX *= .75
-					transformY *= .75
+					transformX *= 1.5
+					transformY *= 1.5
 				}
 				case 5: {
-					transformX *= .65
-					transformY *= .65
-				}
-				case 6: {
-					transformX *= 1.75
-					transformY *= 1.75
+					transformX *= 2.25
+					transformY *= 2.25
 				}
 				default: {
-					transformX *= 10
-					transformY *= 10
+					transformX *= 1
+					transformY *= 1
 				}
 			}
 			
@@ -100,15 +96,15 @@
 	<section class="welcome" aria-labelledby="welcome__title">
 		<div class="welcome__image-wrapper welcome__image-wrapper--1"
 			:style="{ transform: transforms.t1 }">
-			<img class="welcome__image welcome__image--1" :src="welcomeImage1" alt="">
+			<img class="welcome__image welcome__image--left welcome__image--1" :src="welcomeImage1" alt="">
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--2"
 			:style="{ transform: transforms.t2 }">
-			<img class="welcome__image welcome__image--2" :src="welcomeImage2" alt="">
+			<img class="welcome__image welcome__image--left welcome__image--2" :src="welcomeImage2" alt="">
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--3"
 			:style="{ transform: transforms.t3 }">
-			<img class="welcome__image welcome__image--3" :src="welcomeImage3" alt="">
+			<img class="welcome__image welcome__image--left welcome__image--3" :src="welcomeImage3" alt="">
 		</div>
 			<div class="welcome__center">
 			<h1 class="welcome__title" id="welcome__title">
@@ -123,15 +119,15 @@
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--4"
 			:style="{ transform: transforms.t4 }">
-			<img class="welcome__image welcome__image--4" :src="welcomeImage4" alt="">
+			<img class="welcome__image welcome__image--right welcome__image--4" :src="welcomeImage4" alt="">
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--5"
 			:style="{ transform: transforms.t5 }">
-			<img class="welcome__image welcome__image--5" :src="welcomeImage5" alt="">
+			<img class="welcome__image welcome__image--right welcome__image--5" :src="welcomeImage5" alt="">
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--6"
 			:style="{ transform: transforms.t6 }">
-			<img class="welcome__image welcome__image--6" :src="welcomeImage6" alt="">
+			<img class="welcome__image welcome__image--right welcome__image--6" :src="welcomeImage6" alt="">
 		</div>
 	</section>
 </template>
@@ -149,7 +145,18 @@
 		&__image {
 			width: 8vw;
   			min-width: 9.75rem;
+			
+			
+			filter: drop-shadow(2px 2px 2px $color-shadow--main);
+/* 
+			&.welcome__image--left {
+				filter: drop-shadow(-2px 4px 6px $color-shadow);
+			}
 
+			&.welcome__image--right {
+				filter: drop-shadow(2px -4px 6px $color-shadow);
+			}
+ */
 			&-wrapper {
 				display: grid;
 				width: 100%;
@@ -162,7 +169,7 @@
 					justify-content: center;
 					align-items: center;
 					position: relative;
-					top: 2vw;
+					top: 1vw;
 				}
 
 				&.welcome__image-wrapper--2 {
@@ -170,7 +177,8 @@
 					grid-column: 1;
 					align-items: flex-end;
 					position: relative;
-					left: -2vw;
+					left: -1vw;
+					top: -1vw;
 				}
 
 				&.welcome__image-wrapper--3 {

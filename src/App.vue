@@ -5,6 +5,7 @@
 	import WelcomeSection from "./components/WelcomeSection.vue"
 	import FeaturesGrid from "./components/FeaturesGrid.vue"
 	import OffersList from "./components/OffersList.vue"
+	import FooterComponent from "./components/FooterComponent.vue"
 
 	const isMobile = ref(false)
 
@@ -29,12 +30,14 @@
 
 <template v-if="true">
 	<HeaderComponent />
+	
 	<main class="main">
 		<WelcomeSection />
 		<FeaturesGrid />
 		<OffersList />
+		<FooterComponent />
 	</main>
-	<footer></footer>
+	
 </template>
 
 

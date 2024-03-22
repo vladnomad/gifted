@@ -56,6 +56,7 @@
 		grid-column-gap: calc($spacing * 2);
 		grid-row-gap: calc($spacing * 2);
 		width: 100%;
+		margin-block: calc($spacing * 16) calc($spacing * 4);
 
 		&__title {
 			font-family: $font-display;
@@ -70,6 +71,9 @@
 		}
 
 		&__node {
+			box-shadow: 0px 1px 4px -1px $color-shadow--main;
+
+			
 			border-radius: 2.5rem;
 			flex-direction: column;
 			align-items: flex-start;
@@ -104,6 +108,7 @@
 			
 			&--2 {
 				background-color: $color-peach;
+				min-width: 14rem;
 			}
 			
 			&--3 {
