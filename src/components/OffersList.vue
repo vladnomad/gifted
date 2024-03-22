@@ -27,43 +27,43 @@
 	const latestOffers = [
 		{
 			title: "Pandora",
-			author: "Amanda Brown",
-			date: "17th February 2024",
+			author: "Marta Kowalczyk",
+			date: "12 March 2024",
 			tag: tags.JEWELRY,
 			image: offerImage1
 		},
 		{
 			title: "Apple",
 			author: "John Davis",
-			date: "2nd March 2024",
+			date: "7 March 2024",
 			tag: tags.TECH,
 			image: offerImage2
 		},
 		{
 			title: "Jolyn Swimwear",
 			author: "Emily Johnson",
-			date: "12th March 2024",
+			date: "2 March 2024",
 			tag: tags.FASHION,
 			image: offerImage3
 		},
 		{
 			title: "AirBnB",
-			author: "Jessica Smith",
-			date: "29th February 2024",
+			author: "Leonardo Rossi",
+			date: "29 February 2024",
 			tag: tags.TRAVEL,
 			image: offerImage4
 		},
 		{
 			title: "Almond Surfboards",
 			author: "John Davis",
-			date: "29th February 2024",
+			date: "29 February 2024",
 			tag: tags.SPORT,
 			image: offerImage5
 		},
 		{
 			title: "Sephora",
-			author: "Samantha Miller",
-			date: "7th March 2024",
+			author: "Maria Bianchi",
+			date: "17 February 2024",
 			tag: tags.BEAUTY,
 			image: offerImage6
 		}
@@ -111,7 +111,8 @@
 
 	@media screen and (hover: hover) and (min-width: 824px) {
 		.offers__container {
-			gap: 3px;
+			gap: 2rem;
+			margin-bottom: 2rem;
 		}
 	}
 </style>

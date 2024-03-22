@@ -6,6 +6,28 @@
     const props = defineProps({
         offer: Object
     })
+
+	const defineTimeAgo = (date) => {
+		let timeAgo
+
+		const offerDate = new Date(date)
+		const currentDate = new Date()
+
+		const daysAgo = Math.floor(
+			(currentDate - offerDate) / 
+			(1000 * 60 * 60 * 24)
+		)
+
+		if (daysAgo < 31) {
+			timeAgo = `${daysAgo} days ago`
+		} else if (daysAgo < 61) {
+			timeAgo = `1 month ago`
+		} else {
+			timeAgo = `${Math.floor(daysAgo / 30)} months ago`
+		}
+		
+		return timeAgo
+	}
 </script>
 
 
@@ -13,8 +35,8 @@
     <article class="offer">
         <h3 class="offer__title">{{ offer.title }}</h3>
         <div class="offer__author">
-            <h4 class="offer__title">{{ offer.author }}</h4>
-            <p class="offer__date">{{ offer.date }}</p>
+            <h4 class="offer__title">{{ offer.author.split(" ").join("\n") }}</h4>
+            <p class="offer__date">{{ defineTimeAgo(offer.date) }}</p>
         </div>
         <div class="offer__tags">
             <a class="offer__tag" href="#" title="Some Title">{{ offer.tag }}</a>
@@ -33,16 +55,22 @@
 	@import "../assets/styles/variables.scss";
 
 	.offer {
+		
+		// TRY border: silver OR lavender
+
 		width: calc(100% - 4rem);
-		height: 12.5rem;
+		height: 11rem;
 		border-radius: 2.5rem;
 		flex-direction: column;
 		align-items: flex-start;
 		padding: 2rem;
 		position: relative;
-		background-color: $color-sand;
+		/* background-color: $color-sand; */
 		display: grid;
-		grid-template-rows: 2rem 1fr 3.25rem;
+		/* grid-template-rows: 2rem 1fr 3.25rem; */
+		grid-template-rows: 2rem 4.25rem 5.25rem;
+		grid-template-columns: 55% 45%;
+		max-height: 11.5rem;
 		grid-auto-flow: column;
 		flex-grow: 1;
 		transition: 
@@ -52,9 +80,10 @@
 
 		&__title, &__date {
 			margin-block: calc($spacing / 8);
-			white-space: nowrap;
+			/* white-space: nowrap;
 			-webkit-line-clamp: 1; 
-			overflow: hidden;
+			overflow: hidden; */
+			white-space: pre-line;
 		}
 
 		&__title {
@@ -89,6 +118,8 @@
 				opacity .25s ease,
 				transform .25s ease
 			;
+			position: relative;
+			top: -0.75rem;
 		}
 
 		&__author {
@@ -96,7 +127,10 @@
 			grid-row: 3;
 			justify-self: flex-end;
 			text-align: end;
-			padding-left: 1rem;
+			justify-content: center;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
 		}
 
 		&__tags {
@@ -118,6 +152,9 @@
 				width .35s ease-in-out,
 				height .35s ease-in-out
 			;
+
+
+			box-shadow: 0px 1px 4px -1px $color-shadow--main;
 
 			&-container {
 				max-width: 220px;
@@ -143,7 +180,8 @@
 
 	@media screen and (hover: hover) and (min-width: 824px) {
 		.offers__container {
-			gap: 3px;
+			gap: 2rem;
+			margin-bottom: 2rem;
 
 			&:has(.offer:hover) .offer:not(:hover) .offer__image {
 				height: 100%;
@@ -156,7 +194,7 @@
 		}
 
 		.offer:not(:hover) {
-			width: calc(calc(25% - 4rem) - 3px);
+			width: calc(calc(25% - 4rem) - 2rem);
 
 			& .offer__link {
 				opacity: 0;
@@ -164,7 +202,7 @@
 		}
 		
 		.offer:hover {
-			width: calc(calc(50% - 4rem) - 3px);
+			width: calc(calc(50% - 4rem) - 2rem);
 			background-color: $color-sand--dark;
 			grid-template-columns: 3fr 2fr;
 
@@ -182,4 +220,30 @@
 			}
 		}
 	}
+
+
+
+
+
+
+	.offer {
+		height: 11rem;
+		box-shadow: 0px 1px 4px -1px $color-shadow--main;
+		/* box-shadow: 0px 1px 7px -1px hsla(226, 75%, 11%, 0.25); */
+		background-color: #f2f1ee63;
+		/*  transition: background-color .3s ease-in-out;*/
+		/* background: linear-gradient(
+			25deg, 
+			hsla(60, 100%, 93.7%, 0.42),
+			#f2f1ee63,
+			#f2e6e180
+		); */
+	}
+
+	@media screen and (hover: hover) and (min-width: 824px) {
+		.offer:hover {
+			/*  */background-color: transparent;
+		}
+	}
+
 </style>
