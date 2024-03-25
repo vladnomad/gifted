@@ -21,7 +21,7 @@
 		if (daysAgo < 31) {
 			timeAgo = `${daysAgo} days ago`
 		} else if (daysAgo < 61) {
-			timeAgo = `1 month ago`
+			timeAgo = "1 month ago"
 		} else {
 			timeAgo = `${Math.floor(daysAgo / 30)} months ago`
 		}
@@ -54,10 +54,12 @@
 <style lang="scss" scoped>
 	@import "../assets/styles/variables.scss";
 
-	.offer {
-		
-		// TRY border: silver OR lavender
+	.arrow-svg {
+		width: auto;
+		height: 80px;
+	}
 
+	.offer {
 		width: calc(100% - 4rem);
 		height: 11rem;
 		border-radius: 2.5rem;
@@ -65,25 +67,38 @@
 		align-items: flex-start;
 		padding: 2rem;
 		position: relative;
-		/* background-color: $color-sand; */
 		display: grid;
-		/* grid-template-rows: 2rem 1fr 3.25rem; */
 		grid-template-rows: 2rem 4.25rem 5.25rem;
 		grid-template-columns: 55% 45%;
 		max-height: 11.5rem;
 		grid-auto-flow: column;
 		flex-grow: 1;
-		transition: 
-			width .35s ease-in-out, 
-			background-color .35s ease-in-out
-		;
+		height: 11rem;
+		box-shadow: 0px 1px 4px -1px $color-shadow--box;
+		transition: width .35s ease-in-out;
 
 		&__title, &__date {
-			margin-block: calc($spacing / 8);
-			/* white-space: nowrap;
-			-webkit-line-clamp: 1; 
-			overflow: hidden; */
+			margin-block: 0;
+		}
+
+		&__title, &__author {
+			font-weight: 500;
+		}
+
+		&__title {
 			white-space: pre-line;
+			position: relative;
+			top: -4px;
+		}
+
+		&__date, &__tag {
+			font-weight: 300;
+		}
+
+		&__date {
+			white-space: nowrap;
+			-webkit-line-clamp: 1; 
+			overflow: hidden;
 		}
 
 		&__title {
@@ -113,13 +128,13 @@
 			display: flex;
 			justify-content: flex-end;
 			padding-block: 4px;
-			transform: translateX(-75px);
+			position: relative;
+			top: -.9375rem;
+			transform: translateX(-65px);
 			transition: 
 				opacity .25s ease,
 				transform .25s ease
 			;
-			position: relative;
-			top: -0.75rem;
 		}
 
 		&__author {
@@ -127,7 +142,7 @@
 			grid-row: 3;
 			justify-self: flex-end;
 			text-align: end;
-			justify-content: center;
+			justify-content: flex-end;
 			display: flex;
 			flex-direction: column;
 			height: 100%;
@@ -148,13 +163,11 @@
 			display: flex;
 			max-height: 100%;
 			width: 100%;
+			box-shadow: 0px 1px 4px -1px $color-shadow--box;
 			transition: 
 				width .35s ease-in-out,
 				height .35s ease-in-out
 			;
-
-
-			box-shadow: 0px 1px 4px -1px $color-shadow--main;
 
 			&-container {
 				max-width: 220px;
@@ -173,21 +186,13 @@
 		}
 	}
 
-	.arrow-svg {
-		width: auto;
-		height: 80px;
-	}
-
 	@media screen and (hover: hover) and (min-width: 824px) {
-		.offers__container {
-			gap: 2rem;
-			margin-bottom: 2rem;
-
-			&:has(.offer:hover) .offer:not(:hover) .offer__image {
+		.offers__container:has(.offer:hover) .offer:not(:hover) {
+			& .offer__image {
 				height: 100%;
 			}
 
-			&:has(.offer:hover) .offer:not(:hover) .offer__image-container {
+			& .offer__image-container {
 				width: calc(100% - 3rem);
 				height: calc(100% - 3rem);
 			}
@@ -203,7 +208,6 @@
 		
 		.offer:hover {
 			width: calc(calc(50% - 4rem) - 2rem);
-			background-color: $color-sand--dark;
 			grid-template-columns: 3fr 2fr;
 
 			& .offer__image {
@@ -212,7 +216,7 @@
 			}
 
 			& .offer__link {
-				transform: translateX(0);
+				transform: translateX(10px);
 				transition: 
 					opacity .45s ease,
 					transform .45s ease
@@ -220,30 +224,4 @@
 			}
 		}
 	}
-
-
-
-
-
-
-	.offer {
-		height: 11rem;
-		box-shadow: 0px 1px 4px -1px $color-shadow--main;
-		/* box-shadow: 0px 1px 7px -1px hsla(226, 75%, 11%, 0.25); */
-		background-color: #f2f1ee63;
-		/*  transition: background-color .3s ease-in-out;*/
-		/* background: linear-gradient(
-			25deg, 
-			hsla(60, 100%, 93.7%, 0.42),
-			#f2f1ee63,
-			#f2e6e180
-		); */
-	}
-
-	@media screen and (hover: hover) and (min-width: 824px) {
-		.offer:hover {
-			/*  */background-color: transparent;
-		}
-	}
-
 </style>

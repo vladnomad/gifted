@@ -23,7 +23,6 @@
 		ENTERTAINMENT: "Entertainment"
 	}
 
-
 	const latestOffers = [
 		{
 			title: "Pandora",
@@ -70,7 +69,7 @@
 	]
 
 	const mobileOffers = latestOffers.slice(0, 3)
-	const desktopOffers = latestOffers.slice(3)
+	const desktopOffers = latestOffers.slice(3, 6)
 </script>
 
 
@@ -80,7 +79,7 @@
 		<div class="offers__container">
 			<Offer v-for="(offer, i) in mobileOffers" :key="'offer--' + i"  :offer="offer" />
 		</div>
-		<div v-if="!isMobile" class="offers__container">
+		<div v-if="!isMobile" class="offers__container offers__container--desktop">
 			<Offer v-for="(offer, i) in desktopOffers" :key="'offer--' + i"  :offer="offer" />
 		</div>
 	</section>
@@ -106,6 +105,30 @@
 			flex-wrap: wrap;
 			gap: calc($spacing * 2);
 			margin-top: 3px;
+
+			& .offer {
+				background-color: $color-peach;
+
+				&:first-child {
+					background-color: $color-periwinkle;
+				}
+
+				&:last-child {
+					background-color: $color-mimosa;
+				}
+			}
+
+			&.offers__container--desktop .offer {
+				background-color: $color-seafoam;
+
+				&:first-child {
+					background-color: $color-mimosa;
+				}
+
+				&:last-child {
+					background-color: $color-periwinkle;
+				}
+			}
 		}
 	}
 
