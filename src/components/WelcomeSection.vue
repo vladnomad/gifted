@@ -147,7 +147,7 @@
   			min-width: 9.75rem;
 			
 			
-			filter: drop-shadow(2px 2px 2px $color-shadow--main);
+			filter: drop-shadow(2px 2px 2px $color-shadow--drop);
 /* 
 			&.welcome__image--left {
 				filter: drop-shadow(-2px 4px 6px $color-shadow);

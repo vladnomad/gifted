@@ -71,7 +71,7 @@
 		}
 
 		&__node {
-			box-shadow: 0px 1px 4px -1px $color-shadow--main;
+			box-shadow: 0px 1px 4px -1px $color-shadow--box;
 
 			
 			border-radius: 2.5rem;
