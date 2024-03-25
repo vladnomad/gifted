@@ -2,6 +2,7 @@
 	import { ref, inject } from "vue"
 
 	import LogoSVG from "../assets/LogoSVG.vue"
+	import UserSVG from "../assets/UserSVG.vue"
 
 	const isActive = ref(false)
 	const isMobile = inject("isMobile")
@@ -23,13 +24,13 @@
 			</div>
 			<nav class="header__nav">
 				<div v-if="!isMobile" class="header__nav-links">
-					<a class="header__nav-link" href="/about">
+					<a href="/about">
 						About
 					</a>
-					<a class="header__nav-link btn btn--hollow" href="/login">
-						Log In
+					<a class="header__nav-login" href="/login">
+						<UserSVG />
 					</a>
-					<a class="header__nav-link btn btn--filled" href="/join">
+					<a class="btn btn--filled" href="/join">
 						Join Now
 					</a>
 				</div>
@@ -97,17 +98,13 @@
 			&-links {
 				display: flex;
 				gap: calc($spacing * 2);
+				align-items: center;
 			}
 
-			&-link {
-				width: max-content;
-				padding-block: calc($spacing * .75);
+			&-login {
+				display: flex;
 			}
-
-			&-link:not(.btn) {
-				padding-inline: $spacing;
-			}
-
+			
 			&-menu {
 				border-radius: 2px;
 				position: relative;
@@ -165,9 +162,13 @@
 		}
 	}
 
-	.logo-svg {
+	.logo-svg,
+	.user-svg {
 		width: 21px;
 		height: auto;
+	}
+
+	.logo-svg {
 		margin-top: -3px;
 		margin-right: 3px;
 	}
@@ -177,7 +178,8 @@
 		.header__title {
 			font-size: 1.375vw;
 		}
-		.logo-svg {
+		.logo-svg,
+		.user-svg {
 			width: 1.6875vw;
 		}
 	}
@@ -186,7 +188,8 @@
 		.header__title {
 			font-size: 22px;
 		}
-		.logo-svg {
+		.logo-svg,
+		.user-svg {
 			width: 26px;
 		}
 	}
