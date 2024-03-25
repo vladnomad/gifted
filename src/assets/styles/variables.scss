@@ -1,5 +1,5 @@
 $color-black: hsl(0, 0%, 20%);
-$color-white: hsl(0, 0%, 100%);
+$color-white: hsl(38, 100%, 98%);
 
 $color-beige: hsl(45, 57%, 97%);
 
@@ -15,11 +15,9 @@ $color-mimosa--dark: hsl(49, 35%, 55%);
 $color-periwinkle: hsl(245, 90%, 88%);
 $color-periwinkle--dark: hsl(245, 35%, 55%);
 
-$color-sand: hsl(41, 44%, 92%);
-$color-sand--dark: hsl(37, 51%, 89%);
-
 $color-shadow: hsla(180, 3.9%, 75.1%, 0.9);
-$color-shadow--main: hsla(226, 75%, 11%, 0.5);
+$color-shadow--box: hsla(226, 75%, 11%, 0.5);
+$color-shadow--drop: hsla(226, 75%, 11%, 0.35);
 
 $spacing: 1rem;
 $gap: $spacing;
