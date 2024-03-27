@@ -8,9 +8,14 @@
 
 <template>
 	<footer class="footer">
-		<h2 class="footer__title">
-			Get to know Gifted community
-		</h2>
+		<div class="footer__headline">
+			<h2 class="footer__headline-title">
+				Get to know Gifted community
+			</h2>
+			<p class="footer__headline-text">
+				Join like-minded people who are doing things differently. Discover new swaps every day and contribute to a supportive community.
+			</p>
+		</div>
 
 		<img class="footer__image" :src="footerIMG" alt="" />
 		
@@ -19,23 +24,23 @@
 		</div>
 
 		<div class="footer__info">
-			<img class="footer__info-image" src="" alt="" />
 			<h3 class="footer__info-title">
-				Footer Item Title
+				Want to learn more about us?
 			</h3>
 			<p class="footer__info-text">
-				Footer Item Text
+				Check our latest updates and community events or get&nbsp;in&nbsp;touch for platform support at 
+				<a href="mailto:contact@gifted.com" class="link footer__email-link">contact@gifted.com</a>
 			</p>
 		</div>
 
 		<div class="footer__social">
-			<a class="footer__social-link">
+			<a href="https://instagram.com" class="footer__social-link">
 				<InstagramSVG />
 				<p class="footer__social-label footer__social-label--instagram">
 					Instagram
 				</p>
 			</a>
-			<a class="footer__social-link">
+			<a href="https://facebook.com" class="footer__social-link">
 				<FacebookSVG />
 				<p class="footer__social-label footer__social-label--facebook">
 					Facebook
@@ -44,15 +49,15 @@
 		</div>
 
 		<div class="footer__links">
-			<p class="footer__link">
+			<a href="terms-and-conditions" class="link footer__link">
 				Terms & Conditions
-			</p>
-			<p class="footer__link">
+			</a>
+			<a href="privacy-policy" class="link footer__link">
 				Privacy Policy
-			</p>
-			<p class="footer__link">
+			</a>
+			<a href="/" class="link footer__link">
 				madebynomad.dev
-			</p>
+			</a>
 		</div>
 
 	</footer>
@@ -64,8 +69,8 @@
 
 	.facebook-svg, 
 	.instagram-svg {
-		width: calc($spacing * 4);
-		height: calc($spacing * 4);
+		width: calc($spacing * 5);
+		height: calc($spacing * 5);
 		transition: transform .25s ease;
 	}
 
@@ -75,15 +80,24 @@
 		grid-column-gap: calc($spacing * 2);
 		grid-row-gap: calc($spacing * 2);
 		width: 100%;
-		margin-block: calc($spacing * 16) calc($spacing * 4);
+		margin-block: calc($spacing * 16) 0;
 
-		&__title {
-			font-family: $font-display;
-			font-size: 26px;
-			text-wrap: balance;
-			font-weight: 500;
-			top: -4px;
-			position: relative;
+		&__headline {
+			&-title {
+				font-family: $font-display;
+				font-size: 26px;
+				font-weight: 600;
+				text-wrap: balance;
+				top: -4px;
+				position: relative;
+				margin-block: calc($spacing * 1.25);
+			}
+
+			&-text {
+				font-weight: 300;
+				text-wrap: balance;
+				margin-block: calc($spacing / 2);
+			}
 		}
 
 		&-svg {
@@ -112,23 +126,28 @@
 			font-weight: 300;
 		}
 
+		&__email-link {
+			bottom: -7px;
+		}
+
 		&__info {			
 			border-radius: 2.5rem;
 			flex-direction: column;
 			align-items: flex-start;
 			padding: calc($spacing * 2);
-			display: flex;
 
 			&-title {
 				font-family: $font-display;
-				font-size: 18px;
-				margin: 0;
+
+				text-wrap: balance;
+				text-align: right;
+				font-size: 40px;
+				margin-block: auto;
 			}
 
 			&-text {
 				font-weight: 300;
-				text-wrap: balance;
-				margin-block: calc($spacing / 2);
+				text-align: right;
 			}
 		}
 
@@ -141,7 +160,7 @@
 			align-items: center;
 			padding-inline: calc($spacing * 2);
 			padding-block: 0 calc($spacing * 2);
-			margin-top: calc($spacing * -1);
+			margin-top: calc($spacing * -2);
 
 			&-link {
 				width: 100%;
@@ -153,7 +172,9 @@
 			}
 
 			&-label {
-				font-weight: 300;
+				font-family: $font-display;
+				font-size: 20px;
+				font-weight: 600;
 				opacity: 0;
 				z-index: -1;
 				position: absolute;
@@ -163,11 +184,11 @@
 				;
 
 				&--instagram {
-					transform: translateX(65px);
+					transform: translateX(80px);
 				}
 
 				&--facebook {
-					transform: translateX(-65px);
+					transform: translateX(-80px);
 				}
 			}
 		}
@@ -178,17 +199,20 @@
 			grid-template-columns: 1fr 14rem 16rem;
 			grid-template-rows: 1fr 16rem 14rem;
 
-			&__title {
+			&__headline {
 				grid-column: 2 / span 3;
 				grid-row: 1;
+
 			}
 			
 			&__image {	
 				grid-column: 1;
 				grid-row: 1 / span 3;
-				margin-right: calc($spacing * 5);
+				margin-right: calc($spacing * 4);
 				margin-left: calc(calc($spacing * 2) * -1);
 				min-height: 494px;
+				max-height: 660px;
+				align-self: flex-end;
 				height: 100%;
 				width: auto;
 			}
@@ -218,20 +242,20 @@
 
 				&-link:hover {
 					& .instagram-svg {
-						transform: translateX(-40px);
+						transform: translateX(-50px);
 					}
 
 					& .footer__social-label--instagram {
-						transform: translateX(40px);
+						transform: translateX(45px);
 						opacity: 1;
 					}
 
 					& .facebook-svg {
-						transform: translateX(40px);
+						transform: translateX(50px);
 					}
 
 					& .footer__social-label--facebook {
-						transform: translateX(-40px);
+						transform: translateX(-45px);
 						opacity: 1;
 					}
 				}
@@ -241,28 +265,28 @@
 	}
 
 	@media screen and (min-width: 1280px) {
-		.footer__title {
+		.footer__headline-title {
 			font-size: 2vw;
 		}
 
 		.footer__info-title {
-			font-size: 1.4375vw;
+			font-size: 3vw;
 		}
 	}
 
 	@media screen and (min-width: 1590px) {
-		.footer__title {
-			font-size: 32px;
+		.footer__headline-title {
+			font-size: 44px;
 		}
 
 		.footer__info-title {
-			font-size: 22px;
+			font-size: 44px;
 		}
 	}
 
 	@media screen and (max-width: 824px) {	
 		.footer__info {	
-			min-height: 20rem;
+			/*  */min-height: 20rem;
 		}
 	}
 </style>
