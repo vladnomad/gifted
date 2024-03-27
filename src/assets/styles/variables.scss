@@ -42,5 +42,5 @@ $font-fallback:
     sans-serif
 ;
 
-$font-sans-serif: "Prompt", $font-fallback;
-$font-display: "Gloock", $font-fallback;
+$font-sans-serif: ("Prompt", $font-fallback);
+$font-display: ("Gloock", $font-fallback);
