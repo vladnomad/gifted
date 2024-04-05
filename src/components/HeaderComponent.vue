@@ -1,8 +1,8 @@
 <script setup>
 	import { ref, inject } from "vue"
 
-	import LogoSVG from "../assets/LogoSVG.vue"
-	import UserSVG from "../assets/UserSVG.vue"
+	import LogoSVG from "../assets/svg/LogoSVG.vue"
+	import UserSVG from "../assets/svg/UserSVG.vue"
 
 	const isActive = ref(false)
 	const isMobile = inject("isMobile")
@@ -17,20 +17,20 @@
 	<header class="header">
 		<div class="header__container">
 			<div class="header__title-wrapper">
-				<a class="header__title" href="#">
+				<a class="header__title" href="/gifted">
 					<LogoSVG />
 					Gifted
 				</a>
 			</div>
 			<nav class="header__nav">
 				<div v-if="!isMobile" class="header__nav-links">
-					<a href="/about">
+					<a href="about">
 						About
 					</a>
-					<a class="header__nav-login" href="/login">
+					<a class="header__nav-login" href="login">
 						<UserSVG />
 					</a>
-					<a class="btn btn--filled" href="/join">
+					<a class="btn btn--filled" href="join">
 						Join Now
 					</a>
 				</div>
@@ -53,6 +53,7 @@
 
 <style lang="scss" scoped>
 	@import "../assets/styles/variables.scss";
+	@import "../assets/styles/keyframes.css";
 
 	.header {
 		position: sticky;
@@ -137,28 +138,28 @@
 			margin-top: 4px;
 		}
 
-		&.active span:nth-child(1) {
-			animation: ease .7s top forwards;
-		}
-
 		&.not-active span:nth-child(1) {
-			animation: ease .7s top-2 forwards;
+			animation: ease .7s headerComponent_10 forwards;
 		}
 
-		&.active span:nth-child(2) {
-			animation: ease .7s scaled forwards;
+		&.active span:nth-child(1) {
+			animation: ease .7s headerComponent_11 forwards;
 		}
 
 		.not-active span:nth-child(2) {
-			animation: ease .7s scaled-2 forwards;
+			animation: ease .7s headerComponent_20 forwards;
 		}
 
-		&.active span:nth-child(3) {
-			animation: ease .7s bottom forwards;
+		&.active span:nth-child(2) {
+			animation: ease .7s headerComponent_21 forwards;
 		}
 
 		&.not-active span:nth-child(3) {
-			animation: ease .7s bottom-2 forwards;
+			animation: ease .7s headerComponent_30 forwards;
+		}
+
+		&.active span:nth-child(3) {
+			animation: ease .7s headerComponent_31 forwards;
 		}
 	}
 
@@ -201,88 +202,6 @@
 				minmax(calc($spacing * 3), auto) 
 				calc($spacing * 6)
 			;
-		}
-	}
-
-
-	@keyframes top {
-		0% {
-			top: 0;
-			transform: rotate(0);
-		}
-		50% {
-			top: 6px;
-			transform: rotate(0);
-		}
-		100% {
-			top: 6px;
-			transform: rotate(45deg);
-		}
-	}
-
-	@keyframes top-2 {
-		0% {
-			top: 6px;
-			transform: rotate(45deg);
-		}
-		50% {
-			top: 6px;
-			transform: rotate(0deg);
-		}
-		100% {
-			top: 0;
-			transform: rotate(0deg);
-		}
-	}
-
-	@keyframes bottom {
-		0% {
-			bottom: 0;
-			transform: rotate(0);
-		}
-		50% {
-			bottom: 6px;
-			transform: rotate(0);
-		}
-		100% {
-			bottom: 6px;
-			transform: rotate(135deg);
-		}
-	}
-
-	@keyframes bottom-2 {
-		0% {
-			bottom: 6px;
-			transform: rotate(135deg);
-		}
-		50% {
-			bottom: 6px;
-			transform: rotate(0);
-		}
-		100% {
-			bottom: 0;
-			transform: rotate(0);
-		}
-	}
-
-	@keyframes scaled {
-		50% {
-			transform: scale(0);
-		}
-		100% {
-			transform: scale(0);
-		}
-	}
-
-	@keyframes scaled-2 {
-		0% {
-			transform: scale(0);
-		}
-		50% {
-			transform: scale(0);
-		}
-		100% {
-			transform: scale(1);
 		}
 	}
 </style>
