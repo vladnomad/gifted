@@ -3,8 +3,8 @@
 
 	import HeaderComponent from "./components/HeaderComponent.vue"
 	import WelcomeSection from "./components/WelcomeSection.vue"
-	import FeaturesGrid from "./components/FeaturesGrid.vue"
-	import OffersList from "./components/OffersList.vue"
+	import FeatureGrid from "./components/FeatureGrid.vue"
+	import OfferList from "./components/OfferList.vue"
 	import FooterComponent from "./components/FooterComponent.vue"
 
 	const isMobile = ref(false)
@@ -33,8 +33,8 @@
 	
 	<main class="main">
 		<WelcomeSection />
-		<FeaturesGrid />
-		<OffersList />
+		<FeatureGrid />
+		<OfferList />
 		<FooterComponent />
 	</main>
 	
