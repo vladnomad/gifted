@@ -1,8 +1,10 @@
 <script setup>
-	import footerIMG from "../assets/img/01/4.png"
-	import FooterSVG from "../assets/FooterSVG.vue"
-	import InstagramSVG from "../assets/InstagramSVG.vue"
-	import FacebookSVG from "../assets/FacebookSVG.vue"
+	import FooterSVG from "../assets/svg/FooterSVG.vue"
+
+	import footerIMG from "../assets/img/illustrations/footerComponent.png"
+
+	import instagramIMG from "../assets/img/icons/footerComponent_instagram.png"
+	import facebookIMG from "../assets/img/icons/footerComponent_facebook.png"
 </script>
 
 
@@ -35,13 +37,13 @@
 
 		<div class="footer__social">
 			<a href="https://instagram.com" class="footer__social-link">
-				<InstagramSVG />
+				<img class="footer__social-image footer__social-image--instagram" :src="instagramIMG" alt="" />
 				<p class="footer__social-label footer__social-label--instagram">
 					Instagram
 				</p>
 			</a>
 			<a href="https://facebook.com" class="footer__social-link">
-				<FacebookSVG />
+				<img class="footer__social-image footer__social-image--facebook" :src="facebookIMG" alt="" />
 				<p class="footer__social-label footer__social-label--facebook">
 					Facebook
 				</p>
@@ -67,13 +69,6 @@
 <style lang="scss" scoped>
 	@import "../assets/styles/variables.scss";
 
-	.facebook-svg, 
-	.instagram-svg {
-		width: calc($spacing * 5);
-		height: calc($spacing * 5);
-		transition: transform .25s ease;
-	}
-
 	.footer {
 		display: grid;
 		grid-auto-columns: 1fr;
@@ -90,7 +85,7 @@
 				text-wrap: balance;
 				top: -4px;
 				position: relative;
-				margin-block: calc($spacing * 1.25);
+				margin-block: calc($spacing * 1.25) calc($spacing * .5);
 			}
 
 			&-text {
@@ -162,6 +157,20 @@
 			padding-block: 0 calc($spacing * 2);
 			margin-top: calc($spacing * -2);
 
+			&-image {
+				transition: transform .25s ease;
+
+				&--instagram {
+					width: calc($spacing * 6);
+					height: calc($spacing * 6);
+				}
+
+				&--facebook {
+					width: calc($spacing * 5.5);
+					height: calc($spacing * 5.5);
+				}
+			}
+
 			&-link {
 				width: 100%;
 				height: 50%;
@@ -172,12 +181,16 @@
 			}
 
 			&-label {
-				font-family: $font-display;
-				font-size: 20px;
-				font-weight: 600;
 				opacity: 0;
 				z-index: -1;
 				position: absolute;
+				font-weight: 300;
+				text-decoration: underline;
+				text-underline-offset: .3275rem;
+				text-decoration-thickness: 2px;
+				text-decoration-color: hsl(160, 40%, 80%);
+				mix-blend-mode: multiply;
+				letter-spacing: .25px;
 				transition: 
 					opacity .25s ease,
 					transform .25s ease
@@ -200,18 +213,18 @@
 			grid-template-rows: 1fr 16rem 14rem;
 
 			&__headline {
-				grid-column: 2 / span 3;
+				grid-column: 1/span 4;
 				grid-row: 1;
-
+				padding-bottom: 1rem;
 			}
 			
 			&__image {	
 				grid-column: 1;
 				grid-row: 1 / span 3;
-				margin-right: calc($spacing * 4);
-				margin-left: calc(calc($spacing * 2) * -1);
+				margin-left: -2rem;
+				margin-bottom: -.5rem;
 				min-height: 494px;
-				max-height: 660px;
+				max-height: 544px;
 				align-self: flex-end;
 				height: 100%;
 				width: auto;
@@ -241,7 +254,7 @@
 				grid-row: 3;
 
 				&-link:hover {
-					& .instagram-svg {
+					& .footer__social-image--instagram {
 						transform: translateX(-50px);
 					}
 
@@ -250,7 +263,7 @@
 						opacity: 1;
 					}
 
-					& .facebook-svg {
+					& .footer__social-image--facebook {
 						transform: translateX(50px);
 					}
 
