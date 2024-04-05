@@ -1,23 +1,23 @@
 <script setup>
 	import { ref, reactive, onMounted, onBeforeUnmount } from "vue"
 
-	import welcomeImage1 from "../assets/img/01/15.png"
-	import welcomeImage2 from "../assets/img/01/16.png"
-	import welcomeImage3 from "../assets/img/01/24.png"
-	import welcomeImage4 from "../assets/img/01/18.png"
-	import welcomeImage5 from "../assets/img/01/19.png"
-	import welcomeImage6 from "../assets/img/01/14.png"
+	import icon_1 from "../assets/img/icons/welcomeSection_1.png"
+	import icon_2 from "../assets/img/icons/welcomeSection_2.png"
+	import icon_3 from "../assets/img/icons/welcomeSection_3.png"
+	import icon_4 from "../assets/img/icons/welcomeSection_4.png"
+	import icon_5 from "../assets/img/icons/welcomeSection_5.png"
+	import icon_6 from "../assets/img/icons/welcomeSection_6.png"
 
 	const cursorX = ref(0)
 	const cursorY = ref(0)
 
 	const transforms = reactive({
-		t1: "translate(0,0)",
-		t2: "translate(0,0)",
-		t3: "translate(0,0)",
-		t4: "translate(0,0)",
-		t5: "translate(0,0)",
-		t6: "translate(0,0)",
+		i1: "translate(0,0)",
+		i2: "translate(0,0)",
+		i3: "translate(0,0)",
+		i4: "translate(0,0)",
+		i5: "translate(0,0)",
+		i6: "translate(0,0)",
 	})
 
 	onMounted(() => {
@@ -36,15 +36,15 @@
 	}
 
 	const handleMouseOver = () => {
-		transforms.t1 = transformIMG(1)
-		transforms.t2 = transformIMG(2)
-		transforms.t3 = transformIMG(3)
-		transforms.t4 = transformIMG(4)
-		transforms.t5 = transformIMG(5)
-		transforms.t6 = transformIMG(6)
+		transforms.i1 = transformIcon(1)
+		transforms.i2 = transformIcon(2)
+		transforms.i3 = transformIcon(3)
+		transforms.i4 = transformIcon(4)
+		transforms.i5 = transformIcon(5)
+		transforms.i6 = transformIcon(6)
 	}
 
-	const transformIMG = (i) => {
+	const transformIcon = (i) => {
 		const wrapper = document.querySelector(`.welcome__image-wrapper--${i}`)
 		
 		if (wrapper) {
@@ -86,7 +86,7 @@
 			
 			return `translate(${transformX}px, ${transformY}px)`
 		}
-		
+			
 		return "translate(0,0)"
 	}
 </script>
@@ -94,17 +94,14 @@
 
 <template>
 	<section class="welcome" aria-labelledby="welcome__title">
-		<div class="welcome__image-wrapper welcome__image-wrapper--1"
-			:style="{ transform: transforms.t1 }">
-			<img class="welcome__image welcome__image--left welcome__image--1" :src="welcomeImage1" alt="">
+		<div class="welcome__image-wrapper welcome__image-wrapper--1" :style="{ transform: transforms.i1 }">
+			<img class="welcome__image welcome__image--left welcome__image--1" :src="icon_1" alt="">
 		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--2"
-			:style="{ transform: transforms.t2 }">
-			<img class="welcome__image welcome__image--left welcome__image--2" :src="welcomeImage2" alt="">
+		<div class="welcome__image-wrapper welcome__image-wrapper--2" :style="{ transform: transforms.i2 }">
+			<img class="welcome__image welcome__image--left welcome__image--2" :src="icon_2" alt="">
 		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--3"
-			:style="{ transform: transforms.t3 }">
-			<img class="welcome__image welcome__image--left welcome__image--3" :src="welcomeImage3" alt="">
+		<div class="welcome__image-wrapper welcome__image-wrapper--3" :style="{ transform: transforms.i3 }">
+			<img class="welcome__image welcome__image--left welcome__image--3" :src="icon_3" alt="">
 		</div>
 			<div class="welcome__center">
 			<h1 class="welcome__title" id="welcome__title">
@@ -118,16 +115,16 @@
 			</a>
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--4"
-			:style="{ transform: transforms.t4 }">
-			<img class="welcome__image welcome__image--right welcome__image--4" :src="welcomeImage4" alt="">
+			:style="{ transform: transforms.i4 }">
+			<img class="welcome__image welcome__image--right welcome__image--4" :src="icon_4" alt="">
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--5"
-			:style="{ transform: transforms.t5 }">
-			<img class="welcome__image welcome__image--right welcome__image--5" :src="welcomeImage5" alt="">
+			:style="{ transform: transforms.i5 }">
+			<img class="welcome__image welcome__image--right welcome__image--5" :src="icon_5" alt="">
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--6"
-			:style="{ transform: transforms.t6 }">
-			<img class="welcome__image welcome__image--right welcome__image--6" :src="welcomeImage6" alt="">
+			:style="{ transform: transforms.i6 }">
+			<img class="welcome__image welcome__image--right welcome__image--6" :src="icon_6" alt="">
 		</div>
 	</section>
 </template>
@@ -145,18 +142,8 @@
 		&__image {
 			width: 8vw;
   			min-width: 9.75rem;
-			
-			
 			filter: drop-shadow(2px 2px 2px $color-shadow--drop);
-/* 
-			&.welcome__image--left {
-				filter: drop-shadow(-2px 4px 6px $color-shadow);
-			}
 
-			&.welcome__image--right {
-				filter: drop-shadow(2px -4px 6px $color-shadow);
-			}
- */
 			&-wrapper {
 				display: grid;
 				width: 100%;
