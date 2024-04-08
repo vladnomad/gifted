@@ -136,8 +136,9 @@
 	.welcome {
 		display: grid;
 		grid-template-columns: 1fr 1fr 25rem 1fr 1fr;
-		grid-template-rows: repeat(3, 1fr) 5.25rem;
-		height: calc(100dvh - 5.25rem);
+		/* grid-template-rows: repeat(3, 1fr) 5.25rem; */
+		grid-template-rows: repeat(3, 15.125rem) 5.25rem;
+		/* height: calc(100dvh - 5.25rem); */
 
 		&__image {
 			width: 8vw;
@@ -211,7 +212,7 @@
 
 		&__title {
 			font-family: $font-display;
-			font-size: 36px;
+			font-size: 33px;
 			margin: 0;
 		}
 
@@ -221,9 +222,9 @@
 		}
 	}
 
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1192px) {
 		.welcome__title {
-			font-size: 2.75vw;
+			font-size: 2.773vw;
 		}
 	}
 

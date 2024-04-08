@@ -146,6 +146,7 @@
 				class="bento__node-illustration"
 				:src="article.images.illustration.src"
 				:alt="article.images.illustration.alt"
+				loading="lazy"
 			/>
 			<img 
 				v-for="(icon, key) in article.images.icons"
@@ -153,6 +154,7 @@
 				:class="['bento__node-icon', 'bento__node-icon--' + key]"
 				:src="icon.src"
 				:alt="icon.alt"
+				loading="lazy"
 			/>
 			<h3 class="bento__node-title">{{ article.title }}</h3>
 			<p class="bento__node-text">{{ article.text }}</p>
@@ -176,7 +178,7 @@
 
 		&__title {
 			font-family: $font-display;
-			font-size: 26px;
+			font-size: 33px;
 			text-wrap: balance;
 			text-align: center;
 			padding-left: 30%;
@@ -199,7 +201,7 @@
 
 			&-title {
 				font-family: $font-display;
-				font-size: 18px;
+				font-size: 19.5px;
 				margin: 0;
 			}
 
@@ -470,13 +472,13 @@
 		}
 	}
 
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1192px) {
 		.bento__title {
-			font-size: 2vw;
+			font-size: 2.773vw;
 		}
 
 		.bento__node-title {
-			font-size: 1.4375vw;
+			font-size: 1.635vw;
 		}
 	}
 

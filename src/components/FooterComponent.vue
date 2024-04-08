@@ -19,7 +19,7 @@
 			</p>
 		</div>
 
-		<img class="footer__image" :src="footerIMG" alt="" />
+		<img class="footer__image" :src="footerIMG" alt="" loading="lazy" />
 		
 		<div class="footer__info-bg">
 			<FooterSVG />
@@ -37,13 +37,13 @@
 
 		<div class="footer__social">
 			<a href="https://instagram.com" class="footer__social-link">
-				<img class="footer__social-image footer__social-image--instagram" :src="instagramIMG" alt="" />
+				<img class="footer__social-image footer__social-image--instagram" :src="instagramIMG" alt="" loading="lazy" />
 				<p class="footer__social-label footer__social-label--instagram">
 					Instagram
 				</p>
 			</a>
 			<a href="https://facebook.com" class="footer__social-link">
-				<img class="footer__social-image footer__social-image--facebook" :src="facebookIMG" alt="" />
+				<img class="footer__social-image footer__social-image--facebook" :src="facebookIMG" alt="" loading="lazy" />
 				<p class="footer__social-label footer__social-label--facebook">
 					Facebook
 				</p>
@@ -74,17 +74,15 @@
 		grid-auto-columns: 1fr;
 		grid-column-gap: calc($spacing * 2);
 		grid-row-gap: calc($spacing * 2);
-		width: 100%;
+		/* width: 100%; */
 		margin-block: calc($spacing * 16) 0;
 
 		&__headline {
 			&-title {
 				font-family: $font-display;
-				font-size: 26px;
+				font-size: 33px;
 				font-weight: 600;
 				text-wrap: balance;
-				top: -4px;
-				position: relative;
 				margin-block: calc($spacing * 1.25) calc($spacing * .5);
 			}
 
@@ -136,7 +134,7 @@
 
 				text-wrap: balance;
 				text-align: right;
-				font-size: 40px;
+				font-size: 33px;
 				margin-block: auto;
 			}
 
@@ -197,11 +195,11 @@
 				;
 
 				&--instagram {
-					transform: translateX(80px);
+					transform: translateX(1.5vw);
 				}
 
 				&--facebook {
-					transform: translateX(-80px);
+					transform: translateX(-1.5vw);
 				}
 			}
 		}
@@ -209,11 +207,12 @@
 
 	@media screen and (min-width: 824px) {	
 		.footer {
-			grid-template-columns: 1fr 14rem 16rem;
+			/* grid-template-columns: 1fr 14rem 16rem; */
+			grid-template-columns: 31.5rem 14rem 16rem;
 			grid-template-rows: 1fr 16rem 14rem;
 
 			&__headline {
-				grid-column: 1/span 4;
+				grid-column: 1 / span 3;
 				grid-row: 1;
 				padding-bottom: 1rem;
 			}
@@ -222,11 +221,11 @@
 				grid-column: 1;
 				grid-row: 1 / span 3;
 				margin-left: -2rem;
-				margin-bottom: -.5rem;
-				min-height: 494px;
+				/* margin-bottom: -.5rem; */
+				/* min-height: 494px; */
 				max-height: 544px;
 				align-self: flex-end;
-				height: 100%;
+				height: 82%;
 				width: auto;
 			}
 
@@ -255,45 +254,82 @@
 
 				&-link:hover {
 					& .footer__social-image--instagram {
-						transform: translateX(-50px);
+						transform: translateX(-3rem);
 					}
 
 					& .footer__social-label--instagram {
-						transform: translateX(45px);
+						transform: translateX(3rem);
 						opacity: 1;
 					}
 
 					& .footer__social-image--facebook {
-						transform: translateX(50px);
+						transform: translateX(3rem);
 					}
 
 					& .footer__social-label--facebook {
-						transform: translateX(-45px);
+						transform: translateX(-3rem);
 						opacity: 1;
 					}
 				}
 			}
-
 		}
 	}
 
-	@media screen and (min-width: 1280px) {
-		.footer__headline-title {
-			font-size: 2vw;
-		}
+	@media screen and (min-width: 1192px) {
+		.footer {
+			&__headline-title,
+			&__info-title {
+				font-size: 2.773vw;
+			}
+/* 
+			&__social-link:hover {
+				& .footer__social-image--instagram {
+					transform: translateX(-3vw);
+				}
 
-		.footer__info-title {
-			font-size: 3vw;
+				& .footer__social-label--instagram {
+					transform: translateX(2.5vw);
+					opacity: 1;
+				}
+
+				& .footer__social-image--facebook {
+					transform: translateX(3vw);
+				}
+
+				& .footer__social-label--facebook {
+					transform: translateX(-2.5vw);
+					opacity: 1;
+				}
+			} */
 		}
 	}
 
 	@media screen and (min-width: 1590px) {
-		.footer__headline-title {
-			font-size: 44px;
-		}
+		.footer {
+			&__headline-title,
+			&__info-title {
+				font-size: 44px;
+			}
+/* 
+			&__social-link:hover {
+				& .footer__social-image--instagram {
+					transform: translateX(-3rem);
+				}
 
-		.footer__info-title {
-			font-size: 44px;
+				& .footer__social-label--instagram {
+					transform: translateX(3rem);
+					opacity: 1;
+				}
+
+				& .footer__social-image--facebook {
+					transform: translateX(3rem);
+				}
+
+				& .footer__social-label--facebook {
+					transform: translateX(-3rem);
+					opacity: 1;
+				}
+			} */
 		}
 	}
 

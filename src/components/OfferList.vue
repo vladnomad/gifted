@@ -74,12 +74,12 @@
 
 
 <template>
-	<section class="offers">
-		<h2 class="offers__title">Latest Offers</h2>
-		<div class="offers__container">
+	<section class="offer-list">
+		<h2 class="offer-list__title">Latest Offers</h2>
+		<div class="offer-list__container">
 			<OfferListItem v-for="(offer, i) in mobileOffers" :key="'offer--' + i"  :offer="offer" />
 		</div>
-		<div v-if="!isMobile" class="offers__container offers__container--desktop">
+		<div v-if="!isMobile" class="offer-list__container offer-list__container--desktop">
 			<OfferListItem v-for="(offer, i) in desktopOffers" :key="'offer--' + i"  :offer="offer" />
 		</div>
 	</section>
@@ -89,12 +89,12 @@
 <style lang="scss" scoped>
 	@import "../assets/styles/variables.scss";
 
-	.offers {
+	.offer-list {
 		margin-block: calc($spacing * 16) calc($spacing * 4);
 
 		&__title {
 			font-family: $font-display;
-			font-size: 44px;
+			font-size: 33px;
 			text-wrap: balance;
 			margin-left: calc($spacing * 1.875);
 			margin-bottom: calc($spacing * 4);
@@ -118,7 +118,7 @@
 				}
 			}
 
-			&.offers__container--desktop .offer {
+			&.offer-list__container--desktop .offer {
 				background-color: $color-seafoam;
 
 				&:first-child {
@@ -133,9 +133,21 @@
 	}
 
 	@media screen and (hover: hover) and (min-width: 824px) {
-		.offers__container {
+		.offer-list__container {
 			gap: 2rem;
 			margin-bottom: 2rem;
+		}
+	}
+
+	@media screen and (min-width: 1192px) {
+		.offer-list__title {
+			font-size: 2.773vw;
+		}
+	}
+
+	@media screen and (min-width: 1590px) {
+		.offer-list__title {
+			font-size: 44px;
 		}
 	}
 </style>

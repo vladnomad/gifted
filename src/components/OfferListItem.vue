@@ -38,11 +38,11 @@
             <h4 class="offer__title">{{ offer.author.split(" ").join("\n") }}</h4>
             <p class="offer__date">{{ defineTimeAgo(offer.date) }}</p>
         </div>
-        <div class="offer__tags">
+        <div class="offer__tag-container">
             <a class="offer__tag" href="#" title="Some Title">{{ offer.tag }}</a>
         </div>
         <div class="offer__photo-container">
-            <img class="offer__photo" alt="" :src="offer.photo" />
+            <img class="offer__photo" alt="" :src="offer.photo" loading="lazy" />
         </div>
         <a class="offer__link" href="#">
             <ArrowSVG />
@@ -83,17 +83,17 @@
 
 		&__title {
 			white-space: pre-line;
-			position: relative;
-			top: -4px;
+			/* position: relative;
+			top: -4px; */
 			font-family: $font-display;
-			font-size: 21px;
+			font-size: 16.25px;
 			font-weight: 600;
 		}
 
 		&__date, &__tag {
 			font-weight: 300;
-			position: relative;
-			bottom: 3px;
+			/* position: relative;
+			bottom: 3px; */
 		}
 
 		&__date {
@@ -115,13 +115,16 @@
 			grid-row: 3;
 		}
 
-		&__link, &__tags {
+		&__link, &__tag-container {
 			grid-column: 2;
 			justify-self: right;
 		}
 
-		&__tags {
+		&__tag-container {
 			grid-row: 1;
+			display: flex;
+			gap: 1rem;
+			align-self: center;
 		}
 
 		&__link {
@@ -147,11 +150,6 @@
 			display: flex;
 			flex-direction: column;
 			height: 100%;
-		}
-
-		&__tags {
-			display: flex;
-			gap: 1rem;
 		}
 
 		&__photo {
@@ -188,7 +186,7 @@
 	}
 
 	@media screen and (hover: hover) and (min-width: 824px) {
-		.offers__container:has(.offer:hover) .offer:not(:hover) {
+		.offer-list__container:has(.offer:hover) .offer:not(:hover) {
 			& .offer__photo {
 				height: 100%;
 			}
@@ -222,6 +220,24 @@
 					opacity .45s ease,
 					transform .45s ease
 				;
+			}
+		}
+	}
+
+	@media screen and (min-width: 1142px) {
+		.offer__title {
+			font-size: 1.425vw;
+		}
+	}
+
+	@media screen and (min-width: 1405px) {
+		.offer {
+			&__title {
+				font-size: 20px;
+			}
+
+			&__tag-container {
+				align-self: baseline;
 			}
 		}
 	}
