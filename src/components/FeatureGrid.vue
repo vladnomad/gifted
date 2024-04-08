@@ -174,14 +174,14 @@
 		grid-column-gap: calc($spacing * 2);
 		grid-row-gap: calc($spacing * 2);
 		width: 100%;
-		margin-block: calc($spacing * 16) calc($spacing * 4);
+		margin-block: calc($spacing * 8) calc($spacing * 4);
 
 		&__title {
 			font-family: $font-display;
-			font-size: 33px;
 			text-wrap: balance;
 			text-align: center;
-			padding-left: 30%;
+			font-size: 28px;
+			padding-bottom: 13.125rem;
 		}
 
 		article:nth-child(even) {
@@ -201,7 +201,7 @@
 
 			&-title {
 				font-family: $font-display;
-				font-size: 19.5px;
+				font-size: 22px;
 				margin: 0;
 			}
 
@@ -254,13 +254,13 @@
 				& .bento__node-illustration {
 					left: 0;
 					max-width: 17.5rem;
-					bottom: 5.65rem;
+					bottom: 13.125rem;
 				}
 
 				& .bento__node-icon {
-					right: 3.25rem;
 					max-width: 8rem;
-					top: 1rem;
+					top: 7rem;
+					right: 1.25rem;
 
 					animation-timing-function: ease-in-out;
 
@@ -447,15 +447,32 @@
 	@media screen and (min-width: 824px) {	
 		.bento {
 			grid-template-columns: 4fr repeat(2, 3fr);
+			margin-block: calc($spacing * 16) calc($spacing * 4);
 		}
 
 		.bento__title {
 			grid-area: 1 / 1 / 1 / 4;
+
+			font-size: 33px;
+			padding-left: 30%;
 		}
 		
 		.bento__node {	
+			&-title {
+				font-size: 19.5px;
+			}
+
 			&--1 {
 				grid-area: 2 / 1 / 2 / 3;
+
+				& .bento__node-illustration {
+					bottom: 5.65rem;
+				}
+
+				& .bento__node-icon {
+					top: 1rem;
+					right: 3.25rem;
+				}
 			}
 			
 			&--2 {

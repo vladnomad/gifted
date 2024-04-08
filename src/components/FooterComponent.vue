@@ -75,7 +75,7 @@
 		grid-column-gap: calc($spacing * 2);
 		grid-row-gap: calc($spacing * 2);
 		/* width: 100%; */
-		margin-block: calc($spacing * 16) 0;
+		margin-block: calc($spacing * 8) 0;
 
 		&__headline {
 			&-title {
@@ -210,6 +210,7 @@
 			/* grid-template-columns: 1fr 14rem 16rem; */
 			grid-template-columns: 31.5rem 14rem 16rem;
 			grid-template-rows: 1fr 16rem 14rem;
+			margin-block: calc($spacing * 16) 0;
 
 			&__headline {
 				grid-column: 1 / span 3;

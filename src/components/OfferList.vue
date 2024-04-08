@@ -90,7 +90,7 @@
 	@import "../assets/styles/variables.scss";
 
 	.offer-list {
-		margin-block: calc($spacing * 16) calc($spacing * 4);
+		margin-block: calc($spacing * 8) calc($spacing * 4);
 
 		&__title {
 			font-family: $font-display;
@@ -133,9 +133,13 @@
 	}
 
 	@media screen and (hover: hover) and (min-width: 824px) {
-		.offer-list__container {
-			gap: 2rem;
-			margin-bottom: 2rem;
+		.offer-list {
+			margin-block: calc($spacing * 16) calc($spacing * 4);
+
+			&__container {
+				gap: 2rem;
+				margin-bottom: 2rem;
+			}
 		}
 	}
 

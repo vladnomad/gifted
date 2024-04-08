@@ -63,8 +63,9 @@
 		grid-column: main;
 
 		&__container {
-			min-height: 40px;
 			display: grid;
+			min-height: 40px;
+			width: calc(100dvw - 5rem);
 			grid-template-columns: 
 				calc($spacing * 6) 
 				minmax(calc($spacing * 3), auto) 
@@ -173,7 +174,6 @@
 		margin-top: -3px;
 		margin-right: 3px;
 	}
-
 
 	@media screen and (min-width: 1238px) {
 		.header__title {
