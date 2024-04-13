@@ -1,5 +1,5 @@
 <script setup>
-	import { ref, inject } from "vue"
+	import { ref, inject, onMounted, onBeforeUnmount } from "vue"
 
 	import LogoSVG from "../assets/svg/LogoSVG.vue"
 	import UserSVG from "../assets/svg/UserSVG.vue"
@@ -10,6 +10,26 @@
 	const toggleMenu = () => {
 		isActive.value = !isActive.value
 	}
+
+// TESTING: 
+// MOBILE RESPONSIVENESS
+	const windowWidth = ref(window.innerWidth)
+
+	const checkWidth = () => {
+		windowWidth.value = window.innerWidth
+	}
+
+	const handleResize = () => checkWidth()
+
+	onMounted(() => {
+		checkWidth()
+		window.addEventListener("resize", handleResize)
+	})
+
+	onBeforeUnmount(() => {
+		window.removeEventListener("resize", handleResize)
+	})
+// END TESTING
 </script>
 
 
@@ -19,7 +39,7 @@
 			<div class="header__title-wrapper">
 				<a class="header__title" href="/gifted">
 					<LogoSVG />
-					Gifted
+					{{ windowWidth }}
 				</a>
 			</div>
 			<nav class="header__nav">
@@ -58,7 +78,7 @@
 	.header {
 		position: sticky;
 		top: 1.25rem;
-		z-index: 1;
+		z-index: 6;
 		grid-row: primary-header;
 		grid-column: main;
 

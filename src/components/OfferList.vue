@@ -90,7 +90,7 @@
 	@import "../assets/styles/variables.scss";
 
 	.offer-list {
-		margin-block: calc($spacing * 8) calc($spacing * 4);
+		margin-block: calc($spacing * 4);
 
 		&__title {
 			font-family: $font-display;

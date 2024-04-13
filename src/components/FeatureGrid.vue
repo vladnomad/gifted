@@ -25,7 +25,7 @@
 	const articles = [
 		{
 			title: "Trusted Trades",
-			text: "Enjoy peace of mind with our carefully verified gift card swapping system",
+			text: "Enjoy peace of mind with\u00a0our carefully verified gift card swapping system",
 			images: {
 				illustration: {
 					src: illustration_1,
@@ -101,7 +101,7 @@
 		},
 		{
 			title: "Friendly Chats",
-			text: "Connect directly with other users for smooth conversations and joyful transactions",
+			text: "Connect directly with other users for smooth conversations\u00a0and joyful transactions",
 			images: {
 				illustration: {
 					src: illustration_4,
@@ -134,7 +134,7 @@
 <template>
 	<section class="bento" aria-labelledby="bento__title">		
 		<h2 class="bento__title" id="bento__title">
-			Explore unique ways to breath life into unused gifts with Gifted.
+			Explore unique ways to breath life into unused gifts with Gifted
 		</h2>
 
 		<article
@@ -174,14 +174,14 @@
 		grid-column-gap: calc($spacing * 2);
 		grid-row-gap: calc($spacing * 2);
 		width: 100%;
-		margin-block: calc($spacing * 8) calc($spacing * 4);
+		margin-block: calc($spacing * 4);
 
 		&__title {
 			font-family: $font-display;
 			text-wrap: balance;
-			text-align: center;
-			font-size: 28px;
-			padding-bottom: 13.125rem;
+			text-align: end;
+			font-size: 33px;
+			padding-right: 1rem;
 		}
 
 		article:nth-child(even) {
@@ -454,7 +454,6 @@
 			grid-area: 1 / 1 / 1 / 4;
 
 			font-size: 33px;
-			padding-left: 30%;
 		}
 		
 		.bento__node {	
@@ -510,9 +509,83 @@
 	}
 
 	@media screen and (max-width: 824px) {	
+		.bento__title {
+			text-align: center;
+		}
+
 		.bento__node {	
+			margin-block: calc($spacing * 4);
+
 			&--1, &--2, &--3, &--4 {
 				min-height: 20rem;
+			}
+
+			&--1 {
+				margin-top: 21rem;
+
+				& .bento__node-illustration {
+					left: 3.5rem;
+				}
+
+				& .bento__node-icon {
+					right: unset;
+					top: unset;
+					left: 1.5rem;
+					bottom: 2.5rem;
+				}
+				
+				& .bento__node-text {
+					max-width: 70%;
+				}
+			}
+
+			&--2 {
+				& .bento__node-illustration {
+					left: 1rem;
+					top: 1.25rem;
+					max-width: 12rem;
+				}
+
+				& .bento__node-icon {
+					left: 10.5rem;
+					bottom: 6.5rem;
+					max-width: 13rem;
+				}
+			}
+
+			&--3 {
+				& .bento__node-illustration {
+					left: 2.75rem;
+					top: 1.75rem;
+					max-width: 12rem;
+				}
+
+				& .bento__node-icon {
+					right: 2rem;
+					top: 0.75rem;
+				}
+			}
+
+			&--4 {
+				margin-top: 10rem;
+
+				& .bento__node-illustration {
+					left: 3rem;
+					bottom: 11.25rem;
+					max-width: 18rem;
+				}
+
+				& .bento__node-icon {
+					left: unset;
+					top: unset;
+					right: 1.5rem;
+					bottom: 2rem;
+					max-width: 9rem;
+				}
+
+				& .bento__node-text {
+					max-width: 70%;
+				}
 			}
 		}
 	}

@@ -135,8 +135,6 @@
 
 	.welcome {
 		display: grid;
-		/* grid-template-rows: repeat(3, 1fr) 5.25rem; */
-		/* height: calc(100dvh - 5.25rem); */
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-rows: repeat(3, 14.25rem) 5.25rem;
 
@@ -157,7 +155,6 @@
 					justify-content: center;
 					position: relative;
 					top: -2vw;
-					left: -2vw;
 				}
 
 				&.welcome__image-wrapper--2 {
@@ -196,7 +193,6 @@
 					align-items: flex-end;
 					position: relative;
 					top: 5vw;
-					left: -0.5vw;
 				}
 
 				&.welcome__image-wrapper--6 {
@@ -227,6 +223,7 @@
 			font-family: $font-display;
 			font-size: 33px;
 			margin: 0;
+			text-wrap: balance;
 		}
 
 		&__text {
@@ -237,71 +234,18 @@
 
 	@media screen and (min-width: 824px) {
 		.welcome {
-			grid-template-columns: 1fr 1fr 25rem 1fr 1fr;
-			grid-template-rows: repeat(3, 15.125rem) 5.25rem;
-
-			&__image {
-				min-width: 9.75rem;
-			}
-
-			/* RETHINK: Use mobile layout for desktop as well */
-
-			&__center {
-				grid-row: 2;
-				grid-column: 3;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-				text-align: center;
-			}
-
 			&__image-wrapper {
-				&.welcome__image-wrapper--1 {
-					grid-row: 1;
-					grid-column: 1 / span 2;
-					justify-content: center;
-					align-items: center;
-					position: relative;
-					top: 1vw;
-				}
-
 				&.welcome__image-wrapper--2 {
-					grid-row: 2;
-					grid-column: 1;
-					align-items: flex-end;
-					position: relative;
-					left: -1vw;
 					top: -1vw;
 				}
-
 				&.welcome__image-wrapper--3 {
-					grid-row: 3;
-					grid-column: 2;
-					align-items: flex-end;
-					position: relative;
-					left: -2vw;
-					top: -2vw;
+					top: 3.5vw;
 				}
-
 				&.welcome__image-wrapper--4 {
-					grid-row: 1;
-					grid-column: 4;
-					justify-content: center;
-					align-items: center;
+					top: 0;
 				}
-
-				&.welcome__image-wrapper--5 {
-					grid-row: 2;
-					grid-column: 5;
-					justify-content: flex-end;
-				}
-
 				&.welcome__image-wrapper--6 {
-					grid-row: 3;
-					grid-column: 4 / span 2;
-					justify-content: center;
-					align-items: center;
+					top: 4.5vw;
 				}
 			}
 		}
@@ -317,5 +261,5 @@
 		.welcome__title {
 			font-size: 44px;
 		}
-	}
+	}	
 </style>
