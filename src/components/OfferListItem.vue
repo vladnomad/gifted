@@ -44,15 +44,17 @@
         <div class="offer__photo-container">
             <img class="offer__photo" alt="" :src="offer.photo" loading="lazy" />
         </div>
-        <a class="offer__link" href="#">
+        <div class="offer__arrow-container" href="#">
             <ArrowSVG />
-        </a>
+        </div>
+        <a class="offer__link" href="#"></a>
     </article>
 </template>
 
 
 <style lang="scss" scoped>
 	@import "../assets/styles/variables.scss";
+	@import "../assets/styles/keyframes.css";
 
 	.arrow-svg {
 		width: auto;
@@ -76,6 +78,14 @@
 		height: 11rem;
 		box-shadow: 0px 1px 4px -1px $color-shadow--box;
 		transition: width .35s ease-in-out;
+
+		&__link {
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			border-radius: 2.5rem;
+		}
 
 		&__title, &__date {
 			margin-block: 0;
@@ -111,11 +121,11 @@
 			}
 		}
 
-		&__author, &__link {
+		&__author, &__arrow-container {
 			grid-row: 3;
 		}
 
-		&__link, &__tag-container {
+		&__arrow-container, &__tag-container {
 			grid-column: 2;
 			justify-self: right;
 		}
@@ -127,7 +137,7 @@
 			align-self: center;
 		}
 
-		&__link {
+		&__arrow-container {
 			grid-row: 2;
 			display: flex;
 			justify-content: flex-end;
@@ -200,7 +210,7 @@
 		.offer:not(:hover) {
 			width: calc(calc(25% - 4rem) - 2rem);
 
-			& .offer__link {
+			& .offer__arrow-container {
 				opacity: 0;
 			}
 		}
@@ -214,7 +224,7 @@
 				height: 100%;
 			}
 
-			& .offer__link {
+			& .offer__arrow-container {
 				transform: translateX(10px);
 				transition: 
 					opacity .45s ease,
@@ -238,6 +248,87 @@
 
 			&__tag-container {
 				align-self: baseline;
+			}
+		}
+	}
+
+	@media screen and (max-width: 824px) {
+		.offer:nth-child(even) {
+			grid-template-columns: minmax(5.1rem, 7.5rem) minmax(11rem, 1fr);
+			
+			& .offer__title,
+			& .offer__author,
+			& .offer__tag-container,
+			& .offer__arrow-container {
+				grid-column: 1;
+			}
+
+			& .offer__photo-container {
+				grid-column: 2;
+			}
+		}
+
+		.offer:nth-child(odd) {
+			& .offer__arrow-container {
+				animation: offerListItem_mobile-even 1s ease-in-out infinite;
+			}
+
+			& .arrow-svg {
+				rotate: -180deg;
+			}
+		}
+
+		.offer {
+			--offer-width: 62dvw;
+			min-width: 17.875rem;
+			min-height: 17.875rem;
+			max-width: 29.5rem;
+			max-height: 16.61rem;
+			width: var(--offer-width);
+			height: calc(var(--offer-width) * .591); /* 1.691 */
+			margin: 2.5rem auto;
+			padding: 3rem;
+			transition: none;
+			grid-template-columns: minmax(11rem, 1fr) minmax(5.1rem, 7.5rem);
+			grid-template-rows: 1fr 2rem 6fr 5.25rem;
+			grid-column-gap: 2.5rem;
+
+			&__title {
+				grid-column: 2;
+			}
+
+			&__tag-container {
+				grid-row: 2;
+				justify-self: flex-start;
+				align-self: flex-start;
+			}
+
+			&__arrow-container {
+				grid-row: 3;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				position: unset;
+				padding-block: 0;
+				transform: none;
+				animation: offerListItem_mobile-odd 1s ease-in-out infinite;
+			}
+
+			&__author {
+				grid-row: 4;
+			}
+
+			&__photo-container {
+				position: initial;
+				grid-row: 1 / span 4;
+				height: 100%;
+				width: 100%;
+				max-width: unset;
+				min-width: 11rem;
+			}
+
+			&__photo {
+				height: 100%;
 			}
 		}
 	}

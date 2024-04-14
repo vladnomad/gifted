@@ -15,7 +15,10 @@
 				Get to know Gifted community
 			</h2>
 			<p class="footer__headline-text">
-				Join like-minded people who are doing things differently. Discover new swaps every day and contribute to a supportive community.
+				Join like-minded people who are doing things differently.
+			</p>
+			<p class="footer__headline-text">
+				Discover new swaps every day and contribute to a supportive community.
 			</p>
 		</div>
 
@@ -88,8 +91,7 @@
 
 			&-text {
 				font-weight: 300;
-				text-wrap: balance;
-				margin-block: calc($spacing / 2);
+				margin-block: 0;
 			}
 		}
 
@@ -221,12 +223,14 @@
 			&__image {	
 				grid-column: 1;
 				grid-row: 1 / span 3;
-				margin-left: -2rem;
+				/* margin-left: -2rem; */
 				/* margin-bottom: -.5rem; */
 				/* min-height: 494px; */
 				max-height: 544px;
 				align-self: flex-end;
-				height: 82%;
+				/* height: 82%; */
+				margin-left: -1.75rem;
+				height: 79%;
 				width: auto;
 			}
 

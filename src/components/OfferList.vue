@@ -154,4 +154,16 @@
 			font-size: 44px;
 		}
 	}
+
+	@media screen and (max-width: 824px) {
+		.offer-list {
+			&__container {
+				flex-direction: column;
+			}
+			&__title {
+				text-align: center;
+				margin-inline: 0;
+			}
+		}
+	}
 </style>
