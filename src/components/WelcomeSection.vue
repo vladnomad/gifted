@@ -1,5 +1,5 @@
 <script setup>
-	import { ref, reactive, onMounted, onBeforeUnmount } from "vue"
+	import { ref, reactive, onMounted, onBeforeUnmount, inject } from "vue"
 
 	import icon_1 from "../assets/img/icons/welcomeSection_1.png"
 	import icon_2 from "../assets/img/icons/welcomeSection_2.png"
@@ -7,6 +7,8 @@
 	import icon_4 from "../assets/img/icons/welcomeSection_4.png"
 	import icon_5 from "../assets/img/icons/welcomeSection_5.png"
 	import icon_6 from "../assets/img/icons/welcomeSection_6.png"
+
+	const isMobile = inject("isMobile")
 
 	const cursorX = ref(0)
 	const cursorY = ref(0)
@@ -47,7 +49,7 @@
 	const transformIcon = (i) => {
 		const wrapper = document.querySelector(`.welcome__image-wrapper--${i}`)
 		
-		if (wrapper) {
+		if (wrapper && isMobile) {
 			const rect = wrapper.getBoundingClientRect()
 			const offsetX = cursorX.value - rect.left
 			const offsetY = cursorY.value - rect.top

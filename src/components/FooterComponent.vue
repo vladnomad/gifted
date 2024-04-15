@@ -271,7 +271,7 @@
 		.footer {
 			display: flex;
 			flex-wrap: wrap;
-			margin-block: calc($spacing * 8) 0;
+			margin-block: 0;
 			grid-row-gap: 4rem;
 
 			&__headline {
@@ -293,7 +293,7 @@
 			}
 
 			&__info {
-				margin-block: 4rem 0;
+				margin-block: 0;
 				min-height: unset;
 				width: 100%;
 				padding: 0;
@@ -305,6 +305,8 @@
 
 				&-title {
 					text-align: center;
+					max-width: 20rem;
+    				margin-inline: auto;
 				}
 			
 				&-text {
@@ -315,17 +317,38 @@
 				}
 			}
 
+			&__social,
+			&__links {
+				margin-inline: auto;
+				width: 100%;
+				max-width: 23rem;
+			}
+
+			&__links {
+				align-items: center;
+			}
+
 			&__social {
-				width: calc(50% - 4rem);
 				padding: 2rem;
 				max-height: 10rem;
-				max-width: 10rem;
 				box-shadow: 0px 1px 4px -1px hsla(226, 75%, 11%, 0.5);
 				border-radius: 2.5rem;
 				background-color: hsl(245, 90%, 88%);
 				margin-top: 0;
-				margin-inline: auto 1rem;
 				min-width: 10rem;
+
+				&-link {
+					width: calc(100% - 3rem);
+
+					&:nth-child(1) {
+						justify-content: center;
+    					margin-left: -5.5rem;
+					}
+					&:nth-child(2) {
+						justify-content: center;
+						margin-right: -6.5rem;
+					}
+				}
 
 				&-image--instagram {
 					transform: translateX(-3rem);
@@ -346,21 +369,6 @@
 					opacity: 1;
 					z-index: auto;
 				}
-			}
-
-			&__links {
-				width: calc(50% - 4rem);
-				margin-inline: 1rem auto;
-				min-width: 10rem;
-			}
-		}
-	}
-
-	@media screen and (max-width: 500px) {
-		.footer {
-			&__social,
-			&__links {
-				margin-inline: auto;
 			}
 		}
 	}

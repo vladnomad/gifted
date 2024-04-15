@@ -267,27 +267,3 @@
         transform: rotate(135deg);
     }
 }
-
-
-
-/* ======== Offer List Item (mobile) ======== */
-
-
-
-@keyframes offerListItem_mobile-odd {
-    0%, 92%, 100% {
-        transform: translateX(.5rem);
-    }
-    36% {
-        transform: translateX(-1.5rem);
-    }
-}
-
-@keyframes offerListItem_mobile-even {
-    0%, 92%, 100% {
-        transform: translateX(-1.5rem);
-    }
-    36% {
-        transform: translateX(.5rem);
-    }
-}

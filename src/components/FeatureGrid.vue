@@ -26,7 +26,7 @@
 	const articles = [
 		{
 			title: "Trusted Trades",
-			text: "Enjoy peace of mind with\u00a0our carefully crafted gift card swapping system",
+			text: "Enjoy peace of mind with\u00a0our\u00a0carefully crafted gift card swapping system",
 			images: {
 				illustration: {
 					src: illustration_1,
@@ -106,7 +106,7 @@
 		},
 		{
 			title: "Friendly Chats",
-			text: "Connect directly for smooth conversations and\u00a0joyful transactions",
+			text: "Connect directly for smooth\u00a0conversations and\u00a0joyful transactions",
 			images: {
 				illustration: {
 					src: illustration_4,
@@ -527,6 +527,8 @@
 
 	@media screen and (max-width: 892px) {	
 		.bento {
+			margin-block: 0;
+
 			&__title {
 				text-align: center;
 			}

@@ -54,7 +54,6 @@
 
 <style lang="scss" scoped>
 	@import "../assets/styles/variables.scss";
-	@import "../assets/styles/keyframes.css";
 
 	.arrow-svg {
 		width: auto;
@@ -265,11 +264,6 @@
 		}
 
 		.offer:nth-child(odd) {
-			& .offer__arrow-container {
-				animation: offerListItem_mobile-even 3s ease-in-out infinite;
-				transform: translateX(-1.5rem);
-			}
-
 			& .arrow-svg {
 				rotate: -180deg;
 			}
@@ -299,8 +293,6 @@
 				position: unset;
 				padding-block: 0;
 				transform: none;
-				animation: offerListItem_mobile-odd 3s ease-in-out infinite;
-				transform: translateX(.5rem);
 			}
 
 			&__title {
