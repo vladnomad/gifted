@@ -215,7 +215,7 @@
 		}
 	}
 	
-	@media screen and (max-width: 824px) {
+	@media screen and (max-width: 892px) {
 		.header__container {
 			grid-template-columns: 
 				calc($spacing * 6) 

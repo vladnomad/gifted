@@ -93,8 +93,6 @@
 
 		&__title {
 			white-space: pre-line;
-			/* position: relative;
-			top: -4px; */
 			font-family: $font-display;
 			font-size: 16.25px;
 			font-weight: 600;
@@ -102,8 +100,6 @@
 
 		&__date, &__tag {
 			font-weight: 300;
-			/* position: relative;
-			bottom: 3px; */
 		}
 
 		&__date {
@@ -195,7 +191,7 @@
 		}
 	}
 
-	@media screen and (hover: hover) and (min-width: 824px) {
+	@media screen and (hover: hover) and (min-width: 893px) {
 		.offer-list__container:has(.offer:hover) .offer:not(:hover) {
 			& .offer__photo {
 				height: 100%;
@@ -252,7 +248,7 @@
 		}
 	}
 
-	@media screen and (max-width: 824px) {
+	@media screen and (max-width: 892px) {
 		.offer:nth-child(even) {
 			grid-template-columns: minmax(5.1rem, 7.5rem) minmax(11rem, 1fr);
 			
@@ -270,7 +266,8 @@
 
 		.offer:nth-child(odd) {
 			& .offer__arrow-container {
-				animation: offerListItem_mobile-even 1s ease-in-out infinite;
+				animation: offerListItem_mobile-even 3s ease-in-out infinite;
+				transform: translateX(-1.5rem);
 			}
 
 			& .arrow-svg {
@@ -279,13 +276,6 @@
 		}
 
 		.offer {
-			--offer-width: 62dvw;
-			min-width: 17.875rem;
-			min-height: 17.875rem;
-			max-width: 29.5rem;
-			max-height: 16.61rem;
-			width: var(--offer-width);
-			height: calc(var(--offer-width) * .591); /* 1.691 */
 			margin: 2.5rem auto;
 			padding: 3rem;
 			transition: none;
@@ -293,15 +283,13 @@
 			grid-template-rows: 1fr 2rem 6fr 5.25rem;
 			grid-column-gap: 2.5rem;
 
-			&__title {
-				grid-column: 2;
-			}
+			min-height: 17.875rem;
+			max-height: 17.875rem;
+			height: 17.875rem;
 
-			&__tag-container {
-				grid-row: 2;
-				justify-self: flex-start;
-				align-self: flex-start;
-			}
+			min-width: 17.875rem;
+			max-width: 29.5rem;
+			width: 73%;
 
 			&__arrow-container {
 				grid-row: 3;
@@ -311,7 +299,18 @@
 				position: unset;
 				padding-block: 0;
 				transform: none;
-				animation: offerListItem_mobile-odd 1s ease-in-out infinite;
+				animation: offerListItem_mobile-odd 3s ease-in-out infinite;
+				transform: translateX(.5rem);
+			}
+
+			&__title {
+				grid-column: 2;
+			}
+
+			&__tag-container {
+				grid-row: 2;
+				justify-self: flex-start;
+				align-self: flex-start;
 			}
 
 			&__author {

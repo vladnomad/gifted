@@ -1,7 +1,9 @@
 /* ======== Feature Grid ======== */
 
 
+
 /* ------- Feature Grid 1 ------- */
+
 
 @keyframes featureGrid_11 {
     0%, 100% {
@@ -46,7 +48,9 @@
     }
 }
 
+
 /* ------- Feature Grid 2 ------- */
+
 
 @keyframes featureGrid_21 {
     0%, 100% {
@@ -91,7 +95,9 @@
     }
 }
 
+
 /* ------- Feature Grid 3 ------- */
+
 
 @keyframes featureGrid_31 {
     0%, 100% {
@@ -129,7 +135,9 @@
     }
 }
 
+
 /* ------- Feature Grid 4 ------- */
+
 
 @keyframes featureGrid_41 {
     0%, 100% {
@@ -172,6 +180,7 @@
         opacity: 0;
     }
 }
+
 
 
 /* ======== Header Component ======== */
@@ -260,23 +269,25 @@
 }
 
 
-/* ======== Feature Grid ======== */
+
+/* ======== Offer List Item (mobile) ======== */
+
 
 
 @keyframes offerListItem_mobile-odd {
-    0%, 90%, 100% {
-        transform: translateX(0);
+    0%, 92%, 100% {
+        transform: translateX(.5rem);
     }
-    45% {
-        transform: translateX(-2rem);
+    36% {
+        transform: translateX(-1.5rem);
     }
 }
 
 @keyframes offerListItem_mobile-even {
-    0%, 90%, 100% {
-        transform: translateX(0);
+    0%, 92%, 100% {
+        transform: translateX(-1.5rem);
     }
-    45% {
-        transform: translateX(2rem);
+    36% {
+        transform: translateX(.5rem);
     }
 }

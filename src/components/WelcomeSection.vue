@@ -232,7 +232,7 @@
 		}
 	}
 
-	@media screen and (min-width: 824px) {
+	@media screen and (min-width: 893px) {
 		.welcome {
 			&__image-wrapper {
 				&.welcome__image-wrapper--2 {

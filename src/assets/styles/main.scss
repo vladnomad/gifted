@@ -1,7 +1,6 @@
 @import "./variables.scss";
 
 html {
-	/* font-size: 12px; */
 	font-size: 13px;
 	scroll-behavior: smooth;
 }
@@ -64,7 +63,7 @@ a {
 }
 
 .link {
-	display: inline-block;
+	display: inline-flex;
 	position: relative;
 	overflow: hidden;
 
@@ -86,8 +85,6 @@ a {
 		transform: none;
 	}
 }
-
-/* (hover: hover)  |  (orientation: landscape) */
 
 @media screen and (min-width: 824px) {
 	.main > * {

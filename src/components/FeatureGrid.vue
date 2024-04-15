@@ -146,9 +146,7 @@
 			v-for="(article, i) in articles"
 			:key="'bento__node--' + (i + 1)"
 			:class="['bento__node', 'bento__node--' + (i + 1)]">
-<!-------------- REMOVE V-IF ---------------------------------------------->
 			<img 
-				v-if="article.images.illustration !== undefined"
 				class="bento__node-illustration"
 				:src="article.images.illustration.src"
 				:alt="article.images.illustration.alt"
@@ -317,13 +315,11 @@
 
 					&--primary {
 						animation-timing-function: ease;
-						/* transform-origin: left bottom; */
 						transform-origin: right bottom;
 						animation-duration: .75s;
 					}
 
 					&--secondary {
-						/* transform-origin: 70% 30%; */
 						transform-origin: 30% 30%;
 						animation-duration: .8s;
 					}
@@ -449,7 +445,7 @@
 		}
 	}
 
-	@media screen and (min-width: 824px) {	
+	@media screen and (min-width: 893px) {	
 		.bento {
 			grid-template-columns: 4fr repeat(2, 3fr);
 			margin-block: calc($spacing * 16) calc($spacing * 4);
@@ -529,7 +525,7 @@
 		}
 	}
 
-	@media screen and (max-width: 824px) {	
+	@media screen and (max-width: 892px) {	
 		.bento {
 			&__title {
 				text-align: center;
@@ -544,7 +540,7 @@
 				width: 83%;
 
 				&--1 {
-					margin-top: 21rem;
+					margin-top: 16rem;
 
 					& .bento__node-illustration {
 						left: unset;

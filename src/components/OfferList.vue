@@ -132,7 +132,7 @@
 		}
 	}
 
-	@media screen and (hover: hover) and (min-width: 824px) {
+	@media screen and (hover: hover) and (min-width: 893px) {
 		.offer-list {
 			margin-block: calc($spacing * 16) calc($spacing * 4);
 
@@ -155,7 +155,7 @@
 		}
 	}
 
-	@media screen and (max-width: 824px) {
+	@media screen and (max-width: 892px) {
 		.offer-list {
 			&__container {
 				flex-direction: column;

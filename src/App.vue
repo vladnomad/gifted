@@ -10,7 +10,7 @@
 	const isMobile = ref(false)
 
 	const checkMobile = () => {
-		isMobile.value = window.innerWidth <= 823
+		isMobile.value = window.innerWidth <= 892
 	}
 
 	const handleResize = () => checkMobile()
