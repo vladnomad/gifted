@@ -1,8 +1,7 @@
 <script setup>
 	import FooterSVG from "../assets/svg/FooterSVG.vue"
-
+	
 	import footerIMG from "../assets/img/illustrations/footerComponent.png"
-
 	import instagramIMG from "../assets/img/icons/footerComponent_instagram.png"
 	import facebookIMG from "../assets/img/icons/footerComponent_facebook.png"
 </script>
@@ -15,7 +14,7 @@
 				Get to know Gifted community
 			</h2>
 			<p class="footer__headline-text">
-				Join like-minded people who are doing things differently. Discover new swaps every day and contribute to a supportive community.
+				Join like-minded people who are doing things differently. Discover&nbsp;new&nbsp;swaps every day and contribute to a supportive community.
 			</p>
 		</div>
 
@@ -93,7 +92,7 @@
 
 			&-text {
 				font-weight: 300;
-				max-width: 34rem;
+				max-width: 36rem;
 			}
 		}
 		

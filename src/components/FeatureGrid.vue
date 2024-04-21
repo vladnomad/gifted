@@ -1,4 +1,6 @@
 <script setup>
+	import { inject, reactive, onMounted } from "vue"
+
 	import illustration_1 from "../assets/img/illustrations/featureGrid_1.png"
 	import illustration_2 from "../assets/img/illustrations/featureGrid_2.png"
 	import illustration_3 from "../assets/img/illustrations/featureGrid_3.png"
@@ -22,6 +24,48 @@
 	import icon_42 from "../assets/img/icons/featureGrid_42.png"
 	import icon_43 from "../assets/img/icons/featureGrid_43.png"
 	import icon_44 from "../assets/img/icons/featureGrid_44.png"
+
+	const isMobile = inject("isMobile")
+
+	const isMobileClasses = reactive([
+		{
+			animationClass: "",
+			_animationDuration: 912.5
+		},
+		{
+			animationClass: "",
+			_animationDuration: 900
+		},
+		{
+			animationClass: "",
+			_animationDuration: 1100
+		},
+		{
+			animationClass: "",
+			_animationDuration: 1000
+		}
+	])
+
+	onMounted(() => {
+		if (isMobile.value) {
+			isMobileClasses.forEach((node, i) => {
+				const delay = node._animationDuration + 10000 + (i * 2500)
+				const delayReset = delay + node._animationDuration
+
+				setInterval(() => {
+					node.animationClass = " is-mobile"
+
+					setTimeout(() => {
+						node.animationClass = ""
+					}, delayReset)
+				}, delay)
+			})
+		} else {
+			isMobileClasses.forEach(node => {
+				node = (isMobile.value ? " is-mobile" : "")
+			})
+		}
+	})
 
 	const articles = [
 		{
@@ -145,7 +189,7 @@
 		<article
 			v-for="(article, i) in articles"
 			:key="'bento__node--' + (i + 1)"
-			:class="['bento__node', 'bento__node--' + (i + 1)]">
+			:class="['bento__node', 'bento__node--' + (i + 1) + isMobileClasses[i].animationClass]">
 			<img 
 				class="bento__node-illustration"
 				:src="article.images.illustration.src"
@@ -274,7 +318,8 @@
 					}
 				}
 
-				&:hover .bento__node-icon {
+				&:hover .bento__node-icon,
+				&.is-mobile .bento__node-icon {
 					&--primary {
 						animation-name: featureGrid_11;
 					}
@@ -334,7 +379,8 @@
 					}
 				}
 
-				&:hover .bento__node-icon {
+				&:hover .bento__node-icon,
+				&.is-mobile .bento__node-icon {
 					&--primary {
 						animation-name: featureGrid_21;
 					}
@@ -378,7 +424,8 @@
 					}
 				}
 
-				&:hover .bento__node-icon {
+				&:hover .bento__node-icon,
+				&.is-mobile .bento__node-icon {
 					&--primary {
 						animation-name: featureGrid_31;
 					}
@@ -394,7 +441,7 @@
 					&--quaternary {
 						animation-name: featureGrid_34;
 					}
-				}
+				}				
 			}
 			
 			&--4 {
@@ -428,7 +475,8 @@
 					}
 				}
 
-				&:hover .bento__node-icon {
+				&:hover .bento__node-icon,
+				&.is-mobile .bento__node-icon {
 					&--primary {
 						animation-name: featureGrid_41;
 					}
@@ -484,6 +532,7 @@
 				
 				&--2 {
 					grid-area: 2 / 3 / 2 / 4;
+					min-width: 14rem;
 
 					& .bento__node-illustration {
 						display: none;

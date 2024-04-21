@@ -22,37 +22,27 @@
 		i6: "translate(0,0)",
 	})
 
-	onMounted(() => {
-		window.addEventListener("mousemove", handleMouseMove)
-		window.addEventListener("mousemove", handleMouseOver)
-	})
-
-	onBeforeUnmount(() => {
-		window.removeEventListener("mousemove", handleMouseMove)
-		window.removeEventListener("mousemove", handleMouseOver)
-	})
-
-	const handleMouseMove = (event) => {
-		cursorX.value = event.clientX
-		cursorY.value = event.clientY
+	const handeMouseMove = (e) => {
+		transforms.i1 = transformIcon(1, e)
+		transforms.i2 = transformIcon(2, e)
+		transforms.i3 = transformIcon(3, e)
+		transforms.i4 = transformIcon(4, e)
+		transforms.i5 = transformIcon(5, e)
+		transforms.i6 = transformIcon(6, e)
 	}
 
-	const handleMouseOver = () => {
-		transforms.i1 = transformIcon(1)
-		transforms.i2 = transformIcon(2)
-		transforms.i3 = transformIcon(3)
-		transforms.i4 = transformIcon(4)
-		transforms.i5 = transformIcon(5)
-		transforms.i6 = transformIcon(6)
-	}
-
-	const transformIcon = (i) => {
+	const transformIcon = (i, e) => {
 		const wrapper = document.querySelector(`.welcome__image-wrapper--${i}`)
 		
-		if (wrapper && isMobile) {
+		if (wrapper && !isMobile.value && e.type !== "scroll") {
 			const rect = wrapper.getBoundingClientRect()
+
+			cursorX.value = e.clientX
+			cursorY.value = e.clientY
+
 			const offsetX = cursorX.value - rect.left
 			const offsetY = cursorY.value - rect.top
+
 			const percentX = offsetX / rect.width
 			const percentY = offsetY / rect.height
 
@@ -91,6 +81,21 @@
 			
 		return "translate(0,0)"
 	}
+
+	const checkMobile = () => {
+		isMobile.value = window.innerWidth <= 892
+	}
+
+	onMounted(() => {
+		checkMobile()
+		window.addEventListener("mousemove", handeMouseMove)
+		window.addEventListener("scroll", handeMouseMove)
+	})
+
+	onBeforeUnmount(() => {
+		window.removeEventListener("mousemove", handeMouseMove)
+		window.removeEventListener("scroll", handeMouseMove)
+	})
 </script>
 
 
