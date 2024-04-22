@@ -270,35 +270,3 @@
         transform: rotate(135deg);
     }
 }
-
-
-/* ------- Header Component Links ------- */
-
-
-@keyframes headerComponentIsActive {
-    0% {
-        transform: scale(.025);
-        opacity: 0;
-    }
-    60% {
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes headerComponentIsNotActive {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    40% {
-        opacity: 0;
-    }
-    100% {
-        transform: scale(.025);
-        opacity: 0;
-    }
-}

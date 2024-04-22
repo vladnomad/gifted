@@ -576,7 +576,7 @@
 
 	@media screen and (max-width: 892px) {	
 		.bento {
-			margin-block: 0;
+			margin-block: calc($spacing * 6) 0;
 
 			&__title {
 				text-align: center;

@@ -157,7 +157,7 @@
 
 	@media screen and (max-width: 892px) {
 		.offer-list {
-			margin-block: 0 calc($spacing * 4);
+			margin-block: calc($spacing * 6) calc($spacing * 4);
 
 			&__container {
 				flex-direction: column;

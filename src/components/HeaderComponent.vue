@@ -29,7 +29,6 @@
 				<div :class='{
 					"header__nav-links": true,
 					"is-active": isActive,
-					"is-not-active": !isActive,
 					"is-mobile": isMobile
 				}'>
 					<a href="about">
@@ -45,8 +44,8 @@
 				<div v-if="isMobile" class="header__nav-menu">
 					<div @click="toggleMenu" :class='{ 
 						"header__nav-menu_btn": true, 
-						"is-active": isActive, 
-						"is-not-active": !isActive 
+						"is-active": isActive,
+						"is-not-active": !isActive
 					}'>
 						<span v-for="i in 3" 
 							:key="'header__nav-menu_btn_span--' + i">
@@ -119,20 +118,15 @@
 					border: 1px solid $color-black;
 					border-radius: 1.5rem;
 					box-shadow: -1px 1px 5px -2px $color-black;
+					opacity: 0;
+					transform: scale(.9375);
+					transition: opacity .2s ease-in, transform .15s ease-in;
 
 					&.is-active {
-						opacity: 0;
-						transform: scale(.025);
-						animation: .35s .25s headerComponentIsActive ease-in-out forwards;
-					}
-
-					&.is-not-active {
 						transform: scale(1);
 						opacity: 1;
-						animation: .35s .35s headerComponentIsNotActive ease-in-out forwards;
 					}
 				}
-
 			}
 
 			&-login {

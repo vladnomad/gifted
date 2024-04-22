@@ -270,7 +270,7 @@
 		.footer {
 			display: flex;
 			flex-wrap: wrap;
-			margin-block: 0;
+			margin-block: calc($spacing * 6) 0;
 			grid-row-gap: 4rem;
 
 			&__headline {
