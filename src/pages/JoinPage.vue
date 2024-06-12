@@ -1,9 +1,10 @@
 <script setup></script>
 
 
-<template v-if="true">
-	<h1>Join Page</h1>
-	
+<template>
+    <div id="join-page">
+	    <h1>Join Page</h1>
+    </div>
 </template>
 
 

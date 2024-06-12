@@ -1,9 +1,10 @@
 <script setup></script>
 
 
-<template v-if="true">
-	<h1>Terms and Conditions Page</h1>
-	
+<template>
+    <div id="terms-page">
+	    <h1>Terms and Conditions Page</h1>
+    </div>
 </template>
 
 

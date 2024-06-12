@@ -1,9 +1,10 @@
 <script setup></script>
 
 
-<template v-if="true">
-	<h1>Login Page</h1>
-	
+<template>
+    <div id="login-page">
+	    <h1>Login Page</h1>
+    </div>
 </template>
 
 

@@ -1,5 +1,6 @@
 <script setup>
 	import { ref, reactive, onMounted, onBeforeUnmount, inject } from "vue"
+	import { RouterLink } from "vue-router"
 
 	import icon_1 from "../assets/img/icons/welcomeSection_1.png"
 	import icon_2 from "../assets/img/icons/welcomeSection_2.png"
@@ -117,9 +118,9 @@
 			<p class="welcome__text">
 				For the ones who love to pick for themselves.
 			</p> 
-			<a class="header__nav-link btn btn--filled" href="offers">
+			<RouterLink class="header__nav-link btn btn--filled" to="offers">
 				Search offers on Gifted
-			</a>
+			</RouterLink>
 		</div>
 		<div class="welcome__image-wrapper welcome__image-wrapper--4"
 			:style="{ transform: transforms.i4 }">

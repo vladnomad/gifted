@@ -1,9 +1,10 @@
 <script setup></script>
 
 
-<template v-if="true">
-	<h1>Offers Page</h1>
-	
+<template>
+    <div id="offers-page">
+	    <h1>Offers Page</h1>
+    </div>
 </template>
 
 

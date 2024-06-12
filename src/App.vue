@@ -1,18 +1,8 @@
 <script setup>
 	import { ref, onMounted, onBeforeUnmount, provide } from "vue"
-	// import { useRoute, useRouter } from "vue-router"
-
-	// const route = useRoute()
-	// const router = useRouter()
-
-	// const search = computed({
-	// 	get() {
-	// 		return route.query.search ?? ""
-	// 	},
-	// 	set(search) {
-	// 		router.replace({ query: { search } })
-	// 	}
-	// })
+	import { RouterView } from "vue-router"
+	import FooterComponent from "./components/FooterComponent.vue"
+	import HeaderComponent from "./components/HeaderComponent.vue"
 
 	const isMobile = ref(false)
 
@@ -36,9 +26,29 @@
 
 
 <template v-if="true">
-	<RouterView />
+	<HeaderComponent />
+	
+	<main class="main">
+		<RouterView v-slot="{ Component, route }">
+			<transition name="fade" mode="out-in">
+				<component :is="Component" :key="route.path" />
+			</transition>
+		</RouterView>
+		
+		<FooterComponent />
+	</main>
 	
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+	@import './assets/styles/main.scss';
+
+	.fade-enter-active, .fade-leave-active {
+		transition: opacity 0.5s ease;
+	}
+
+	.fade-enter, .fade-leave-to {
+		opacity: 0;
+	}
+</style>

@@ -1,6 +1,6 @@
 <script setup>
 	import { ref, inject } from "vue"
-
+	import { RouterLink } from "vue-router"
 	import LogoSVG from "../assets/svg/LogoSVG.vue"
 	import UserSVG from "../assets/svg/UserSVG.vue"
 
@@ -17,29 +17,29 @@
 	<header class="header">
 		<div class="header__container">
 			<div class="header__title-wrapper">
-				<a class="header__title" href="/">
+				<RouterLink class="header__title" to="/">
 					<LogoSVG />
 					Gifted
-				</a>
+				</RouterLink>
 			</div>
 			<nav class="header__nav">
-				<a v-if="isMobile" class="header__nav-login" href="login">
+				<RouterLink v-if="isMobile" class="header__nav-login" to="login">
 					<UserSVG />
-				</a>
+				</RouterLink>
 				<div :class='{
 					"header__nav-links": true,
 					"is-active": isActive,
 					"is-mobile": isMobile
 				}'>
-					<a href="about">
+					<RouterLink to="about">
 						About
-					</a>
-					<a v-if="!isMobile" class="header__nav-login" href="login">
+					</RouterLink>
+					<RouterLink v-if="!isMobile" class="header__nav-login" to="login">
 						<UserSVG />
-					</a>
-					<a class="btn btn--filled" href="join">
+					</RouterLink>
+					<RouterLink class="btn btn--filled" to="join">
 						Join Now
-					</a>
+					</RouterLink>
 				</div>
 				<div v-if="isMobile" class="header__nav-menu">
 					<div @click="toggleMenu" :class='{ 

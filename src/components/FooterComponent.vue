@@ -1,6 +1,6 @@
 <script setup>
+	import { RouterLink } from "vue-router"
 	import FooterSVG from "../assets/svg/FooterSVG.vue"
-	
 	import footerIMG from "../assets/img/illustrations/footerComponent.png"
 	import instagramIMG from "../assets/img/icons/footerComponent_instagram.png"
 	import facebookIMG from "../assets/img/icons/footerComponent_facebook.png"
@@ -50,12 +50,12 @@
 		</div>
 
 		<div class="footer__links">
-			<a href="terms-and-conditions" class="link footer__link">
+			<RouterLink to="terms-and-conditions" class="link footer__link">
 				Terms & Conditions
-			</a>
-			<a href="privacy-policy" class="link footer__link">
+			</RouterLink>
+			<RouterLink to="privacy-policy" class="link footer__link">
 				Privacy Policy
-			</a>
+			</RouterLink>
 			<a href="https://madebynomad.dev" class="link footer__link">
 				madebynomad.dev
 			</a>
