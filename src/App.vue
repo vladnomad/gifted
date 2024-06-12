@@ -1,10 +1,26 @@
+<template v-if="true">
+	<HeaderComponent />
+	
+	<main class="main">
+		<RouterView v-slot="{ Component, route }">
+			<transition name="fade" mode="out-in">
+				<component :is="Component" :key="route.path" />
+			</transition>
+		</RouterView>
+		
+		<FooterComponent />
+	</main>
+	
+</template>
+	
+
 <script setup>
 	import { ref, onMounted, onBeforeUnmount, provide } from "vue"
 	import { RouterView } from "vue-router"
 	import FooterComponent from "./components/FooterComponent.vue"
 	import HeaderComponent from "./components/HeaderComponent.vue"
 
-	const isMobile = ref(false)
+	const isMobile = ref(false)	
 
 	const checkMobile = () => {
 		isMobile.value = window.innerWidth <= 892
@@ -23,22 +39,6 @@
 
 	provide("isMobile", isMobile);
 </script>
-
-
-<template v-if="true">
-	<HeaderComponent />
-	
-	<main class="main">
-		<RouterView v-slot="{ Component, route }">
-			<transition name="fade" mode="out-in">
-				<component :is="Component" :key="route.path" />
-			</transition>
-		</RouterView>
-		
-		<FooterComponent />
-	</main>
-	
-</template>
 
 
 <style lang="scss" scoped>

@@ -1,12 +1,3 @@
-<script setup>
-	import { RouterLink } from "vue-router"
-	import FooterSVG from "../assets/svg/FooterSVG.vue"
-	import footerIMG from "../assets/img/illustrations/footerComponent.png"
-	import instagramIMG from "../assets/img/icons/footerComponent_instagram.png"
-	import facebookIMG from "../assets/img/icons/footerComponent_facebook.png"
-</script>
-
-
 <template>
 	<footer class="footer">
 		<div class="footer__headline">
@@ -39,8 +30,8 @@
 				<img class="footer__social-image footer__social-image--instagram" :src="instagramIMG" alt="" loading="lazy" />
 				<p class="footer__social-label footer__social-label--instagram">
 					Instagram
-				</p>
-			</a>
+					</p>
+					</a>
 			<a href="https://facebook.com" class="footer__social-link">
 				<img class="footer__social-image footer__social-image--facebook" :src="facebookIMG" alt="" loading="lazy" />
 				<p class="footer__social-label footer__social-label--facebook">
@@ -52,17 +43,26 @@
 		<div class="footer__links">
 			<RouterLink to="terms-and-conditions" class="link footer__link">
 				Terms & Conditions
-			</RouterLink>
-			<RouterLink to="privacy-policy" class="link footer__link">
-				Privacy Policy
-			</RouterLink>
+				</RouterLink>
+				<RouterLink to="privacy-policy" class="link footer__link">
+					Privacy Policy
+					</RouterLink>
 			<a href="https://madebynomad.dev" class="link footer__link">
 				madebynomad.dev
 			</a>
 		</div>
-
+		
 	</footer>
 </template>
+
+
+<script setup>
+	import { RouterLink } from "vue-router"
+	import FooterSVG from "../assets/svg/FooterSVG.vue"
+	import footerIMG from "../assets/img/illustrations/footerComponent.png"
+	import instagramIMG from "../assets/img/icons/footerComponent_instagram.png"
+	import facebookIMG from "../assets/img/icons/footerComponent_facebook.png"
+</script>
 
 
 <style lang="scss" scoped>

@@ -1,18 +1,3 @@
-<script setup>
-	import { ref, inject } from "vue"
-	import { RouterLink } from "vue-router"
-	import LogoSVG from "../assets/svg/LogoSVG.vue"
-	import UserSVG from "../assets/svg/UserSVG.vue"
-
-	const isActive = ref(false)
-	const isMobile = inject("isMobile")
-
-	const toggleMenu = () => {
-		isActive.value = !isActive.value
-	}
-</script>
-
-
 <template>
 	<header class="header">
 		<div class="header__container">
@@ -56,6 +41,21 @@
 		</div>
 	</header>
 </template>
+
+
+<script setup>
+	import { ref, inject } from "vue"
+	import { RouterLink } from "vue-router"
+	import LogoSVG from "../assets/svg/LogoSVG.vue"
+	import UserSVG from "../assets/svg/UserSVG.vue"
+
+	const isActive = ref(false)
+	const isMobile = inject("isMobile")
+
+	const toggleMenu = () => {
+		isActive.value = !isActive.value
+	}
+</script>
 
 
 <style lang="scss" scoped>

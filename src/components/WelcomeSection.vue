@@ -1,3 +1,41 @@
+<template>
+	<section class="welcome" aria-labelledby="welcome__title">
+		<div class="welcome__image-wrapper welcome__image-wrapper--1" :style="{ transform: transforms.i1 }">
+			<img class="welcome__image welcome__image--left welcome__image--1" :src="icon_1" alt="">
+		</div>
+		<div class="welcome__image-wrapper welcome__image-wrapper--2" :style="{ transform: transforms.i2 }">
+			<img class="welcome__image welcome__image--left welcome__image--2" :src="icon_2" alt="">
+		</div>
+		<div class="welcome__image-wrapper welcome__image-wrapper--3" :style="{ transform: transforms.i3 }">
+			<img class="welcome__image welcome__image--left welcome__image--3" :src="icon_3" alt="">
+		</div>
+			<div class="welcome__center">
+			<h1 class="welcome__title" id="welcome__title">
+				Gift swapping made simple.
+			</h1>
+			<p class="welcome__text">
+				For the ones who love to pick for themselves.
+			</p> 
+			<RouterLink class="header__nav-link btn btn--filled" to="offers">
+				Search offers on Gifted
+			</RouterLink>
+		</div>
+		<div class="welcome__image-wrapper welcome__image-wrapper--4"
+			:style="{ transform: transforms.i4 }">
+			<img class="welcome__image welcome__image--right welcome__image--4" :src="icon_4" alt="">
+		</div>
+		<div class="welcome__image-wrapper welcome__image-wrapper--5"
+			:style="{ transform: transforms.i5 }">
+			<img class="welcome__image welcome__image--right welcome__image--5" :src="icon_5" alt="">
+		</div>
+		<div class="welcome__image-wrapper welcome__image-wrapper--6"
+			:style="{ transform: transforms.i6 }">
+			<img class="welcome__image welcome__image--right welcome__image--6" :src="icon_6" alt="">
+		</div>
+	</section>
+</template>
+
+
 <script setup>
 	import { ref, reactive, onMounted, onBeforeUnmount, inject } from "vue"
 	import { RouterLink } from "vue-router"
@@ -98,44 +136,6 @@
 		window.removeEventListener("scroll", handeMouseMove)
 	})
 </script>
-
-
-<template>
-	<section class="welcome" aria-labelledby="welcome__title">
-		<div class="welcome__image-wrapper welcome__image-wrapper--1" :style="{ transform: transforms.i1 }">
-			<img class="welcome__image welcome__image--left welcome__image--1" :src="icon_1" alt="">
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--2" :style="{ transform: transforms.i2 }">
-			<img class="welcome__image welcome__image--left welcome__image--2" :src="icon_2" alt="">
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--3" :style="{ transform: transforms.i3 }">
-			<img class="welcome__image welcome__image--left welcome__image--3" :src="icon_3" alt="">
-		</div>
-			<div class="welcome__center">
-			<h1 class="welcome__title" id="welcome__title">
-				Gift swapping made simple.
-			</h1>
-			<p class="welcome__text">
-				For the ones who love to pick for themselves.
-			</p> 
-			<RouterLink class="header__nav-link btn btn--filled" to="offers">
-				Search offers on Gifted
-			</RouterLink>
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--4"
-			:style="{ transform: transforms.i4 }">
-			<img class="welcome__image welcome__image--right welcome__image--4" :src="icon_4" alt="">
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--5"
-			:style="{ transform: transforms.i5 }">
-			<img class="welcome__image welcome__image--right welcome__image--5" :src="icon_5" alt="">
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--6"
-			:style="{ transform: transforms.i6 }">
-			<img class="welcome__image welcome__image--right welcome__image--6" :src="icon_6" alt="">
-		</div>
-	</section>
-</template>
 
 
 <style lang="scss" scoped>

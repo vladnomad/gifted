@@ -1,3 +1,24 @@
+<template>
+    <article class="offer">
+        <h3 class="offer__title">{{ offer.title }}</h3>
+        <div class="offer__author">
+            <h4 class="offer__title">{{ offer.author.split(" ").join("\n") }}</h4>
+            <p class="offer__date">{{ defineTimeAgo(offer.date) }}</p>
+        </div>
+        <div class="offer__tag-container">
+            <a class="offer__tag" href="#" title="Some Title">{{ offer.tag }}</a>
+        </div>
+        <div class="offer__photo-container">
+            <img class="offer__photo" alt="" :src="offer.photo" loading="lazy" />
+        </div>
+        <div class="offer__arrow-container" href="#">
+            <ArrowSVG />
+        </div>
+        <a class="offer__link" href="#"></a>
+    </article>
+</template>
+
+
 <script setup>
     import { defineProps } from "vue"
 
@@ -29,27 +50,6 @@
 		return timeAgo
 	}
 </script>
-
-
-<template>
-    <article class="offer">
-        <h3 class="offer__title">{{ offer.title }}</h3>
-        <div class="offer__author">
-            <h4 class="offer__title">{{ offer.author.split(" ").join("\n") }}</h4>
-            <p class="offer__date">{{ defineTimeAgo(offer.date) }}</p>
-        </div>
-        <div class="offer__tag-container">
-            <a class="offer__tag" href="#" title="Some Title">{{ offer.tag }}</a>
-        </div>
-        <div class="offer__photo-container">
-            <img class="offer__photo" alt="" :src="offer.photo" loading="lazy" />
-        </div>
-        <div class="offer__arrow-container" href="#">
-            <ArrowSVG />
-        </div>
-        <a class="offer__link" href="#"></a>
-    </article>
-</template>
 
 
 <style lang="scss" scoped>

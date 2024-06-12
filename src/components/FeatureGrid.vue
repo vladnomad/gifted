@@ -1,3 +1,34 @@
+<template>
+	<section class="bento" aria-labelledby="bento__title">		
+		<h2 class="bento__title" id="bento__title">
+			Explore unique ways to breath life into unused gifts with Gifted
+		</h2>
+
+		<article
+			v-for="(article, i) in articles"
+			:key="'bento__node--' + (i + 1)"
+			:class="['bento__node', 'bento__node--' + (i + 1) + isMobileClasses[i].animationClass]">
+			<img 
+				class="bento__node-illustration"
+				:src="article.images.illustration.src"
+				:alt="article.images.illustration.alt"
+				loading="lazy"
+			/>
+			<img 
+				v-for="(icon, key) in article.images.icons"
+				:key="'bento__node-' + key + '--' + (i + 1)"
+				:class="['bento__node-icon', 'bento__node-icon--' + key]"
+				:src="icon.src"
+				:alt="icon.alt"
+				loading="lazy"
+			/>
+			<h3 class="bento__node-title">{{ article.title }}</h3>
+			<p class="bento__node-text">{{ article.text }}</p>
+		</article>
+	</section>
+</template>
+
+
 <script setup>
 	import { inject, reactive, onMounted } from "vue"
 
@@ -64,7 +95,7 @@
 			isMobileClasses.forEach(node => {
 				node = (isMobile.value ? " is-mobile" : "")
 			})
-		}
+		}	
 	})
 
 	const articles = [
@@ -74,23 +105,23 @@
 			images: {
 				illustration: {
 					src: illustration_1,
-					alt: ""
+					alt: ""	
 				},
 				icons: {
 					primary: {
 						src: icon_11,
-						alt: ""
+						alt: ""	
 					},
 					secondary: {
 						src: icon_12,
-						alt: ""
+						alt: ""	
 					},
 					tertiary: {
 						src: icon_13,
-						alt: ""
-					}
-				}
-			}
+						alt: ""	
+					}	
+				}	
+			}	
 		},
 		{
 			title: "Effortless Listing",
@@ -98,27 +129,27 @@
 			images: {
 				illustration: {
 					src: illustration_2,
-					alt: ""
+					alt: ""	
 				},
 				icons: {
 					primary: {
 						src: icon_21,
-						alt: ""
+						alt: ""	
 					},
 					secondary: {
 						src: icon_22,
-						alt: ""
+						alt: ""	
 					},
 					tertiary: {
 						src: icon_23,
-						alt: ""
+						alt: ""	
 					},
 					quaternary: {
 						src: icon_24,
-						alt: ""
-					}
-				}
-			}
+						alt: ""	
+					}	
+				}	
+			}	
 		},
 		{
 			title: "Tailored Deals",
@@ -126,27 +157,27 @@
 			images: {
 				illustration: {
 					src: illustration_3,
-					alt: ""
+					alt: ""	
 				},
 				icons: {
 					primary: {
 						src: icon_31,
-						alt: ""
+						alt: ""	
 					},
 					secondary: {
 						src: icon_32,
-						alt: ""
+						alt: ""	
 					},
 					tertiary: {
 						src: icon_33,
-						alt: ""
+						alt: ""	
 					},
 					quaternary: {
 						src: icon_34,
-						alt: ""
-					}
-				}
-			}
+						alt: ""	
+					}	
+				}	
+			}	
 		},
 		{
 			title: "Friendly Chats",
@@ -154,61 +185,30 @@
 			images: {
 				illustration: {
 					src: illustration_4,
-					alt: ""
+					alt: ""	
 				},
 				icons: {
 					primary: {
 						src: icon_41,
-						alt: ""
+						alt: ""	
 					},
 					secondary: {
 						src: icon_42,
-						alt: ""
+						alt: ""	
 					},
 					tertiary: {
 						src: icon_43,
-						alt: ""
+						alt: ""	
 					},
 					quaternary: {
 						src: icon_44,
-						alt: ""
-					}
-				}
-			}
+						alt: ""	
+					}	
+				}	
+			}	
 		}
-	]
+	]		
 </script>
-
-
-<template>
-	<section class="bento" aria-labelledby="bento__title">		
-		<h2 class="bento__title" id="bento__title">
-			Explore unique ways to breath life into unused gifts with Gifted
-		</h2>
-
-		<article
-			v-for="(article, i) in articles"
-			:key="'bento__node--' + (i + 1)"
-			:class="['bento__node', 'bento__node--' + (i + 1) + isMobileClasses[i].animationClass]">
-			<img 
-				class="bento__node-illustration"
-				:src="article.images.illustration.src"
-				:alt="article.images.illustration.alt"
-				loading="lazy"
-			/>
-			<img 
-				v-for="(icon, key) in article.images.icons"
-				:key="'bento__node-' + key + '--' + (i + 1)"
-				:class="['bento__node-icon', 'bento__node-icon--' + key]"
-				:src="icon.src"
-				:alt="icon.alt"
-				loading="lazy"
-			/>
-			<h3 class="bento__node-title">{{ article.title }}</h3>
-			<p class="bento__node-text">{{ article.text }}</p>
-		</article>
-	</section>
-</template>
 
 
 <style lang="scss" scoped>
