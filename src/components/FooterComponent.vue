@@ -56,7 +56,7 @@
 			<a href="privacy-policy" class="link footer__link">
 				Privacy Policy
 			</a>
-			<a href="/" class="link footer__link">
+			<a href="https://madebynomad.dev" class="link footer__link">
 				madebynomad.dev
 			</a>
 		</div>

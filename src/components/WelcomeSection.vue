@@ -117,7 +117,7 @@
 			<p class="welcome__text">
 				For the ones who love to pick for themselves.
 			</p> 
-			<a class="header__nav-link btn btn--filled" href="/offers">
+			<a class="header__nav-link btn btn--filled" href="offers">
 				Search offers on Gifted
 			</a>
 		</div>

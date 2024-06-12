@@ -17,7 +17,7 @@
 	<header class="header">
 		<div class="header__container">
 			<div class="header__title-wrapper">
-				<a class="header__title" href="/gifted">
+				<a class="header__title" href="/">
 					<LogoSVG />
 					Gifted
 				</a>

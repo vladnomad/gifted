@@ -1,11 +1,18 @@
 <script setup>
 	import { ref, onMounted, onBeforeUnmount, provide } from "vue"
+	// import { useRoute, useRouter } from "vue-router"
 
-	import HeaderComponent from "./components/HeaderComponent.vue"
-	import WelcomeSection from "./components/WelcomeSection.vue"
-	import FeatureGrid from "./components/FeatureGrid.vue"
-	import OfferList from "./components/OfferList.vue"
-	import FooterComponent from "./components/FooterComponent.vue"
+	// const route = useRoute()
+	// const router = useRouter()
+
+	// const search = computed({
+	// 	get() {
+	// 		return route.query.search ?? ""
+	// 	},
+	// 	set(search) {
+	// 		router.replace({ query: { search } })
+	// 	}
+	// })
 
 	const isMobile = ref(false)
 
@@ -29,14 +36,7 @@
 
 
 <template v-if="true">
-	<HeaderComponent />
-	
-	<main class="main">
-		<WelcomeSection />
-		<FeatureGrid />
-		<OfferList />
-		<FooterComponent />
-	</main>
+	<RouterView />
 	
 </template>
 
