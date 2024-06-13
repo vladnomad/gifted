@@ -20,6 +20,9 @@
 	import FooterComponent from "./components/FooterComponent.vue"
 	import HeaderComponent from "./components/HeaderComponent.vue"
 
+	import "./assets/styles/variables.scss"
+	import "./assets/styles/main.scss"
+
 	const isMobile = ref(false)	
 
 	const checkMobile = () => {
@@ -42,10 +45,9 @@
 
 
 <style lang="scss" scoped>
-	@import './assets/styles/main.scss';
-
-	.fade-enter-active, .fade-leave-active {
-		transition: opacity 0.5s ease;
+	.fade-enter-active, 
+	.fade-leave-active {
+		transition: opacity 0.3s ease-in-out;
 	}
 
 	.fade-enter, .fade-leave-to {

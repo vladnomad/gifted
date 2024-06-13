@@ -5,84 +5,28 @@
 			<OfferListItem v-for="(offer, i) in mobileOffers" :key="'offer--' + i"  :offer="offer" />
 		</div>
 		<div v-if="!isMobile" class="offer-list__container offer-list__container--desktop">
-			<OfferListItem v-for="(offer, i) in desktopOffers" :key="'offer--' + i"  :offer="offer" />
+			<OfferListItem v-for="(offer, i) in desktopOffers" :key="'offer--' + i" :offer="offer" />
 		</div>
 	</section>
 </template>
 
 
 <script setup>
-	import { inject } from "vue"
+	import { inject, onBeforeMount, computed } from "vue"
+	import { useStoreState } from "../composables/useStoreState"
+	import { useStoreActions } from "../composables/useStoreActions"
 	import OfferListItem from "./OfferListItem.vue"
 
-	import photo_1 from "../assets/img/photos/offerList_1.webp"
-	import photo_2 from "../assets/img/photos/offerList_2.webp"
-	import photo_3 from "../assets/img/photos/offerList_3.webp"
-	import photo_4 from "../assets/img/photos/offerList_4.webp"
-	import photo_5 from "../assets/img/photos/offerList_5.webp"
-	import photo_6 from "../assets/img/photos/offerList_6.webp"
-
 	const isMobile = inject("isMobile")
+	const { offers } = useStoreState(["offers"])
+	const { getOffers } = useStoreActions()
 
-	const tags = {
-		FASHION: "Fashion",
-		BEAUTY: "Beauty",
-		JEWELRY: "Jewelry",
-		HOMEDECOR: "HomeDecor",
-		TECH: "Tech",
-		SPORT: "Sport",
-		SHOES: "Shoes",
-		TRAVEL: "Travel",
-		ENTERTAINMENT: "Entertainment"
-	}
+	onBeforeMount(() => {
+		getOffers()
+	})
 
-	const latestOffers = [
-		{
-			title: "Pandora",
-			author: "Marta Kowalczyk",
-			date: "12 March 2024",
-			tag: tags.JEWELRY,
-			photo: photo_1
-		},
-		{
-			title: "Apple",
-			author: "John Davis",
-			date: "7 March 2024",
-			tag: tags.TECH,
-			photo: photo_2
-		},
-		{
-			title: "Jolyn Swimwear",
-			author: "Emily Johnson",
-			date: "2 March 2024",
-			tag: tags.FASHION,
-			photo: photo_3
-		},
-		{
-			title: "AirBnB",
-			author: "Leonardo Rossi",
-			date: "29 February 2024",
-			tag: tags.TRAVEL,
-			photo: photo_4
-		},
-		{
-			title: "Almond Surfboards",
-			author: "John Davis",
-			date: "29 February 2024",
-			tag: tags.SPORT,
-			photo: photo_5
-		},
-		{
-			title: "Sephora",
-			author: "Maria Bianchi",
-			date: "17 February 2024",
-			tag: tags.BEAUTY,
-			photo: photo_6
-		}
-	]
-
-	const mobileOffers = latestOffers.slice(0, 3)
-	const desktopOffers = latestOffers.slice(3, 6)
+	const mobileOffers = computed(() => offers.value.slice(0, 3))	
+	const desktopOffers = computed(() => offers.value.slice(3, 6))
 </script>
 
 
