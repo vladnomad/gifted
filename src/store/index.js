@@ -1,5 +1,6 @@
 import { createStore } from "vuex"
 import { offers } from "../constants/offers"
+import { db } from "../db"
 
 const _fetchOffers = () => {
     return new Promise((resolve) => {
@@ -20,6 +21,7 @@ export default createStore({
     },
     actions: {
         async getOffers({ commit }) {
+            console.log(db)
             const offers = await _fetchOffers()
             commit("setOffers", offers)
         }
