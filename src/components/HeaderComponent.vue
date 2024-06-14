@@ -2,15 +2,24 @@
 	<header class="header">
 		<div class="header__container">
 			<div class="header__title-wrapper">
-				<RouterLink class="header__title" to="/">
+				<RouterLink
+					class="header__title"
+					to="/"
+				>
 					<LogoSVG />
 					Gifted
 				</RouterLink>
 			</div>
+
 			<nav class="header__nav">
-				<RouterLink v-if="isMobile" class="header__nav-login" to="login">
+				<RouterLink
+					v-if="isMobile"
+					class="header__nav-login"
+					to="login"
+				>
 					<UserSVG />
 				</RouterLink>
+
 				<div :class='{
 					"header__nav-links": true,
 					"is-active": isActive,
@@ -19,22 +28,37 @@
 					<RouterLink to="about">
 						About
 					</RouterLink>
-					<RouterLink v-if="!isMobile" class="header__nav-login" to="login">
+					<RouterLink
+						v-if="!isMobile"
+						class="header__nav-login"
+						to="login"
+					>
 						<UserSVG />
 					</RouterLink>
-					<RouterLink class="btn btn--filled" to="join">
+					<RouterLink
+						class="btn btn--filled"
+						to="join"
+					>
 						Join Now
 					</RouterLink>
 				</div>
-				<div v-if="isMobile" class="header__nav-menu">
-					<div @click="toggleMenu" :class='{ 
-						"header__nav-menu_btn": true, 
-						"is-active": isActive,
-						"is-not-active": !isActive
-					}'>
-						<span v-for="i in 3" 
-							:key="'header__nav-menu_btn_span--' + i">
-						</span>
+
+				<div
+					v-if="isMobile"
+					class="header__nav-menu"
+				>
+					<div
+						@click="toggleMenu"
+						:class='{
+							"header__nav-menu_btn": true,
+							"is-active": isActive,
+							"is-not-active": !isActive
+						}'
+					>
+						<span
+							v-for="i in 3"
+							:key="'header__nav-menu_btn_span--' + i"
+						></span>
 					</div>
 				</div>
 			</nav>

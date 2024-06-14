@@ -1,29 +1,46 @@
 <template>
-	<section class="bento" aria-labelledby="bento__title">		
-		<h2 class="bento__title" id="bento__title">
+	<section
+		class="bento"
+		aria-labelledby="bento__title"
+	>
+		<h2
+			class="bento__title"
+			id="bento__title"
+		>
 			Explore unique ways to breath life into unused gifts with Gifted
 		</h2>
 
 		<article
 			v-for="(article, i) in articles"
-			:key="'bento__node--' + (i + 1)"
-			:class="['bento__node', 'bento__node--' + (i + 1) + isMobileClasses[i].animationClass]">
-			<img 
+			:key="`bento__node--${i + 1}`"
+			:class="[
+				'bento__node',
+				`bento__node--${i + 1}${isMobileClasses[i].animationClass}`
+			]"
+		>
+			<img
 				class="bento__node-illustration"
 				:src="article.images.illustration.src"
 				:alt="article.images.illustration.alt"
 				loading="lazy"
 			/>
-			<img 
+			<img
 				v-for="(icon, key) in article.images.icons"
-				:key="'bento__node-' + key + '--' + (i + 1)"
-				:class="['bento__node-icon', 'bento__node-icon--' + key]"
+				loading="lazy"
+				:key="`bento__node-${key}--${i + 1}`"
 				:src="icon.src"
 				:alt="icon.alt"
-				loading="lazy"
+				:class="[
+					'bento__node-icon',
+					`bento__node-icon--${key}`
+				]"
 			/>
-			<h3 class="bento__node-title">{{ article.title }}</h3>
-			<p class="bento__node-text">{{ article.text }}</p>
+			<h3 class="bento__node-title">
+				{{ article.title }}
+			</h3>
+			<p class="bento__node-text">
+				{{ article.text }}
+			</p>
 		</article>
 	</section>
 </template>
@@ -31,30 +48,7 @@
 
 <script setup>
 	import { inject, reactive, onMounted } from "vue"
-
-	import illustration_1 from "../assets/img/illustrations/featureGrid_1.png"
-	import illustration_2 from "../assets/img/illustrations/featureGrid_2.png"
-	import illustration_3 from "../assets/img/illustrations/featureGrid_3.png"
-	import illustration_4 from "../assets/img/illustrations/featureGrid_4.png"
-
-	import icon_11 from "../assets/img/icons/featureGrid_11.png"
-	import icon_12 from "../assets/img/icons/featureGrid_12.png"
-	import icon_13 from "../assets/img/icons/featureGrid_13.png"
-
-	import icon_21 from "../assets/img/icons/featureGrid_21_0.png"
-	import icon_22 from "../assets/img/icons/featureGrid_22_0.png"
-	import icon_23 from "../assets/img/icons/featureGrid_23_0.png"
-	import icon_24 from "../assets/img/icons/featureGrid_24_0.png"
-
-	import icon_31 from "../assets/img/icons/featureGrid_31.png"
-	import icon_32 from "../assets/img/icons/featureGrid_32.png"
-	import icon_33 from "../assets/img/icons/featureGrid_33.png"
-	import icon_34 from "../assets/img/icons/featureGrid_34.png"
-
-	import icon_41 from "../assets/img/icons/featureGrid_41.png"
-	import icon_42 from "../assets/img/icons/featureGrid_42.png"
-	import icon_43 from "../assets/img/icons/featureGrid_43.png"
-	import icon_44 from "../assets/img/icons/featureGrid_44.png"
+	import { articles } from "../constants/homePage.js"
 
 	const isMobile = inject("isMobile")
 
@@ -97,117 +91,6 @@
 			})
 		}	
 	})
-
-	const articles = [
-		{
-			title: "Trusted Trades",
-			text: "Enjoy peace of mind with\u00a0our\u00a0carefully crafted gift card swapping system",
-			images: {
-				illustration: {
-					src: illustration_1,
-					alt: ""	
-				},
-				icons: {
-					primary: {
-						src: icon_11,
-						alt: ""	
-					},
-					secondary: {
-						src: icon_12,
-						alt: ""	
-					},
-					tertiary: {
-						src: icon_13,
-						alt: ""	
-					}	
-				}	
-			}	
-		},
-		{
-			title: "Effortless Listing",
-			text: "List your gift cards in a snap",
-			images: {
-				illustration: {
-					src: illustration_2,
-					alt: ""	
-				},
-				icons: {
-					primary: {
-						src: icon_21,
-						alt: ""	
-					},
-					secondary: {
-						src: icon_22,
-						alt: ""	
-					},
-					tertiary: {
-						src: icon_23,
-						alt: ""	
-					},
-					quaternary: {
-						src: icon_24,
-						alt: ""	
-					}	
-				}	
-			}	
-		},
-		{
-			title: "Tailored Deals",
-			text: "Discover personalized gift card offers that match your style and interests",
-			images: {
-				illustration: {
-					src: illustration_3,
-					alt: ""	
-				},
-				icons: {
-					primary: {
-						src: icon_31,
-						alt: ""	
-					},
-					secondary: {
-						src: icon_32,
-						alt: ""	
-					},
-					tertiary: {
-						src: icon_33,
-						alt: ""	
-					},
-					quaternary: {
-						src: icon_34,
-						alt: ""	
-					}	
-				}	
-			}	
-		},
-		{
-			title: "Friendly Chats",
-			text: "Connect directly for smooth\u00a0conversations and\u00a0joyful transactions",
-			images: {
-				illustration: {
-					src: illustration_4,
-					alt: ""	
-				},
-				icons: {
-					primary: {
-						src: icon_41,
-						alt: ""	
-					},
-					secondary: {
-						src: icon_42,
-						alt: ""	
-					},
-					tertiary: {
-						src: icon_43,
-						alt: ""	
-					},
-					quaternary: {
-						src: icon_44,
-						alt: ""	
-					}	
-				}	
-			}	
-		}
-	]		
 </script>
 
 

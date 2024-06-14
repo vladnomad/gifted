@@ -1,11 +1,26 @@
 <template>
 	<section class="offer-list">
-		<h2 class="offer-list__title">Latest Offers</h2>
+		<h2 class="offer-list__title">
+			Latest Offers
+		</h2>
+
 		<div class="offer-list__container">
-			<OfferListItem v-for="(offer, i) in mobileOffers" :key="'offer--' + i"  :offer="offer" />
+			<OfferListItem
+				v-for="(offer, i) in mobileOffers"
+				:key="`offer--${i}`"
+				:offer="offer"
+			/>
 		</div>
-		<div v-if="!isMobile" class="offer-list__container offer-list__container--desktop">
-			<OfferListItem v-for="(offer, i) in desktopOffers" :key="'offer--' + i" :offer="offer" />
+
+		<div
+			v-if="!isMobile"
+			class="offer-list__container offer-list__container--desktop"
+		>
+			<OfferListItem
+				v-for="(offer, i) in desktopOffers"
+				:key="`offer--${i}`"
+				:offer="offer"
+			/>
 		</div>
 	</section>
 </template>

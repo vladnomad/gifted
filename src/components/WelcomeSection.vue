@@ -1,36 +1,43 @@
 <template>
-	<section class="welcome" aria-labelledby="welcome__title">
-		<div class="welcome__image-wrapper welcome__image-wrapper--1" :style="{ transform: transforms.i1 }">
-			<img class="welcome__image welcome__image--left welcome__image--1" :src="icon_1" alt="">
+	<section
+		class="welcome"
+		aria-labelledby="welcome__title"
+	>
+		<div
+			v-for="(welcomeImage, i) in welcomeImages"
+			:style="{ transform: transforms[`i${i + 1}`] }"
+			:class="[
+				'welcome__image-wrapper',
+				`welcome__image-wrapper--${i + 1}`
+			]"
+		>
+			<img
+				alt=""
+				:src="welcomeImage"
+				:class="[
+					'welcome__image',
+					`welcome__image--${i < 3 ? 'left' : 'right'}`,
+					`welcome__image--${i + 1}`
+				]"
+			>
 		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--2" :style="{ transform: transforms.i2 }">
-			<img class="welcome__image welcome__image--left welcome__image--2" :src="icon_2" alt="">
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--3" :style="{ transform: transforms.i3 }">
-			<img class="welcome__image welcome__image--left welcome__image--3" :src="icon_3" alt="">
-		</div>
-			<div class="welcome__center">
-			<h1 class="welcome__title" id="welcome__title">
+
+		<div class="welcome__center">
+			<h1 
+				class="welcome__title"
+				id="welcome__title"
+			>
 				Gift swapping made simple.
 			</h1>
 			<p class="welcome__text">
 				For the ones who love to pick for themselves.
-			</p> 
-			<RouterLink class="header__nav-link btn btn--filled" to="offers">
+			</p>
+			<RouterLink 
+				class="header__nav-link btn btn--filled"
+				to="offers"
+			>
 				Search offers on Gifted
 			</RouterLink>
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--4"
-			:style="{ transform: transforms.i4 }">
-			<img class="welcome__image welcome__image--right welcome__image--4" :src="icon_4" alt="">
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--5"
-			:style="{ transform: transforms.i5 }">
-			<img class="welcome__image welcome__image--right welcome__image--5" :src="icon_5" alt="">
-		</div>
-		<div class="welcome__image-wrapper welcome__image-wrapper--6"
-			:style="{ transform: transforms.i6 }">
-			<img class="welcome__image welcome__image--right welcome__image--6" :src="icon_6" alt="">
 		</div>
 	</section>
 </template>
@@ -39,13 +46,7 @@
 <script setup>
 	import { ref, reactive, onMounted, onBeforeUnmount, inject } from "vue"
 	import { RouterLink } from "vue-router"
-
-	import icon_1 from "../assets/img/icons/welcomeSection_1.png"
-	import icon_2 from "../assets/img/icons/welcomeSection_2.png"
-	import icon_3 from "../assets/img/icons/welcomeSection_3.png"
-	import icon_4 from "../assets/img/icons/welcomeSection_4.png"
-	import icon_5 from "../assets/img/icons/welcomeSection_5.png"
-	import icon_6 from "../assets/img/icons/welcomeSection_6.png"
+	import { welcomeImages } from "../constants/homePage.js"
 
 	const isMobile = inject("isMobile")
 

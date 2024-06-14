@@ -9,8 +9,13 @@
 			</p>
 		</div>
 
-		<img class="footer__image" :src="footerIMG" alt="" loading="lazy" />
-		
+		<img
+			class="footer__image"
+			:src="footerIMG"
+			alt=""
+			loading="lazy"
+		/>
+
 		<div class="footer__info-bg">
 			<FooterSVG />
 		</div>
@@ -21,19 +26,40 @@
 			</h3>
 			<p class="footer__info-text">
 				Check our latest updates and community events or get&nbsp;in&nbsp;touch for platform support at 
-				<a href="mailto:contact@gifted.com" class="link footer__email-link">contact@gifted.com</a>
+				<a
+					href="mailto:contact@gifted.com"
+					class="link footer__email-link"
+				>
+					contact@gifted.com
+				</a>
 			</p>
 		</div>
 
 		<div class="footer__social">
-			<a href="https://instagram.com" class="footer__social-link">
-				<img class="footer__social-image footer__social-image--instagram" :src="instagramIMG" alt="" loading="lazy" />
+			<a
+				href="https://instagram.com"
+				class="footer__social-link"
+			>
+				<img
+					class="footer__social-image footer__social-image--instagram"
+					:src="instagramIMG"
+					alt=""
+					loading="lazy"
+				/>
 				<p class="footer__social-label footer__social-label--instagram">
 					Instagram
-					</p>
-					</a>
-			<a href="https://facebook.com" class="footer__social-link">
-				<img class="footer__social-image footer__social-image--facebook" :src="facebookIMG" alt="" loading="lazy" />
+				</p>
+			</a>
+			<a
+				href="https://facebook.com"
+				class="footer__social-link"
+			>
+				<img
+					class="footer__social-image footer__social-image--facebook"
+					:src="facebookIMG"
+					alt=""
+					loading="lazy"
+				/>
 				<p class="footer__social-label footer__social-label--facebook">
 					Facebook
 				</p>
@@ -41,13 +67,22 @@
 		</div>
 
 		<div class="footer__links">
-			<RouterLink to="terms-and-conditions" class="link footer__link">
+			<RouterLink
+				to="terms-and-conditions"
+				class="link footer__link"
+			>
 				Terms & Conditions
-				</RouterLink>
-				<RouterLink to="privacy-policy" class="link footer__link">
-					Privacy Policy
-					</RouterLink>
-			<a href="https://madebynomad.dev" class="link footer__link">
+			</RouterLink>
+			<RouterLink
+				to="privacy-policy"
+				class="link footer__link"
+			>
+				Privacy Policy
+			</RouterLink>
+			<a
+				href="https://madebynomad.dev"
+				class="link footer__link"
+			>
 				madebynomad.dev
 			</a>
 		</div>
