@@ -1,29 +1,37 @@
 import { createStore } from "vuex"
-import { offers } from "../constants/offers"
 import { db } from "../db"
+import { getDocs, query, orderBy, collection } from "firebase/firestore"
 
-const _fetchOffers = () => {
-    return new Promise((resolve) => {
-        resolve(offers)
-    })
-}
-
-export default createStore({
-    state() {
-        return {
-            offers: []
-        }
+const store = createStore({
+    state: {
+        offers: []
     },
     mutations: {
-        setOffers(state, offers) {
+        SET_OFFERS(state, offers) {
             state.offers = offers
         }
     },
     actions: {
-        async getOffers({ commit }) {
-            console.log(db)
-            const offers = await _fetchOffers()
-            commit("setOffers", offers)
+        async fetchLatestOffers({ commit }) {
+            try {
+                const offersCollection = collection(db, "offers")
+                const q = query(offersCollection, orderBy("date", "desc"))
+                const querySnapshot = await getDocs(q)
+
+                const offers = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }))
+
+                commit("SET_OFFERS", offers)
+            } catch (error) {
+                console.error("Error fetching offers:", error)
+            }
         }
+    },
+    getters: {
+        latestOffers: state => state.offers
     }
 })
+
+export default store

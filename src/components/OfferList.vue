@@ -13,20 +13,20 @@
 
 <script setup>
 	import { inject, onBeforeMount, computed } from "vue"
-	import { useStoreState } from "../composables/useStoreState"
+	import { useStoreGetters } from "../composables/useStoreGetters"
 	import { useStoreActions } from "../composables/useStoreActions"
 	import OfferListItem from "./OfferListItem.vue"
 
 	const isMobile = inject("isMobile")
-	const { offers } = useStoreState(["offers"])
-	const { getOffers } = useStoreActions()
+	const { latestOffers } = useStoreGetters()
+	const { fetchLatestOffers } = useStoreActions()
 
 	onBeforeMount(() => {
-		getOffers()
+		fetchLatestOffers()
 	})
 
-	const mobileOffers = computed(() => offers.value.slice(0, 3))	
-	const desktopOffers = computed(() => offers.value.slice(3, 6))
+	const mobileOffers = computed(() => latestOffers.value.slice(0, 3))	
+	const desktopOffers = computed(() => latestOffers.value.slice(3, 6))
 </script>
 
 

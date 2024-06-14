@@ -40,7 +40,7 @@
 		window.removeEventListener("resize", handleResize)
 	})
 
-	provide("isMobile", isMobile);
+	provide("isMobile", isMobile)
 </script>
 
 

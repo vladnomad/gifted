@@ -31,7 +31,7 @@
 	const defineTimeAgo = (date) => {
 		let timeAgo
 
-		const offerDate = new Date(date)
+		const offerDate = new Date(date.seconds * 1000 + date.nanoseconds / 1000000)
 		const currentDate = new Date()
 
 		const daysAgo = Math.floor(
