@@ -27,17 +27,33 @@
 
 
 <script setup>
-	import { inject, onBeforeMount, computed } from "vue"
+	import { inject, onMounted, computed } from "vue"
 	import { useStoreGetters } from "../composables/useStoreGetters"
 	import { useStoreActions } from "../composables/useStoreActions"
 	import OfferListItem from "./OfferListItem.vue"
 
 	const isMobile = inject("isMobile")
 	const { latestOffers } = useStoreGetters()
-	const { fetchLatestOffers } = useStoreActions()
+	const { fetchLatestOffers, loadLatestOffers } = useStoreActions()
 
-	onBeforeMount(() => {
-		fetchLatestOffers()
+	const getLatestOffers = () => {
+		const cachedTimestamp = sessionStorage.getItem("latestOffersTimestamp")
+		const cacheValidityDuration = 1000 * 60 * 60
+		const isValidCache = 
+			cachedTimestamp && 
+			(Date.now() - cachedTimestamp < cacheValidityDuration)
+
+		if (isValidCache) {
+			loadLatestOffers()
+		} else {
+			sessionStorage.removeItem("latestOffers")
+			sessionStorage.removeItem("latestOffersTimestamp")
+			fetchLatestOffers()
+		}
+	}
+
+	onMounted(() => {
+		getLatestOffers()
 	})
 
 	const mobileOffers = computed(() => latestOffers.value.slice(0, 3))	
