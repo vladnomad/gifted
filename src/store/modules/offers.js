@@ -1,7 +1,7 @@
 import { db } from "../../db"
 import { getDocs, query, orderBy, collection } from "firebase/firestore"
 
-const store = {
+export default {
     state: {
         latestOffers: []
     },
@@ -49,5 +49,3 @@ const store = {
         latestOffers: state => state.latestOffers
     }
 }
-
-export default store
