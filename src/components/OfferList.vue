@@ -28,8 +28,8 @@
 
 <script setup>
 	import { inject, onMounted, computed } from "vue"
-	import { useStoreGetters } from "../composables/useStoreGetters"
-	import { useStoreActions } from "../composables/useStoreActions"
+	import { useStoreGetters } from "../store/helpers/useStoreGetters"
+	import { useStoreActions } from "../store/helpers/useStoreActions"
 	import OfferListItem from "./OfferListItem.vue"
 
 	const isMobile = inject("isMobile")
@@ -144,3 +144,4 @@
 		}
 	}
 </style>
+../composables/store/useStoreActions../composables/store/useStoreGetters../store/helpers/useStoreGetters../store/helpers/useStoreActions
