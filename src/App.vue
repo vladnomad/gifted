@@ -7,10 +7,7 @@
 				<component :is="Component" :key="route.path" />
 			</transition>
 		</RouterView>
-		
-		<FooterComponent />
 	</main>
-	
 </template>
 	
 
