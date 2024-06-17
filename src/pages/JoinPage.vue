@@ -17,6 +17,7 @@
 			<div class="join__input-container">
 				<input
 					v-model="form.email"
+					@input="handleChange('email')"
 					class="join__input"
 					type="email"
 					placeholder="Email"
@@ -33,6 +34,7 @@
 			<div class="join__input-container">
 				<input
 					v-model="form.username"
+					@input="handleChange('username')"
 					class="join__input"
 					type="text"
 					placeholder="Username"
@@ -48,6 +50,7 @@
 			<div class="join__input-container">
 				<input
 					v-model="form.password"
+					@input="handleChange('password')"
 					class="join__input"
 					type="password"
 					placeholder="Password"
@@ -64,6 +67,7 @@
 			<div class="join__input-container">
 				<input
 					v-model="form.passwordConfirmation"
+					@input="handleChange('passwordConfirmation')"
 					class="join__input"
 					type="password"
 					placeholder="Repeat the password"
@@ -77,19 +81,12 @@
 			</div>
 
 			<button
-				:disabled="isProcessing || !isFormValid"
+				:disabled="isSubmitDisabled"
 				type="submit"
 				class="btn btn--filled btn--form"
 			>
 				Sign Up
-			</button>
-			<!-- 			
-			<div class="join__form-error">
-				<FormError
-					:errorMessage="error"
-				/>
-			</div> 
-			-->
+			</button>			
 		</form>
 
 		<button
@@ -99,6 +96,12 @@
 		>
 			Sign In With Google
 		</button>
+			
+		<div class="join__form-error">
+			<FormError v-if="error !== ''"
+				:errorMessage="error"
+			/>
+		</div> 
 	</section>
 </template>
 
@@ -136,7 +139,7 @@
 			required,
 			sameAs: helpers.withMessage(
 				"Must be same as the password", 
-				sameAs(() => form.password)
+				sameAs(computed(() => form.password))
 			)
 		}
 	}
@@ -146,29 +149,30 @@
 
     const { createFirebaseUser } = useStoreActions()
 	const { join } = useStoreGetters()
-	const { isProcessing, error } = join
 
+	const isProcessing = computed(() => join.value.isProcessing)
+	const error = computed(() => join.value.error)
+	
 	watch(isProcessing, (curr, prev) => {
-		if ((!curr && prev) && !error) {
-			router.push("/profile")
+		if ((!curr && prev) && error.value === "") {
+			router.push("/")
 		}
 	})
 
 	const errors = computed(() => useValidationErrors(v$.value.$errors))
-	const isFormValid = computed(() => v$.value.$pending ? false : v$.value.$invalid)
-
+	const isFormValid = computed(() => !v$.value.$invalid);
+	const isSubmitDisabled = computed(() => isProcessing.value || !isFormValid.value);
 
 	const joinIfValid = async () => {
-        if (v$.value.$invalid) {
-            v$.value.$touch()
-            return
-        }
+		v$.value.$touch()
+		await v$.value.$validate()
 
-        createFirebaseUser(_, form)
+		if (!isFormValid.value) return
+
+		await createFirebaseUser(form)
 	}
 
 	const googleSignIn = () => console.log("google")
-
 
 	const shouldShowError = (field) => {
 		const vueField = v$?.value?.[field]
@@ -179,6 +183,11 @@
 
     	return isDirty && isNotPending && hasError
   	}
+
+	const handleChange = (field) => {
+		v$.value[field].$touch()
+		v$.value[field].$validate()
+	}
 </script>
 
 

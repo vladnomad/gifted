@@ -1,7 +1,10 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../db"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 
 export default {
     state: {
+        // joinIsProcessing: false,
+        // joinError: "",
         join: {
             isProcessing: false,
             error: ""
@@ -13,23 +16,25 @@ export default {
     },
     mutations: {
         SET_JOIN_IS_PROCESSING({ join }, isProcessing) {
+            console.log(join, join.isProcessing, isProcessing)
             join.isProcessing = isProcessing
         },
         SET_JOIN_ERROR({ join }, error) {
+            console.log(join, join.error, error)
             join.error = error
         }
     },
     actions: {
-        async createFirebaseUser(_, { email, password }) {
+        async createFirebaseUser({ commit }, { email, password }) {
             commit("SET_JOIN_IS_PROCESSING", true)
             commit("SET_JOIN_ERROR", "")
 
             try {
                 const userCredentials = await createUserWithEmailAndPassword(
-                    getAuth(),
+                    auth,
                     email,
                     password
-                )                
+                )
                 return userCredentials.user
             } catch (error) {
                 commit("SET_JOIN_ERROR", error.message)
@@ -39,6 +44,8 @@ export default {
         }
     },
     getters: {
+        // joinIsProcessing: state => state.joinIsProcessing,
+        // joinError: state => state.joinError,
         join: state => {
             const isProcessing = state.join.isProcessing
             const error = state.join.error

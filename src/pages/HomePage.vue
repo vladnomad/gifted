@@ -3,6 +3,7 @@
 		<WelcomeSection />
 		<FeatureGrid />
 		<OfferList />
+		<FooterComponent />
 	</div>
 </template>
 
@@ -11,6 +12,7 @@
 	import WelcomeSection from "../components/WelcomeSection.vue"
 	import FeatureGrid from "../components/FeatureGrid.vue"
 	import OfferList from "../components/OfferList.vue"	
+	import FooterComponent from "../components/FooterComponent.vue"	
 </script>
 
 
