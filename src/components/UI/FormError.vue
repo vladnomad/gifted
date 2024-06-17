@@ -20,5 +20,20 @@
   
 
 <style lang="scss" scoped>
+	@import "../../assets/styles/variables.scss";
+	.error {
+		margin: 0;
+		color: $color-error;
+		font-weight: 300;
 
+		&-container {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			width: calc(100% - 8px);
+			height: calc(26px - 4px);
+			bottom: -26px;
+			padding: 2px 4px;
+		}
+	}
 </style>

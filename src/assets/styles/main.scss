@@ -41,6 +41,10 @@ a {
 	border-radius: $radius-rounded;
 	padding-inline: calc($spacing * 3);
 	padding-block: calc($spacing * .75);
+	transition: 
+		background-color .3s ease-in-out,
+		border-color .3s ease-in-out
+	;
 
 	&.btn--hollow {
 		background-color: transparent;
@@ -49,6 +53,15 @@ a {
 	&.btn--filled {
 		color: $color-white;
 		background-color: $color-black;				
+	}
+
+	&.btn--form {
+		height: 42.5px;
+	}
+
+	&:disabled {
+		background-color: $color-grey;
+		border-color: $color-grey;
 	}
 }
   

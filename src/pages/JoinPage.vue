@@ -3,105 +3,123 @@
 		class="join"
 		aria-labelledby="join__title"
 	>
-		<h1
-			class="join__title"
-			id="join__title"
-		>
-			Join
-		</h1>
+		<div class="join__form-container">
+			<h1
+				class="join__title"
+				id="join__title"
+			>
+				Join Gifted
+			</h1>
 
-		<form
-			class="join__form"
-			@submit.prevent="joinIfValid"
-		>
-			<div class="join__input-container">
-				<input
-					v-model="form.email"
-					@input="handleChange('email')"
-					class="join__input"
-					type="email"
-					placeholder="Email"
-					autocomplete="email"
-				>
-				<div class="join__input-error">
-                    <FormError
-						v-if="shouldShowError('email')"
-                        :errorMessage="errors.email"
-                    />
+			<form
+				class="join__form"
+				@submit.prevent="joinIfValid"
+			>
+				<div class="join__input-container">
+					<input
+						v-model="form.email"
+						@input="handleChange('email')"
+						:class='{
+							"join__input": true,
+							"is-invalid": isFieldInvalid("email"),
+							"is-valid": isFieldValid("email")
+						}'
+						type="email"
+						placeholder="Email"
+						autocomplete="email"
+					>
+					<FormError
+						v-if="isFieldInvalid('email')"
+						:errorMessage="errors.email"
+					/>
 				</div>
-			</div>
 
-			<div class="join__input-container">
-				<input
-					v-model="form.username"
-					@input="handleChange('username')"
-					class="join__input"
-					type="text"
-					placeholder="Username"
-				>
-				<div class="join__input-error">
-                    <FormError
-						v-if="shouldShowError('username')"
-                        :errorMessage="errors.username"
-                    />
+				<div class="join__input-container">
+					<input
+						v-model="form.username"
+						@input="handleChange('username')"
+						:class='{
+							"join__input": true,
+							"is-invalid": isFieldInvalid("username"),
+							"is-valid": isFieldValid("username")
+						}'
+						type="text"
+						placeholder="Username"
+						autocomplete="username"
+					>
+					<FormError
+						v-if="isFieldInvalid('username')"
+						:errorMessage="errors.username"
+					/>
 				</div>
-			</div>
 
-			<div class="join__input-container">
-				<input
-					v-model="form.password"
-					@input="handleChange('password')"
-					class="join__input"
-					type="password"
-					placeholder="Password"
-					autocomplete="current-password"
-				>
-				<div class="join__input-error">
-                    <FormError
-						v-if="shouldShowError('password')"
-                        :errorMessage="errors.password"
-                    />
+				<div class="join__input-container">
+					<input
+						v-model="form.password"
+						@input="handleChange('password')"
+						:class='{
+							"join__input": true,
+							"is-invalid": isFieldInvalid("password"),
+							"is-valid": isFieldValid("password")
+						}'
+						type="password"
+						placeholder="Password"
+						autocomplete="new-password"
+					>
+					<FormError
+						v-if="isFieldInvalid('password')"
+						:errorMessage="errors.password"
+					/>
 				</div>
-			</div>
 
-			<div class="join__input-container">
-				<input
-					v-model="form.passwordConfirmation"
-					@input="handleChange('passwordConfirmation')"
-					class="join__input"
-					type="password"
-					placeholder="Repeat the password"
-				>
-				<div class="join__input-error">
-                    <FormError
-						v-if="shouldShowError('passwordConfirmation')"
-                        :errorMessage="errors.passwordConfirmation"
-                    />
-				</div>
-			</div>
+				<div class="join__input-container">
+					<input
+						v-model="form.passwordConfirmation"
+						@input="handleChange('passwordConfirmation')"
+						:class='{
+							"join__input": true,
+							"is-invalid": isFieldInvalid("passwordConfirmation"),
+							"is-valid": isFieldValid("passwordConfirmation")
+						}'
+						type="password"
+						placeholder="Repeat the password"
+					>
+					<FormError
+						v-if="isFieldInvalid('passwordConfirmation')"
+						:errorMessage="errors.passwordConfirmation"
+					/>
+				</div>		
+			</form>
 
 			<button
 				:disabled="isSubmitDisabled"
 				type="submit"
 				class="btn btn--filled btn--form"
 			>
-				Sign Up
-			</button>			
-		</form>
+				Join
+			</button>	
 
-		<button
-			@click="googleSignIn"
-			type="button"
-			class="btn btn--hollow"
-		>
-			Sign In With Google
-		</button>
-			
-		<div class="join__form-error">
+			<button
+				@click="googleSignIn"
+				type="button"
+				class="btn btn--hollow btn--form"
+			>
+				Sign In With Google
+			</button>
+				
 			<FormError v-if="error !== ''"
 				:errorMessage="error"
 			/>
-		</div> 
+		</div>
+
+		<div class="join__image-container">
+			<img
+				class="join__image"
+				:src="joinPage"
+				alt=""
+				loading="lazy"
+			/>
+		</div>
 	</section>
 </template>
 
@@ -115,7 +133,9 @@
 	import { useStoreActions } from "../store/helpers/useStoreActions"
 	import { useStoreGetters } from "../store/helpers/useStoreGetters"
 	import { useValidationErrors } from "../composables/useValidationErrors"
+
 	import FormError from "../components/UI/FormError.vue"
+	import joinPage from "../assets/img/illustrations/joinPage.png"
 
 	const form = reactive({
 		email: "",
@@ -173,16 +193,39 @@
 	}
 
 	const googleSignIn = () => console.log("google")
-
-	const shouldShowError = (field) => {
+	
+	const vueFieldChecks = (field) => {
 		const vueField = v$?.value?.[field]
-
 		const isDirty = vueField?.$dirty
 		const isNotPending = !vueField?.$pending
 		const hasError = vueField?.$error
 
+		return {
+			isDirty,
+			isNotPending,
+			hasError
+		}
+	}
+
+	const isFieldInvalid = (field) => {
+		const { 
+			isDirty, 
+			isNotPending, 
+			hasError
+		} = vueFieldChecks(field)
+
     	return isDirty && isNotPending && hasError
   	}
+
+	const isFieldValid = (field) => {
+		const { 
+			isDirty, 
+			isNotPending, 
+			hasError
+		} = vueFieldChecks(field)
+
+    	return isDirty && isNotPending && !hasError
+	}
 
 	const handleChange = (field) => {
 		v$.value[field].$touch()
@@ -193,4 +236,71 @@
 
 <style lang="scss" scoped>
     @import "../assets/styles/variables.scss";
+
+	.join {
+		display: flex;
+		margin-top: calc($spacing * 4);
+
+		&__title {
+			text-align: center;
+			font-family: $font-display;
+			font-size: 30px;
+		}
+
+		&__form {
+			display: flex;
+			flex-direction: column;
+			gap: 23px;
+			margin-bottom: calc($spacing * .5);
+
+			&-container {
+				width: 290px;
+				height: 513px;
+				display: flex;
+				flex-direction: column;
+				gap: 26px;
+				margin-left: calc($spacing * 4);
+			}
+		}
+
+		&__input {
+			width: calc(calc(100% - 24px) - 2px);
+			height: calc(calc(100% - 21.5px) - 2px);
+			border-radius: $radius;
+			padding: 10.75px 12px;
+			border-width: 1px;
+			border-style: solid;
+			border-color: $color-shadow;
+
+			&.is-invalid {
+				border-color: $color-error;
+			}
+
+			&.is-valid {
+				border-color: $color-success;
+			}
+
+			&-container {
+				height: 37.5px;
+				position: relative;
+			}
+		}
+
+		&__image {
+
+
+			&-container {
+				height: 513px;
+				margin-left: calc($spacing * 4);
+			}
+		}
+	}
+
+	@media screen and (min-width: 893px) {
+		.join {
+			margin-top: 0;
+			align-items: center;
+			height: calc(100dvh - ((1.25rem + 52px) * 2));
+		}
+	}
 </style>
