@@ -234,32 +234,41 @@
 </script>
 
 
+<style lang="scss">
+	#app {
+		max-height: 100dvh;
+	}
+</style>
+
+
 <style lang="scss" scoped>
     @import "../assets/styles/variables.scss";
 
 	.join {
 		display: flex;
-		margin-top: calc($spacing * 4);
+		width: 310px;
+		height: calc(100dvh - (1.25rem + 52px));
+		flex-direction: column;
 
 		&__title {
 			text-align: center;
 			font-family: $font-display;
 			font-size: 30px;
+			margin-top: 0;
 		}
 
 		&__form {
 			display: flex;
 			flex-direction: column;
-			gap: 23px;
+			gap: 30px;
 			margin-bottom: calc($spacing * .5);
 
 			&-container {
-				width: 290px;
-				height: 513px;
 				display: flex;
 				flex-direction: column;
 				gap: 26px;
-				margin-left: calc($spacing * 4);
+				margin-block: auto;
+				padding-bottom: 3rem;
 			}
 		}
 
@@ -271,6 +280,12 @@
 			border-width: 1px;
 			border-style: solid;
 			border-color: $color-shadow;
+			font-weight: 300;
+
+			&::placeholder {
+				font-weight: 300;
+				font-family: $font-sans-serif;
+			}
 
 			&.is-invalid {
 				border-color: $color-error;
@@ -288,19 +303,40 @@
 
 		&__image {
 
-
 			&-container {
 				height: 513px;
-				margin-left: calc($spacing * 4);
 			}
+		}
+	}
+
+	@media screen and (max-width: 893px) {
+		.join__image-container {
+			display: none;
 		}
 	}
 
 	@media screen and (min-width: 893px) {
 		.join {
-			margin-top: 0;
+			flex-direction: row;
+			margin-top: calc($spacing * 4);
 			align-items: center;
 			height: calc(100dvh - ((1.25rem + 52px) * 2));
+
+			&__form {
+
+				&-container {
+					height: 513px;
+					width: 290px;
+					margin-left: calc($spacing * 4);
+				}
+			}
+
+			&__image {
+
+				&-container {
+					margin-left: calc($spacing * 4);
+				}
+			}
 		}
 	}
 </style>

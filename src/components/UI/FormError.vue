@@ -31,8 +31,8 @@
 			align-items: center;
 			position: absolute;
 			width: calc(100% - 8px);
-			height: calc(26px - 4px);
-			bottom: -26px;
+			height: calc(30px - 4px);
+			bottom: -30px;
 			padding: 2px 4px;
 		}
 	}
