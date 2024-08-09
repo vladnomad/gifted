@@ -320,6 +320,7 @@
 			flex-direction: row;
 			margin-top: calc($spacing * 4);
 			align-items: center;
+			width: auto;
 			height: calc(100dvh - ((1.25rem + 52px) * 2));
 
 			&__form {

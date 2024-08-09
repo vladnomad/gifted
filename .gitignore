@@ -13,6 +13,7 @@ dist
 dist-ssr
 backup
 *.local
+src/db/index.js
 
 # Editor directories and files
 .vscode/*

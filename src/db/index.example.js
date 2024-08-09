@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA0O-1VqgSUNTy1sbBYxHMsNx7e9lE8_1s",
-  authDomain: "gifted-card-swap.firebaseapp.com",
-  projectId: "gifted-card-swap",
-  storageBucket: "gifted-card-swap.appspot.com",
-  messagingSenderId: "1905304063",
-  appId: "1:1905304063:web:3378fedecec00eb8b5c7ca",
-  measurementId: "G-1DD9QVCPYN"
+  apiKey: "YOUR_FIREBASE_API_KEY",
+  authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
+  projectId: "YOUR_FIREBASE_PROJECT_ID",
+  storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_FIREBASE_MESSAGING_SENDER_ID",
+  appId: "YOUR_FIREBASE_APP_ID",
+  measurementId: "YOUR_GOOGLE_ANALYTICS_MEASUREMENT_ID"
 }
 
 const app = initializeApp(firebaseConfig)
