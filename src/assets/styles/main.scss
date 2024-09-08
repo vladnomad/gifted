@@ -41,6 +41,7 @@ a {
 	border-radius: $radius-rounded;
 	padding-inline: calc($spacing * 3);
 	padding-block: calc($spacing * .75);
+	cursor: pointer;
 	transition: 
 		background-color .3s ease-in-out,
 		border-color .3s ease-in-out
@@ -60,6 +61,7 @@ a {
 	}
 
 	&:disabled {
+		cursor: default;
 		background-color: $color-grey;
 		border-color: $color-grey;
 	}

@@ -25,6 +25,7 @@
 		margin: 0;
 		color: $color-error;
 		font-weight: 300;
+		font-size: 13px;
 
 		&-container {
 			display: flex;

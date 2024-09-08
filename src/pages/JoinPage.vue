@@ -89,23 +89,23 @@
 						:errorMessage="errors.passwordConfirmation"
 					/>
 				</div>		
+
+				<button
+					:disabled="isSubmitDisabled"
+					type="submit"
+					class="btn btn--filled btn--form"
+				>
+					Join
+				</button>	
+	
+				<button
+					@click="googleSignIn"
+					type="button"
+					class="btn btn--hollow btn--form"
+				>
+					Sign In With Google
+				</button>
 			</form>
-
-			<button
-				:disabled="isSubmitDisabled"
-				type="submit"
-				class="btn btn--filled btn--form"
-			>
-				Join
-			</button>	
-
-			<button
-				@click="googleSignIn"
-				type="button"
-				class="btn btn--hollow btn--form"
-			>
-				Sign In With Google
-			</button>
 				
 			<FormError v-if="error !== ''"
 				:errorMessage="error"

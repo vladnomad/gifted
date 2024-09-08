@@ -3,8 +3,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth"
 
 export default {
     state: {
-        // joinIsProcessing: false,
-        // joinError: "",
         join: {
             isProcessing: false,
             error: ""
@@ -44,8 +42,6 @@ export default {
         }
     },
     getters: {
-        // joinIsProcessing: state => state.joinIsProcessing,
-        // joinError: state => state.joinError,
         join: state => {
             const isProcessing = state.join.isProcessing
             const error = state.join.error
