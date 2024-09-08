@@ -1,5 +1,8 @@
 import { auth } from "../../db"
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { 
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+ } from "firebase/auth"
 
 export default {
     state: {
@@ -20,6 +23,14 @@ export default {
         SET_JOIN_ERROR({ join }, error) {
             console.log(join, join.error, error)
             join.error = error
+        },
+        SET_LOGIN_IS_PROCESSING({ login }, isProcessing) {
+            console.log(login, login.isProcessing, isProcessing)
+            login.isProcessing = isProcessing
+        },
+        SET_LOGIN_ERROR({ login }, error) {
+            console.log(login, login.error, error)
+            login.error = error
         }
     },
     actions: {
@@ -28,16 +39,47 @@ export default {
             commit("SET_JOIN_ERROR", "")
 
             try {
+                console.log(auth)
                 const userCredentials = await createUserWithEmailAndPassword(
                     auth,
                     email,
                     password
                 )
+
+                sessionStorage.setItem(
+                    'accessToken', 
+                    userCredentials.user.accessToken
+                )
+
                 return userCredentials.user
             } catch (error) {
                 commit("SET_JOIN_ERROR", error.message)
             } finally {
                 commit("SET_JOIN_IS_PROCESSING", false)
+            }
+        },
+        async loginFirebaseUser({ commit }, { email, password }) {
+            commit("SET_LOGIN_IS_PROCESSING", true)
+            commit("SET_LOGIN_ERROR", "")
+
+            try {
+                console.log(auth)
+                const userCredentials = await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                )
+
+                sessionStorage.setItem(
+                    'accessToken', 
+                    userCredentials.user.accessToken
+                )
+
+                return userCredentials.user
+            } catch (error) {
+                commit("SET_LOGIN_ERROR", error.message)
+            } finally {
+                commit("SET_LOGIN_IS_PROCESSING", false)
             }
         }
     },
