@@ -5,8 +5,7 @@ import HomePage from "../pages/HomePage.vue"
 import AboutPage from "../pages/AboutPage.vue"
 import PrivacyPage from "../pages/PrivacyPage.vue"
 import TermsPage from "../pages/TermsPage.vue"
-import JoinPage from "../pages/JoinPage.vue"
-import LoginPage from "../pages/LoginPage.vue"
+import AuthPage from "../pages/AuthPage.vue"
 import OffersPage from "../pages/OffersPage.vue"
 import ProfilePage from "../pages/ProfilePage.vue"
 
@@ -42,12 +41,12 @@ const routes = [
     { 
         path: "/join", 
         name: "Join", 
-        component: JoinPage 
+        component: AuthPage 
     },
     { 
         path: "/login", 
         name: "Login", 
-        component: LoginPage 
+        component: AuthPage 
     },
     { 
         path: "/offers", 

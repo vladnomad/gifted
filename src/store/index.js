@@ -5,7 +5,7 @@ import users from "./modules/users.js"
 const store = createStore({
     modules: {
         offers,
-        users
+        users,
     }
 })
 
