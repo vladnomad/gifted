@@ -17,19 +17,15 @@ export default {
     },
     mutations: {
         SET_JOIN_IS_PROCESSING({ join }, isProcessing) {
-            console.log(join, join.isProcessing, isProcessing)
             join.isProcessing = isProcessing
         },
         SET_JOIN_ERROR({ join }, error) {
-            console.log(join, join.error, error)
             join.error = error
         },
         SET_LOGIN_IS_PROCESSING({ login }, isProcessing) {
-            console.log(login, login.isProcessing, isProcessing)
             login.isProcessing = isProcessing
         },
         SET_LOGIN_ERROR({ login }, error) {
-            console.log(login, login.error, error)
             login.error = error
         }
     },
@@ -39,7 +35,6 @@ export default {
             commit("SET_JOIN_ERROR", "")
 
             try {
-                console.log(auth)
                 const userCredentials = await createUserWithEmailAndPassword(
                     auth,
                     email,
@@ -63,7 +58,6 @@ export default {
             commit("SET_LOGIN_ERROR", "")
 
             try {
-                console.log(auth)
                 const userCredentials = await signInWithEmailAndPassword(
                     auth,
                     email,

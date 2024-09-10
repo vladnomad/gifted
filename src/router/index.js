@@ -1,14 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router"
 import { auth } from "../db"
 
-import HomePage from "../pages/HomePage.vue"
-import AboutPage from "../pages/AboutPage.vue"
-import PrivacyPage from "../pages/PrivacyPage.vue"
-import TermsPage from "../pages/TermsPage.vue"
-import AuthPage from "../pages/AuthPage.vue"
-import OffersPage from "../pages/OffersPage.vue"
-import ProfilePage from "../pages/ProfilePage.vue"
-
 const requireAuth = (_to, _from, next) => {
     if (auth.currentUser) {
         next()
@@ -21,43 +13,43 @@ const routes = [
     { 
         path: "/", 
         name: "Home", 
-        component: HomePage 
+        component: () => import("../pages/HomePage.vue") 
     },
     { 
         path: "/about", 
         name: "About", 
-        component: AboutPage 
+        component: () => import("../pages/AboutPage.vue") 
     },
     { 
         path: "/privacy-policy", 
         name: "Privacy", 
-        component: PrivacyPage 
+        component: () => import("../pages/PrivacyPage.vue") 
     },
     { 
         path: "/terms-and-conditions", 
         name: "Terms", 
-        component: TermsPage 
+        component: () => import("../pages/TermsPage.vue") 
     },
     { 
         path: "/join", 
         name: "Join", 
-        component: AuthPage 
+        component: () => import("../pages/AuthPage.vue") 
     },
     { 
         path: "/login", 
         name: "Login", 
-        component: AuthPage 
+        component: () => import("../pages/AuthPage.vue") 
     },
     { 
         path: "/offers", 
         name: "Offers", 
-        component: OffersPage,
+        component: () => import("../pages/OffersPage.vue"),
         beforeEnter: requireAuth,
     },
     { 
         path: "/profile", 
         name: "Profile", 
-        component: ProfilePage,
+        component: () => import("../pages/ProfilePage.vue"),
         beforeEnter: requireAuth,
     },
 ]

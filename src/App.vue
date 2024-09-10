@@ -14,8 +14,8 @@
 <script setup>
 	import { ref, onMounted, onBeforeUnmount, provide } from "vue"
 	import { RouterView } from "vue-router"
+	
 	import HeaderComponent from "./components/HeaderComponent.vue"
-
 	import "./assets/styles/variables.scss"
 	import "./assets/styles/main.scss"
 

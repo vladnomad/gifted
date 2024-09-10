@@ -94,9 +94,9 @@
 <script setup>
 	import { RouterLink } from "vue-router"
 	import FooterSVG from "../assets/svg/FooterSVG.vue"
-	import footerIMG from "../assets/img/illustrations/footerComponent.png"
-	import instagramIMG from "../assets/img/icons/footerComponent_instagram.png"
-	import facebookIMG from "../assets/img/icons/footerComponent_facebook.png"
+	import footerIMG from "../assets/img/illustrations/footer-component.webp"
+	import instagramIMG from "../assets/img/icons/footer-component--instagram.webp"
+	import facebookIMG from "../assets/img/icons/footer-component--facebook.webp"
 </script>
 
 

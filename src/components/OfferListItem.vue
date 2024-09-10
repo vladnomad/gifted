@@ -48,7 +48,6 @@
 
 <script setup>
     import { defineProps } from "vue"
-
     import ArrowSVG from "../assets/svg/ArrowSVG.vue"
 
     const props = defineProps({

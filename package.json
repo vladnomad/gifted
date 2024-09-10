@@ -1,7 +1,7 @@
 {
   "name": "gift-swap",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,10 +11,10 @@
   "dependencies": {
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
-    "firebase": "9.6.1",
-    "vue": "^3.4.19",
-    "vue-router": "4",
-    "vuex": "next"
+    "firebase": "^10.13.1",
+    "vue": "^3.5.3",
+    "vue-router": "^4.4.3",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

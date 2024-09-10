@@ -136,15 +136,11 @@
 	import { useValidationErrors } from "../composables/useValidationErrors"
 
     import FormError from "../components/UI/FormError.vue"
-    import authPage from "../assets/img/illustrations/authPage.png"
+    import authPage from "../assets/img/illustrations/auth-page.webp"
 
     const router = useRouter()
     const route = useRoute()
     const isLoginPage = computed(() => route.name === "Login")
-    console.log(route)
-    console.log(route.name)
-    console.log(isLoginPage)
-    console.log(isLoginPage.value)
 
     const form = reactive({
         email: "",
@@ -255,7 +251,7 @@
     }
 
     const googleSignIn = () => {
-        console.log("Google Sign-In")
+        // console.log("Google Sign-In")
     }
 </script>
 
