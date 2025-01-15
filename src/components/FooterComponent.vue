@@ -80,10 +80,10 @@
 				Privacy Policy
 			</RouterLink>
 			<a
-				href="https://madebynomad.dev"
+				href="https://vmosiichuk.dev"
 				class="link footer__link"
 			>
-				madebynomad.dev
+				vmosiichuk.dev
 			</a>
 		</div>
 		

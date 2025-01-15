@@ -27,14 +27,17 @@
 
 
 <script setup>
-	import { inject, onMounted, computed } from "vue"
+	import { inject, onMounted, computed, ref } from "vue"
 	import { useStoreGetters } from "../store/helpers/useStoreGetters"
 	import { useStoreActions } from "../store/helpers/useStoreActions"
 	import OfferListItem from "./OfferListItem.vue"
+	import { useStore } from 'vuex';
 
+	const store = useStore();
 	const isMobile = inject("isMobile")
 	const { latestOffers } = useStoreGetters()
 	const { fetchLatestOffers, loadLatestOffers } = useStoreActions()
+  // const latestOffers = computed(() => store.getters.latestOffers)
 
 	const getLatestOffers = () => {
 		const cachedTimestamp = sessionStorage.getItem("latestOffersTimestamp")
@@ -53,10 +56,11 @@
 	}
 
 	onMounted(() => {
+		store.dispatch('fetchLatestOffers');
 		getLatestOffers()
 	})
 
-	const mobileOffers = computed(() => latestOffers.value.slice(0, 3))	
+	const mobileOffers = computed(() => latestOffers.value.slice(0, 3))
 	const desktopOffers = computed(() => latestOffers.value.slice(3, 6))
 </script>
 
