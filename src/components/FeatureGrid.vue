@@ -95,7 +95,7 @@
 
 
 <style lang="scss" scoped>
-	@import "../assets/styles/variables.scss";
+	@use "../assets/styles/variables.scss" as *;
 	@import "../assets/styles/keyframes.css";
 
 	.bento {

@@ -27,7 +27,7 @@
 
 
 <script setup>
-	import { inject, onMounted, computed, ref } from "vue"
+	import { inject, onMounted, computed } from "vue"
 	import { useStoreGetters } from "../store/helpers/useStoreGetters"
 	import { useStoreActions } from "../store/helpers/useStoreActions"
 	import OfferListItem from "./OfferListItem.vue"
@@ -37,7 +37,6 @@
 	const isMobile = inject("isMobile")
 	const { latestOffers } = useStoreGetters()
 	const { fetchLatestOffers, loadLatestOffers } = useStoreActions()
-  // const latestOffers = computed(() => store.getters.latestOffers)
 
 	const getLatestOffers = () => {
 		const cachedTimestamp = sessionStorage.getItem("latestOffersTimestamp")
@@ -60,13 +59,13 @@
 		getLatestOffers()
 	})
 
-	const mobileOffers = computed(() => latestOffers.value.slice(0, 3))
+	const mobileOffers = computed(() => latestOffers.value.slice(0, 3))	
 	const desktopOffers = computed(() => latestOffers.value.slice(3, 6))
 </script>
 
 
 <style lang="scss" scoped>
-	@import "../assets/styles/variables.scss";
+	@use "../assets/styles/variables.scss" as *;
 
 	.offer-list {
 		margin-block: calc($spacing * 4);

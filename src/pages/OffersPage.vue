@@ -5,7 +5,9 @@
 </template>
 
 
-<script setup></script>
+<script setup>
+	import
+</script>
 
 
 <style lang="scss" scoped></style>

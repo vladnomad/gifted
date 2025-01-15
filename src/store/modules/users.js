@@ -2,6 +2,7 @@ import { auth } from "../../db"
 import { 
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    updateProfile,
  } from "firebase/auth"
 
 export default {
@@ -30,7 +31,7 @@ export default {
         }
     },
     actions: {
-        async createFirebaseUser({ commit }, { email, password }) {
+        async createFirebaseUser({ commit }, { email, password, username }) {
             commit("SET_JOIN_IS_PROCESSING", true)
             commit("SET_JOIN_ERROR", "")
 
@@ -40,6 +41,10 @@ export default {
                     email,
                     password
                 )
+
+                await updateProfile(userCredentials.user, {
+                    displayName: username
+                })
 
                 sessionStorage.setItem(
                     'accessToken', 

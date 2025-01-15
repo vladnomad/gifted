@@ -14,12 +14,12 @@
         </div>
 
         <div class="offer__tag-container">
-            <a
+			<RouterLink
 				class="offer__tag"
-				href="#"
+				to="offers"
 			>
 				{{ offer.tag }}
-			</a>
+			</RouterLink>
         </div>
 
         <div class="offer__photo-container">
@@ -33,21 +33,21 @@
 
         <div 
 			class="offer__arrow-container"
-			href="#"
 		>
             <ArrowSVG />
         </div>
-		
-        <a
+
+		<RouterLink
 			class="offer__link"
-			href="#"
-		></a>
+			to="offers"
+		/>
     </article>
 </template>
 
 
 <script setup>
     import { defineProps } from "vue"
+	import { RouterLink } from "vue-router";
     import ArrowSVG from "../assets/svg/ArrowSVG.vue"
 
     const props = defineProps({
@@ -79,7 +79,7 @@
 
 
 <style lang="scss" scoped>
-	@import "../assets/styles/variables.scss";
+	@use "../assets/styles/variables.scss" as *;
 
 	.arrow-svg {
 		width: auto;
@@ -87,6 +87,8 @@
 	}
 
 	.offer {
+    cursor: pointer;
+
 		width: calc(100% - 4rem);
 		height: 11rem;
 		border-radius: 2.5rem;

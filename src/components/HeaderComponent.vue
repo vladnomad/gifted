@@ -15,8 +15,11 @@
 				<RouterLink
 					v-if="isMobile"
 					class="header__nav-login"
-					to="login"
+          			:to="username ? 'profile' : 'login'"
 				>
+         			<span v-if="username" class="header__nav-username">
+						{{ username }}
+					</span>
 					<UserSVG />
 				</RouterLink>
 
@@ -31,8 +34,11 @@
 					<RouterLink
 						v-if="!isMobile"
 						class="header__nav-login"
-						to="login"
+						:to="username ? 'profile' : 'login'"
 					>
+            			<span v-if="username" class="header__nav-username">
+							{{ username }}
+						</span>
 						<UserSVG />
 					</RouterLink>
 					<RouterLink
@@ -44,6 +50,7 @@
 				</div>
 
 				<div
+					ref="menuRef"
 					v-if="isMobile"
 					class="header__nav-menu"
 				>
@@ -68,22 +75,50 @@
 
 
 <script setup>
-	import { ref, inject } from "vue"
+	import { ref, inject, onMounted, onBeforeUnmount } from "vue"
+	import { getAuth, onAuthStateChanged } from "firebase/auth"
 	import { RouterLink } from "vue-router"
 	import LogoSVG from "../assets/svg/LogoSVG.vue"
 	import UserSVG from "../assets/svg/UserSVG.vue"
 
+	const menuRef = ref(null)
+	const username = ref(null)
 	const isActive = ref(false)
 	const isMobile = inject("isMobile")
 
 	const toggleMenu = () => {
 		isActive.value = !isActive.value
 	}
+
+	const closeMenuIfClickedOutside = (event) => {
+		if (menuRef.value && !menuRef.value.contains(event.target)) {
+			isActive.value = false;
+		}
+	};
+
+	onMounted(() => {
+		const auth = getAuth();
+
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				console.log(user);
+				username.value = user.displayName || "";
+			} else {
+				username.value = "";
+			}
+		});
+
+		document.addEventListener("click", closeMenuIfClickedOutside);
+	});
+
+	onBeforeUnmount(() => {
+		document.removeEventListener("click", closeMenuIfClickedOutside);
+	});
 </script>
 
 
 <style lang="scss" scoped>
-	@import "../assets/styles/variables.scss";
+	@use "../assets/styles/variables.scss" as *;
 	@import "../assets/styles/keyframes.css";
 
 	.header {
@@ -133,6 +168,10 @@
 				gap: calc($spacing * 2);
 				align-items: center;
 
+        & .btn {
+          white-space: nowrap;
+        }
+
 				&.is-mobile {
 					position: absolute;
 					top: 3.5rem;
@@ -156,6 +195,10 @@
 			&-login {
 				display: flex;
 			}
+
+      &-username {
+        margin-right: 8px;
+      }
 			
 			&-menu {
 				border-radius: 2px;

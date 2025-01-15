@@ -107,7 +107,7 @@
                     ? "Don't have a Gifted account?" 
                     : "Already have a Gifted account?" 
                 }}
-				<a :href="isLoginPage ? '/join' : '/login'">
+				<a :href="isLoginPage ? '/gifted/join' : '/gifted/login'">
 					{{ isLoginPage ? "Join now" : "Log in" }}
 				</a>
 			</p>
@@ -187,11 +187,11 @@
 	const isProcessing = computed(() => auth.value.isProcessing)
 	const error = computed(() => auth.value.error)
 	
-	watch(isProcessing, (curr, prev) => {
+    watch(isProcessing, (curr, prev) => {
 		if ((!curr && prev) && error.value === "") {
 			router.push("/")
 		}
-	})
+    })
 
     const errors = computed(() => useValidationErrors(v$.value.$errors))
     const isFormValid = computed(() => !v$.value.$invalid)
@@ -204,6 +204,7 @@
         if (!isFormValid.value) return
 
         await authAction(form)
+		await router.push('/')
     }
 
     const vueFieldChecks = (field) => {
@@ -219,25 +220,25 @@
         }
     }
 
-	const isFieldInvalid = (field) => {
-		const { 
-			isDirty, 
-			isNotPending, 
-			hasError,
-		} = vueFieldChecks(field)
+	  const isFieldInvalid = (field) => {
+      const {
+        isDirty,
+        isNotPending,
+        hasError,
+      } = vueFieldChecks(field)
 
     	return isDirty && isNotPending && hasError
   	}
 
-	const isFieldValid = (field) => {
-		const { 
-			isDirty, 
-			isNotPending, 
+    const isFieldValid = (field) => {
+		const {
+			isDirty,
+			isNotPending,
 			hasError,
 		} = vueFieldChecks(field)
 
-    	return isDirty && isNotPending && !hasError
-	}
+		return isDirty && isNotPending && !hasError
+    }
 
     const inputClass = (field) => ({
         "auth__input": true,
@@ -257,7 +258,7 @@
 
 
 <style lang="scss" scoped>
-	@import "../assets/styles/variables.scss";
+	@use "../assets/styles/variables.scss" as *;
 
     .auth {
         display: flex;

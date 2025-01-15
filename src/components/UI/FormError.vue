@@ -20,7 +20,7 @@
   
 
 <style lang="scss" scoped>
-	@import "../../assets/styles/variables.scss";
+	@use "../../assets/styles/variables.scss" as *;
 	.error {
 		margin: 0;
 		color: $color-error;
