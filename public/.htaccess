@@ -1,0 +1,24 @@
+# Disable MultiViews to prevent conflicts
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+# Use FallbackResource for SPA routing
+<IfModule mod_dir.c>
+  FallbackResource /gifted/index.html
+</IfModule>
+
+# Ensure correct MIME types
+<IfModule mod_mime.c>
+  AddType text/javascript .js
+  AddType text/css .css
+  AddType application/json .json
+  AddType image/svg+xml .svg
+</IfModule>
+
+# Enable CORS for fonts
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>

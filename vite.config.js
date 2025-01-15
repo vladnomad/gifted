@@ -10,18 +10,19 @@ export default defineConfig({
 	build: {
 		outDir: "dist",
 		rollupOptions: {
-			external: ["vue-demi"],
-		  	output: {
+			output: {
 				manualChunks(id) {
 					if (id.includes("node_modules")) {
-						return id
-							.toString()
-							.split("node_modules/")[1]
-							.split("/")[0]
-							.toString()
+						if (id.includes("vue") || id.includes("vue-router")) {
+							return "vendor_vue"
+						}
+						if (id.includes("firebase")) {
+							return "vendor_firebase"
+						}
+						return "vendor"
 					}
 				},
-		  	},
+			},
 		},
 	},
 })

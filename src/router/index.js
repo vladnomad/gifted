@@ -2,7 +2,8 @@ import { createWebHistory, createRouter } from "vue-router"
 import { auth } from "../db"
 
 const requireAuth = (_to, _from, next) => {
-    if (auth.currentUser) {
+    console.log(auth)
+    if (auth.currentUser.accessToken || auth.accessToken) {
         next()
     } else {
         next('/login')
@@ -18,17 +19,17 @@ const routes = [
     { 
         path: "/about", 
         name: "About", 
-        component: () => import("../pages/AboutPage.vue") 
+        component: () => import("../pages/InDevelopmentPage.vue")
     },
     { 
         path: "/privacy-policy", 
         name: "Privacy", 
-        component: () => import("../pages/PrivacyPage.vue") 
+        component: () => import("../pages/InDevelopmentPage.vue")
     },
     { 
         path: "/terms-and-conditions", 
         name: "Terms", 
-        component: () => import("../pages/TermsPage.vue") 
+        component: () => import("../pages/InDevelopmentPage.vue")
     },
     { 
         path: "/join", 
@@ -43,19 +44,19 @@ const routes = [
     { 
         path: "/offers", 
         name: "Offers", 
-        component: () => import("../pages/OffersPage.vue"),
+        component: () => import("../pages/InDevelopmentPage.vue"),
         beforeEnter: requireAuth,
     },
     { 
         path: "/profile", 
         name: "Profile", 
-        component: () => import("../pages/ProfilePage.vue"),
+        component: () => import("../pages/InDevelopmentPage.vue"),
         beforeEnter: requireAuth,
     },
 ]
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory("/gifted/"),
     routes
 })
 
