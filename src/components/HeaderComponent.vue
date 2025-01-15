@@ -101,7 +101,6 @@
 
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
-				console.log(user);
 				username.value = user.displayName || "";
 			} else {
 				username.value = "";

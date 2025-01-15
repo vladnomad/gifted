@@ -2,7 +2,6 @@ import { createWebHistory, createRouter } from "vue-router"
 import { auth } from "../db"
 
 const requireAuth = (_to, _from, next) => {
-    console.log(auth)
     if (auth.currentUser.accessToken || auth.accessToken) {
         next()
     } else {
